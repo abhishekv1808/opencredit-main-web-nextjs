@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Hero from "@/components/landing/Hero";
+import ActivityTicker from "@/components/shared/ActivityTicker";
 import PartnerMarquee from "@/components/landing/PartnerMarquee";
 import CreditProducts from "@/components/landing/CreditProducts";
 import ProductSlider from "@/components/landing/ProductSlider";
@@ -41,6 +42,7 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
       />
       <Hero />
+      <ActivityTicker />
       <PartnerMarquee />
       <CreditProducts />
       <ProductSlider />

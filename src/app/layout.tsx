@@ -1,6 +1,37 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
+import AnalyticsScripts from "@/components/shared/AnalyticsScripts";
+
+const siteSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://opencredit.money/#website",
+      name: "OpenCredit.Money",
+      url: "https://opencredit.money",
+      description: "Bangalore's loan marketplace — personal loans and CIBIL correction services",
+      publisher: { "@id": "https://opencredit.money/#organization" },
+      inLanguage: "en-IN",
+    },
+    {
+      "@type": ["Organization", "FinancialService"],
+      "@id": "https://opencredit.money/#organization",
+      name: "OpenCredit.Money",
+      url: "https://opencredit.money",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://opencredit.money/images/logo.png",
+      },
+      foundingDate: "2020",
+      areaServed: [
+        { "@type": "City", name: "Bangalore", sameAs: "https://en.wikipedia.org/wiki/Bangalore" },
+        { "@type": "State", name: "Karnataka", sameAs: "https://en.wikipedia.org/wiki/Karnataka" },
+      ],
+    },
+  ],
+};
 
 export const metadata: Metadata = {
   title: "OpenCredit.Money — Personal Loans & CIBIL Correction | Bangalore",
@@ -24,7 +55,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "your-google-verification-code",
+    google: "Zj0126JoLKmdzULYDaxQ8Iy_k4HsCktNFzCrVfMS_h0",
   },
 };
 
@@ -51,6 +82,11 @@ export default function RootLayout({
         <meta name="theme-color" content="#16a34a" />
       </head>
       <body className="font-body antialiased" suppressHydrationWarning>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchema) }}
+        />
+        <AnalyticsScripts />
         {children}
         <Toaster />
       </body>

@@ -54,20 +54,169 @@ export default function ContactPage() {
 
   return (
     <>
-      {/* Hero — Light */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 hero-bg-light overflow-hidden">
-        <div className="absolute top-20 left-[20%] w-[400px] h-[400px] rounded-full bg-brand-green/[0.04] blur-[100px] pointer-events-none" />
-        <div className="max-w-4xl mx-auto px-4 text-center relative">
-          <p className="text-brand-green text-sm font-semibold uppercase tracking-wider mb-3">
-            Get in Touch
-          </p>
-          <h1 className="font-display text-5xl md:text-6xl font-extrabold text-heading mb-4">
-            Contact <span className="text-accent-gradient">Us</span>
-          </h1>
-          <p className="text-gray-500 text-lg">
-            Questions? We&apos;re here to help. Reach out anytime.
-          </p>
-          <div className="accent-divider mx-auto mt-6" />
+      {/* Hero */}
+      <section className="relative pt-28 pb-16 md:pt-36 md:pb-20 overflow-hidden" style={{ background: "#FAFCF8" }}>
+
+        {/* Background decorations */}
+        <div className="absolute inset-0 pointer-events-none select-none" aria-hidden>
+          <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, #d1d5db 1px, transparent 1px)", backgroundSize: "28px 28px", opacity: 0.38 }} />
+          <div style={{ position: "absolute", width: 560, height: 560, top: -160, right: -140, borderRadius: "50%", background: "radial-gradient(circle, rgba(91,200,63,0.07) 0%, transparent 70%)" }} />
+          <div style={{ position: "absolute", width: 420, height: 420, bottom: -120, left: -100, borderRadius: "50%", background: "radial-gradient(circle, rgba(66,168,229,0.05) 0%, transparent 70%)" }} />
+        </div>
+
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="grid md:grid-cols-2 gap-10 items-center">
+
+            {/* ── Left: Text ── */}
+            <div>
+              {/* Online badge */}
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-6"
+                style={{ background: "rgba(91,200,63,0.08)", border: "1px solid rgba(91,200,63,0.2)" }}>
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style={{ background: "#5BC83F" }} />
+                  <span className="relative inline-flex rounded-full h-2 w-2" style={{ background: "#5BC83F" }} />
+                </span>
+                <span className="text-xs font-bold uppercase tracking-wider" style={{ color: "#3DA52A" }}>We&apos;re Online</span>
+              </div>
+
+              <h1 className="font-display font-extrabold text-heading mb-4"
+                style={{ fontSize: "clamp(2.8rem, 6vw, 4.5rem)", lineHeight: 1.05, letterSpacing: "-0.025em" }}>
+                Let&apos;s{" "}
+                <span className="text-accent-gradient">Talk</span>
+              </h1>
+
+              <p className="text-gray-400 text-lg mb-8 max-w-xs">
+                We reply within 24 hours — usually much sooner.
+              </p>
+
+              {/* Quick-action buttons */}
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href="tel:+919876543210"
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold text-white transition-all hover:scale-[1.03] active:scale-[0.98]"
+                  style={{ background: "linear-gradient(135deg,#5BC83F,#3DA52A)", boxShadow: "0 4px 16px rgba(91,200,63,0.3)" }}
+                >
+                  <Phone size={15} />
+                  Call Now
+                </a>
+                <a
+                  href="https://wa.me/919876543210?text=Hi%2C%20I%20need%20help%20with%20a%20loan"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold transition-all hover:scale-[1.03] active:scale-[0.98]"
+                  style={{ background: "#fff", border: "1.5px solid #e5e7eb", color: "#374151", boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}
+                >
+                  <MessageCircle size={15} style={{ color: "#25d366" }} />
+                  WhatsApp
+                </a>
+              </div>
+            </div>
+
+            {/* ── Right: Floating contact cards ── */}
+            <div className="relative hidden md:flex items-center justify-center" style={{ height: 360 }}>
+
+              {/* Outer orbit ring */}
+              <div className="absolute" style={{
+                width: 300, height: 300,
+                borderRadius: "50%",
+                border: "1.5px dashed rgba(91,200,63,0.18)",
+              }} />
+
+              {/* Inner ring */}
+              <div className="absolute" style={{
+                width: 180, height: 180,
+                borderRadius: "50%",
+                border: "1px solid rgba(66,168,229,0.15)",
+              }} />
+
+              {/* Centre icon */}
+              <div className="absolute flex items-center justify-center rounded-full animate-float"
+                style={{
+                  width: 80, height: 80,
+                  background: "linear-gradient(135deg,rgba(91,200,63,0.12),rgba(66,168,229,0.10))",
+                  border: "1.5px solid rgba(91,200,63,0.2)",
+                  boxShadow: "0 8px 32px rgba(91,200,63,0.12)",
+                }}>
+                <MessageCircle size={34} style={{ color: "#5BC83F" }} />
+              </div>
+
+              {/* Floating card — Phone (top) */}
+              <div className="absolute animate-float flex items-center gap-3 px-4 py-3 rounded-2xl"
+                style={{
+                  top: "2%", left: "50%", transform: "translateX(-50%)",
+                  animationDuration: "3.6s",
+                  background: "#fff",
+                  border: "1px solid #e5e7eb",
+                  boxShadow: "0 4px 20px rgba(0,0,0,0.07)",
+                  minWidth: 160,
+                }}>
+                <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: "rgba(91,200,63,0.1)" }}>
+                  <Phone size={16} style={{ color: "#5BC83F" }} />
+                </div>
+                <div>
+                  <p className="text-xs font-bold" style={{ color: "#1a1a1a" }}>Call Us</p>
+                  <p className="text-[11px]" style={{ color: "#9ca3af" }}>+91 98765 43210</p>
+                </div>
+              </div>
+
+              {/* Floating card — Email (right) */}
+              <div className="absolute animate-float flex items-center gap-3 px-4 py-3 rounded-2xl"
+                style={{
+                  top: "50%", right: "0%", transform: "translateY(-50%)",
+                  animationDuration: "4.1s", animationDelay: "0.7s",
+                  background: "#fff",
+                  border: "1px solid #e5e7eb",
+                  boxShadow: "0 4px 20px rgba(0,0,0,0.07)",
+                  minWidth: 160,
+                }}>
+                <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: "rgba(66,168,229,0.1)" }}>
+                  <Mail size={16} style={{ color: "#42A8E5" }} />
+                </div>
+                <div>
+                  <p className="text-xs font-bold" style={{ color: "#1a1a1a" }}>Email</p>
+                  <p className="text-[11px]" style={{ color: "#9ca3af" }}>Reply in 24 hrs</p>
+                </div>
+              </div>
+
+              {/* Floating card — Location (bottom) */}
+              <div className="absolute animate-float flex items-center gap-3 px-4 py-3 rounded-2xl"
+                style={{
+                  bottom: "2%", left: "50%", transform: "translateX(-50%)",
+                  animationDuration: "3.9s", animationDelay: "1.4s",
+                  background: "#fff",
+                  border: "1px solid #e5e7eb",
+                  boxShadow: "0 4px 20px rgba(0,0,0,0.07)",
+                  minWidth: 160,
+                }}>
+                <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: "rgba(234,88,12,0.09)" }}>
+                  <MapPin size={16} style={{ color: "#ea580c" }} />
+                </div>
+                <div>
+                  <p className="text-xs font-bold" style={{ color: "#1a1a1a" }}>Office</p>
+                  <p className="text-[11px]" style={{ color: "#9ca3af" }}>MG Road, Bangalore</p>
+                </div>
+              </div>
+
+              {/* Floating card — Hours (left) */}
+              <div className="absolute animate-float flex items-center gap-3 px-4 py-3 rounded-2xl"
+                style={{
+                  top: "50%", left: "0%", transform: "translateY(-50%)",
+                  animationDuration: "4.4s", animationDelay: "2.1s",
+                  background: "#fff",
+                  border: "1px solid #e5e7eb",
+                  boxShadow: "0 4px 20px rgba(0,0,0,0.07)",
+                  minWidth: 148,
+                }}>
+                <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: "rgba(217,119,6,0.09)" }}>
+                  <Clock size={16} style={{ color: "#d97706" }} />
+                </div>
+                <div>
+                  <p className="text-xs font-bold" style={{ color: "#1a1a1a" }}>Hours</p>
+                  <p className="text-[11px]" style={{ color: "#9ca3af" }}>Mon–Sat, 9–6 PM</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

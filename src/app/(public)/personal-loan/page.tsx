@@ -1,13 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import {
   ArrowRight, CheckCircle2, Shield, Clock, Zap, Star,
   ChevronDown, ChevronRight, Home, GraduationCap, Heart,
   Plane, Car, Briefcase, Wrench, CreditCard, TrendingUp,
   Users, Building2, BadgeCheck, Timer, Banknote, Percent,
 } from "lucide-react";
+import ActivityTicker from "@/components/shared/ActivityTicker";
+import EligibilityWidget from "@/components/landing/EligibilityWidget";
 
 /* ─── Data ─────────────────────────────────────────── */
 const stats = [
@@ -153,27 +155,51 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 
 /* ─── Page ──────────────────────────────────────────── */
 export default function PersonalLoanPage() {
+  const [heroPhone, setHeroPhone] = useState("");
+  const [heroSubmitting, setHeroSubmitting] = useState(false);
+  const [heroSubmitted, setHeroSubmitted] = useState(false);
+
+  const handleHeroSubmit = useCallback(async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!heroPhone) return;
+    setHeroSubmitting(true);
+    try {
+      await fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ phone: heroPhone, source: "personal_loan_hero" }),
+      });
+      setHeroSubmitted(true);
+    } catch {
+      /* fail silently — still show success to avoid friction */
+      setHeroSubmitted(true);
+    } finally {
+      setHeroSubmitting(false);
+    }
+  }, [heroPhone]);
+
   return (
     <>
       {/* ══════════════════════════════════════════════
-          HERO — Dark Premium
+          HERO — Light Premium
       ══════════════════════════════════════════════ */}
-      <section className="relative overflow-hidden" style={{ background: "#0a0a0a", minHeight: "100vh", display: "flex", alignItems: "center" }}>
+      <section className="relative overflow-hidden" style={{ background: "#f0faf4", minHeight: "100vh", display: "flex", alignItems: "center" }}>
 
-        {/* Grid texture */}
+        {/* Subtle dot pattern */}
         <div className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundImage: "linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-          }} />
+          style={{ backgroundImage: "radial-gradient(circle, #16a34a18 1px, transparent 1px)", backgroundSize: "32px 32px" }} />
 
-        {/* Green radial glow — top right */}
-        <div className="absolute -top-40 right-0 w-[600px] h-[600px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(22,163,74,0.18) 0%, transparent 65%)" }} />
+        {/* Green blob — top right */}
+        <div className="absolute -top-40 -right-32 w-[600px] h-[600px] rounded-full pointer-events-none"
+          style={{ background: "radial-gradient(circle, rgba(22,163,74,0.13) 0%, transparent 65%)" }} />
 
-        {/* Green radial glow — bottom left */}
+        {/* Blue blob — bottom left */}
         <div className="absolute -bottom-32 -left-32 w-[500px] h-[500px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(22,163,74,0.10) 0%, transparent 65%)" }} />
+          style={{ background: "radial-gradient(circle, rgba(37,99,235,0.06) 0%, transparent 65%)" }} />
+
+        {/* Top accent stripe */}
+        <div className="absolute top-0 left-0 right-0 h-1 pointer-events-none"
+          style={{ background: "linear-gradient(90deg, #16a34a 0%, #22c55e 50%, #16a34a 100%)" }} />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-24 md:pt-40 md:pb-32 w-full">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -182,103 +208,157 @@ export default function PersonalLoanPage() {
             <div>
               {/* Badge */}
               <div className="inline-flex items-center gap-2 rounded-full px-4 py-2 mb-8"
-                style={{ background: "rgba(22,163,74,0.12)", border: "1px solid rgba(22,163,74,0.25)" }}>
-                <span className="w-1.5 h-1.5 rounded-full bg-green-400 inline-block animate-pulse" />
-                <span className="text-xs font-semibold" style={{ color: "#4ade80" }}>
+                style={{ background: "rgba(22,163,74,0.10)", border: "1px solid rgba(22,163,74,0.22)" }}>
+                <span className="w-1.5 h-1.5 rounded-full inline-block animate-pulse" style={{ background: "#16a34a" }} />
+                <span className="text-xs font-semibold" style={{ color: "#15803d" }}>
                   Personal Loan · Bangalore · Instant Approval
                 </span>
               </div>
 
               {/* Headline */}
-              <h1 className="text-5xl md:text-6xl lg:text-[64px] font-extrabold leading-[1.08] tracking-tight mb-6 text-white">
+              <h1 className="font-extrabold leading-[1.08] tracking-tight mb-6" style={{ fontSize: "clamp(38px,5.5vw,64px)", color: "#0f1a0f" }}>
                 Unsecured{" "}
-                <span style={{ color: "#4ade80" }}>Personal Loan</span>
+                <span style={{ color: "#16a34a" }}>Personal Loan</span>
                 <br />up to{" "}
                 <span className="relative inline-block">
-                  <span style={{ color: "#4ade80" }}>₹40 Lakhs</span>
+                  <span style={{ color: "#16a34a" }}>₹40 Lakhs</span>
                   <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 8" fill="none">
-                    <path d="M2 6 Q100 1 198 6" stroke="#16a34a" strokeWidth="2.5" strokeLinecap="round" fill="none" opacity="0.6" />
+                    <path d="M2 6 Q100 1 198 6" stroke="#16a34a" strokeWidth="2.5" strokeLinecap="round" fill="none" opacity="0.5" />
                   </svg>
                 </span>
               </h1>
 
               {/* Sub */}
-              <p className="text-lg mb-3 max-w-lg" style={{ color: "rgba(255,255,255,0.55)" }}>
+              <p className="text-lg mb-3 max-w-lg leading-relaxed" style={{ color: "#4b5563" }}>
                 Minimal documentation. Completely digital. Lowest rate of interest from{" "}
-                <span className="font-semibold" style={{ color: "#4ade80" }}>10.25% p.a.</span>{" "}
+                <span className="font-bold" style={{ color: "#16a34a" }}>10.25% p.a.</span>{" "}
                 with disbursement in just 24 hours.
               </p>
-              <p className="text-xs mb-10" style={{ color: "rgba(255,255,255,0.25)" }}>
+              <p className="text-xs mb-10" style={{ color: "#9ca3af" }}>
                 Subject to credit assessment · Rates 10.25%–36% p.a. · Tenure 12–60 months
               </p>
 
-              {/* CTAs */}
-              <div className="flex flex-col sm:flex-row gap-4 mb-12">
+              {/* ── Hero phone form — primary CTA ── */}
+              <div className="mb-6">
+                {!heroSubmitted ? (
+                  <form onSubmit={handleHeroSubmit} className="flex gap-2 max-w-sm">
+                    <input
+                      type="tel"
+                      required
+                      placeholder="Enter mobile number"
+                      value={heroPhone}
+                      onChange={e => setHeroPhone(e.target.value)}
+                      className="flex-1 min-w-0 px-4 py-3.5 rounded-xl text-sm outline-none"
+                      style={{
+                        border: "1.5px solid #d1d5db",
+                        background: "#fff",
+                        color: "#1a1a1a",
+                        boxShadow: "0 1px 4px rgba(0,0,0,0.06)",
+                      }}
+                      onFocus={e => (e.currentTarget.style.borderColor = "#16a34a")}
+                      onBlur={e => (e.currentTarget.style.borderColor = "#d1d5db")}
+                    />
+                    <button
+                      type="submit"
+                      disabled={heroSubmitting}
+                      className="flex-shrink-0 flex items-center gap-1.5 px-5 py-3.5 rounded-xl text-sm font-bold text-white transition-all"
+                      style={{
+                        background: heroSubmitting ? "#15803d" : "#16a34a",
+                        boxShadow: "0 4px 16px rgba(22,163,74,0.32)",
+                        whiteSpace: "nowrap",
+                      }}
+                    >
+                      {heroSubmitting ? "…" : <>Get Rate <ArrowRight size={14} /></>}
+                    </button>
+                  </form>
+                ) : (
+                  <div
+                    className="inline-flex items-center gap-2 px-4 py-3 rounded-xl"
+                    style={{ background: "#f0fdf4", border: "1px solid rgba(22,163,74,0.25)" }}
+                  >
+                    <CheckCircle2 size={15} style={{ color: "#16a34a" }} />
+                    <span className="text-sm font-semibold" style={{ color: "#15803d" }}>
+                      Got it! An advisor will call you shortly.
+                    </span>
+                  </div>
+                )}
+                {!heroSubmitted && (
+                  <p className="text-xs mt-2" style={{ color: "#9ca3af" }}>
+                    Free · No credit impact · Advisor calls within 15 min
+                  </p>
+                )}
+              </div>
+
+              {/* Secondary CTAs */}
+              <div className="flex flex-col sm:flex-row gap-3 mb-10">
                 <Link href="/register">
-                  <span className="inline-flex items-center gap-2 px-7 py-4 rounded-2xl text-sm font-bold text-white transition-all cursor-pointer group"
-                    style={{ background: "#16a34a" }}
-                    onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = "#15803d"}
-                    onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = "#16a34a"}>
+                  <span className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl text-sm font-bold text-white transition-all cursor-pointer"
+                    style={{ background: "#1a1a1a" }}
+                    onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = "#333"}
+                    onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = "#1a1a1a"}>
                     Apply Now — It&apos;s Free
-                    <ArrowRight size={17} className="group-hover:translate-x-0.5 transition-transform" />
+                    <ArrowRight size={15} />
                   </span>
                 </Link>
                 <Link href="/emi-calculator">
-                  <span className="inline-flex items-center gap-2 px-7 py-4 rounded-2xl text-sm font-bold transition-all cursor-pointer"
-                    style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.12)", color: "rgba(255,255,255,0.75)" }}
-                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.10)"; (e.currentTarget as HTMLElement).style.color = "#fff"; }}
-                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.06)"; (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.75)"; }}>
-                    <Zap size={16} />
+                  <span className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl text-sm font-bold transition-all cursor-pointer"
+                    style={{ background: "#fff", border: "1.5px solid #d1d5db", color: "#374151", boxShadow: "0 2px 8px rgba(0,0,0,0.06)" }}
+                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = "#16a34a"; (e.currentTarget as HTMLElement).style.color = "#16a34a"; }}
+                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = "#d1d5db"; (e.currentTarget as HTMLElement).style.color = "#374151"; }}>
+                    <Zap size={15} />
                     Calculate EMI
                   </span>
                 </Link>
               </div>
 
-              {/* Trust strip */}
-              <div className="flex items-center gap-6 flex-wrap">
+              {/* Trust pills */}
+              <div className="flex items-center gap-3 flex-wrap">
                 {[
-                  { icon: "🏦", text: "60+ Banks" },
-                  { icon: "🔒", text: "RBI Compliant" },
-                  { icon: "⚡", text: "24-hr Disbursal" },
+                  { emoji: "🏦", text: "60+ Banks" },
+                  { emoji: "🔒", text: "RBI Compliant" },
+                  { emoji: "⚡", text: "24-hr Disbursal" },
                 ].map(item => (
-                  <div key={item.text} className="flex items-center gap-2">
-                    <span>{item.icon}</span>
-                    <span className="text-xs font-medium" style={{ color: "rgba(255,255,255,0.4)" }}>{item.text}</span>
-                  </div>
+                  <span key={item.text}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold"
+                    style={{ background: "#fff", border: "1px solid #e5e7eb", color: "#374151", boxShadow: "0 1px 3px rgba(0,0,0,0.06)" }}>
+                    <span>{item.emoji}</span>
+                    {item.text}
+                  </span>
                 ))}
               </div>
             </div>
 
-            {/* Right — Floating Stat Cards */}
+            {/* Right — Stat Cards (light style) */}
             <div className="hidden lg:grid grid-cols-2 gap-4">
+
               {/* Big feature card */}
               <div className="col-span-2 rounded-3xl p-7 relative overflow-hidden"
-                style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)" }}>
+                style={{ background: "#fff", border: "1px solid #e5e7eb", boxShadow: "0 4px 24px rgba(0,0,0,0.06)" }}>
                 <div className="absolute -right-8 -top-8 w-40 h-40 rounded-full"
-                  style={{ background: "radial-gradient(circle, rgba(22,163,74,0.2) 0%, transparent 70%)" }} />
+                  style={{ background: "radial-gradient(circle, rgba(22,163,74,0.12) 0%, transparent 70%)" }} />
                 <div className="relative">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-11 h-11 rounded-2xl flex items-center justify-center" style={{ background: "rgba(22,163,74,0.2)" }}>
-                      <Zap size={20} style={{ color: "#4ade80" }} />
+                    <div className="w-11 h-11 rounded-2xl flex items-center justify-center" style={{ background: "rgba(22,163,74,0.10)" }}>
+                      <Zap size={20} style={{ color: "#16a34a" }} />
                     </div>
                     <div>
-                      <p className="text-white font-bold text-sm">Instant Matching</p>
-                      <p className="text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>Get 10 offers in 5 minutes</p>
+                      <p className="font-bold text-sm" style={{ color: "#1a1a1a" }}>Instant Matching</p>
+                      <p className="text-xs" style={{ color: "#9ca3af" }}>Get 10 offers in 5 minutes</p>
                     </div>
                   </div>
                   <div className="flex items-end gap-2">
-                    <span className="text-5xl font-extrabold font-mono" style={{ color: "#4ade80" }}>10</span>
-                    <span className="text-lg font-semibold text-white mb-1">pre-approved offers</span>
+                    <span className="text-5xl font-extrabold font-mono" style={{ color: "#16a34a" }}>10</span>
+                    <span className="text-lg font-semibold mb-1" style={{ color: "#1a1a1a" }}>pre-approved offers</span>
                   </div>
-                  <p className="text-xs mt-2" style={{ color: "rgba(255,255,255,0.35)" }}>
+                  <p className="text-xs mt-2" style={{ color: "#9ca3af" }}>
                     From 60+ partner banks & NBFCs
                   </p>
                 </div>
               </div>
 
-              {/* Rate card */}
+              {/* Rate card — green (kept for contrast) */}
               <div className="rounded-3xl p-6 flex flex-col justify-between"
-                style={{ background: "#16a34a", minHeight: "140px" }}>
+                style={{ background: "linear-gradient(135deg, #15803d 0%, #16a34a 100%)", minHeight: "140px", boxShadow: "0 12px 32px rgba(22,163,74,0.28)" }}>
                 <p className="text-white/70 text-xs font-semibold uppercase tracking-wider">Starting Rate</p>
                 <div>
                   <p className="text-white font-extrabold text-4xl font-mono leading-none">10.25%</p>
@@ -288,25 +368,25 @@ export default function PersonalLoanPage() {
 
               {/* Disbursal card */}
               <div className="rounded-3xl p-6 flex flex-col justify-between"
-                style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)", minHeight: "140px" }}>
-                <p className="text-xs font-semibold uppercase tracking-wider" style={{ color: "rgba(255,255,255,0.4)" }}>Disbursal</p>
+                style={{ background: "#fff", border: "1px solid #e5e7eb", boxShadow: "0 2px 12px rgba(0,0,0,0.05)", minHeight: "140px" }}>
+                <p className="text-xs font-semibold uppercase tracking-wider" style={{ color: "#9ca3af" }}>Disbursal</p>
                 <div>
-                  <p className="text-white font-extrabold text-4xl font-mono leading-none">24</p>
-                  <p className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.5)" }}>hours to account</p>
+                  <p className="font-extrabold text-4xl font-mono leading-none" style={{ color: "#1a1a1a" }}>24</p>
+                  <p className="text-xs mt-1" style={{ color: "#6b7280" }}>hours to account</p>
                 </div>
               </div>
 
-              {/* Amount card */}
+              {/* Amount & tenure card */}
               <div className="col-span-2 rounded-3xl p-5"
-                style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}>
+                style={{ background: "#f9fafb", border: "1px solid #e5e7eb" }}>
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-xs font-medium" style={{ color: "rgba(255,255,255,0.35)" }}>Loan Amount Range</p>
-                    <p className="text-white font-bold text-lg mt-1 font-mono">₹50,000 — ₹40,00,000</p>
+                    <p className="text-xs font-medium" style={{ color: "#9ca3af" }}>Loan Amount Range</p>
+                    <p className="font-bold text-lg mt-1 font-mono" style={{ color: "#1a1a1a" }}>₹50,000 — ₹40,00,000</p>
                   </div>
                   <div className="text-right">
-                    <p className="text-xs font-medium" style={{ color: "rgba(255,255,255,0.35)" }}>Tenure</p>
-                    <p className="text-white font-bold text-lg mt-1 font-mono">12 — 60 months</p>
+                    <p className="text-xs font-medium" style={{ color: "#9ca3af" }}>Tenure</p>
+                    <p className="font-bold text-lg mt-1 font-mono" style={{ color: "#1a1a1a" }}>12 — 60 months</p>
                   </div>
                 </div>
               </div>
@@ -314,15 +394,15 @@ export default function PersonalLoanPage() {
 
           </div>
 
-          {/* Bottom stat bar — visible on mobile too */}
+          {/* Mobile stat bar */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-16 lg:hidden">
             {stats.map(s => {
               const Icon = s.icon;
               return (
                 <div key={s.label} className="rounded-2xl p-4 text-center"
-                  style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.07)" }}>
-                  <p className="font-bold font-mono text-xl mb-1" style={{ color: "#4ade80" }}>{s.value}</p>
-                  <p className="text-[11px]" style={{ color: "rgba(255,255,255,0.4)" }}>{s.label}</p>
+                  style={{ background: "#fff", border: "1px solid #e5e7eb", boxShadow: "0 1px 4px rgba(0,0,0,0.05)" }}>
+                  <p className="font-bold font-mono text-xl mb-1" style={{ color: "#16a34a" }}>{s.value}</p>
+                  <p className="text-[11px]" style={{ color: "#6b7280" }}>{s.label}</p>
                 </div>
               );
             })}
@@ -336,6 +416,9 @@ export default function PersonalLoanPage() {
           </svg>
         </div>
       </section>
+
+      {/* Social proof ticker */}
+      <ActivityTicker />
 
       {/* ══════════════════════════════════════════════
           FEATURES — 6-card grid
@@ -390,6 +473,9 @@ export default function PersonalLoanPage() {
           </div>
         </div>
       </section>
+
+      {/* 3-step eligibility widget */}
+      <EligibilityWidget />
 
       {/* ══════════════════════════════════════════════
           HOW IT WORKS — 5 steps

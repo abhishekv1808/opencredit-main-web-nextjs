@@ -4,7 +4,8 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import {
   ArrowRight, ChevronLeft, ChevronRight,
-  CreditCard, TrendingUp, Home,
+  CreditCard, TrendingUp, Home, Briefcase,
+  Car, Building2, GraduationCap, Landmark,
 } from "lucide-react";
 
 const products = [
@@ -14,8 +15,9 @@ const products = [
     desc: "Instant funds for any need — medical, travel, wedding, or renovation. 100% online, no collateral, approval in 24 hours.",
     href: "/personal-loan",
     icon: CreditCard,
-    iconColor: "#16a34a",
-    iconBg: "#f0fdf4",
+    iconColor: "#0284c7",
+    iconBg: "#e0f2fe",
+    comingSoon: false,
   },
   {
     title: "Home Loan",
@@ -25,6 +27,57 @@ const products = [
     icon: Home,
     iconColor: "#1B3A6B",
     iconBg: "#EBF0FA",
+    comingSoon: false,
+  },
+  {
+    title: "Business Loan",
+    tagline: "From 10% p.a.",
+    desc: "Fuel your business ambitions with working capital, equipment finance, or expansion loans from 60+ lenders.",
+    href: "/business-loan",
+    icon: Briefcase,
+    iconColor: "#b45309",
+    iconBg: "#fef3c7",
+    comingSoon: false,
+  },
+  {
+    title: "Car Loan",
+    tagline: "Coming Soon",
+    desc: "New and used car loans at the best rates — doorstep documentation, fast approval, and up to 100% on-road funding.",
+    href: "/car-loan",
+    icon: Car,
+    iconColor: "#16a34a",
+    iconBg: "#f0fdf4",
+    comingSoon: true,
+  },
+  {
+    title: "Mortgage Loan",
+    tagline: "Coming Soon",
+    desc: "Unlock the value of your property with a Loan Against Property — up to 70% LTV, all property types accepted.",
+    href: "/mortgage-loan",
+    icon: Building2,
+    iconColor: "#ea580c",
+    iconBg: "#fff7ed",
+    comingSoon: true,
+  },
+  {
+    title: "Education Loan",
+    tagline: "Coming Soon",
+    desc: "Fund your higher education in India or abroad. Collateral-free options, moratorium during course, Section 80E tax benefit.",
+    href: "/education-loan",
+    icon: GraduationCap,
+    iconColor: "#0369a1",
+    iconBg: "#e0f2fe",
+    comingSoon: true,
+  },
+  {
+    title: "Credit Cards",
+    tagline: "Coming Soon",
+    desc: "Compare India's best credit cards — cashback, travel rewards, lounge access, and zero annual fee options.",
+    href: "/credit-cards",
+    icon: Landmark,
+    iconColor: "#db2777",
+    iconBg: "#fdf2f8",
+    comingSoon: true,
   },
   {
     title: "CIBIL Correction",
@@ -34,6 +87,7 @@ const products = [
     icon: TrendingUp,
     iconColor: "#059669",
     iconBg: "#ecfdf5",
+    comingSoon: false,
   },
 ];
 
@@ -150,12 +204,11 @@ export default function ProductSlider() {
                     className="group flex flex-col rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-2"
                     style={{ background: "#fff", border: "1px solid #e8e8e8", boxShadow: "0 2px 16px rgba(0,0,0,0.06)" }}
                   >
-                    {/* Image / placeholder — 240px tall */}
+                    {/* Card image area */}
                     <div
                       className="relative flex-shrink-0 flex items-center justify-center overflow-hidden"
                       style={{ height: "240px", background: `linear-gradient(135deg, ${p.iconBg} 0%, #f9fafb 100%)` }}
                     >
-                      {/* ↓ Replace with <Image> once photos are in /public/images/ */}
                       <div
                         className="w-24 h-24 rounded-3xl flex items-center justify-center transition-transform duration-500 group-hover:scale-110"
                         style={{ background: "#fff", boxShadow: `0 12px 40px ${p.iconColor}22` }}
@@ -163,13 +216,30 @@ export default function ProductSlider() {
                         <Icon size={44} style={{ color: p.iconColor }} />
                       </div>
 
-                      {/* Rate pill */}
+                      {/* Tagline / Coming Soon pill */}
                       <span
                         className="absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-bold"
-                        style={{ background: "#fff", color: p.iconColor, boxShadow: "0 2px 8px rgba(0,0,0,0.10)" }}
+                        style={
+                          p.comingSoon
+                            ? { background: "#f1f5f9", color: "#64748b", boxShadow: "0 2px 8px rgba(0,0,0,0.08)" }
+                            : { background: "#fff", color: p.iconColor, boxShadow: "0 2px 8px rgba(0,0,0,0.10)" }
+                        }
                       >
                         {p.tagline}
                       </span>
+
+                      {/* Coming Soon overlay strip */}
+                      {p.comingSoon && (
+                        <div
+                          className="absolute bottom-0 inset-x-0 flex items-center justify-center py-1.5"
+                          style={{ background: "rgba(255,255,255,0.82)", backdropFilter: "blur(6px)", borderTop: "1px solid rgba(0,0,0,0.05)" }}
+                        >
+                          <span className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider" style={{ color: "#64748b" }}>
+                            <span className="w-1.5 h-1.5 rounded-full bg-amber-400 inline-block" />
+                            Coming Soon
+                          </span>
+                        </div>
+                      )}
                     </div>
 
                     {/* Text content */}

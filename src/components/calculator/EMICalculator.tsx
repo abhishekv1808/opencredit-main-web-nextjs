@@ -2,7 +2,7 @@
 
 import { useState, useCallback } from "react";
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from "recharts";
-import { Download, Calculator, Info, ChevronRight } from "lucide-react";
+import { Download, Calculator, Info, ChevronRight, Phone, CheckCircle2, ArrowRight } from "lucide-react";
 import { calculateEMI, generateAmortizationSchedule } from "@/lib/utils/emi";
 import { formatCurrency } from "@/lib/utils/format";
 import AmortizationTable from "./AmortizationTable";
@@ -15,6 +15,38 @@ export default function EMICalculator() {
   const [rate, setRate]             = useState(12);
   const [tenure, setTenure]         = useState(36);
   const [showTable, setShowTable]   = useState(false);
+
+  /* Lead capture state */
+  const [leadName,    setLeadName]    = useState("");
+  const [leadPhone,   setLeadPhone]   = useState("");
+  const [submitting,  setSubmitting]  = useState(false);
+  const [submitted,   setSubmitted]   = useState(false);
+  const [submitError, setSubmitError] = useState("");
+
+  const handleLeadSubmit = useCallback(async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!leadPhone) return;
+    setSubmitting(true);
+    setSubmitError("");
+    try {
+      const res = await fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: leadName || undefined,
+          phone: leadPhone,
+          source: "emi_calculator",
+          loan_amount: principal,
+        }),
+      });
+      if (!res.ok) throw new Error("Failed");
+      setSubmitted(true);
+    } catch {
+      setSubmitError("Something went wrong. Please try WhatsApp instead.");
+    } finally {
+      setSubmitting(false);
+    }
+  }, [leadName, leadPhone, principal]);
 
   const { emi, totalAmount, totalInterest } = calculateEMI(principal, rate, tenure);
   const schedule = generateAmortizationSchedule(principal, rate, tenure);
@@ -246,6 +278,112 @@ export default function EMICalculator() {
               {showTable ? "Hide" : "View"} Amortization
             </button>
           </div>
+
+          {/* ── Lead Capture Card ── */}
+          {!submitted ? (
+            <form
+              onSubmit={handleLeadSubmit}
+              className="rounded-3xl overflow-hidden"
+              style={{ background: "linear-gradient(135deg, #15803d 0%, #16a34a 60%, #059669 100%)" }}
+            >
+              <div className="p-6">
+                {/* Hook line */}
+                <div className="flex items-start gap-3 mb-5">
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+                    style={{ background: "rgba(255,255,255,0.15)" }}>
+                    <Phone size={18} style={{ color: "#fff" }} />
+                  </div>
+                  <div>
+                    <p className="font-bold text-white text-sm leading-tight">
+                      Your EMI is {formatCurrency(Math.round(emi))}/month
+                    </p>
+                    <p className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.75)" }}>
+                      Get this rate confirmed — speak to an advisor in 15 min
+                    </p>
+                  </div>
+                </div>
+
+                {/* Inputs */}
+                <div className="space-y-2.5 mb-3">
+                  <input
+                    type="text"
+                    placeholder="Your name (optional)"
+                    value={leadName}
+                    onChange={e => setLeadName(e.target.value)}
+                    className="w-full px-4 py-3 rounded-xl text-sm outline-none"
+                    style={{
+                      background: "#fff",
+                      border: "1.5px solid rgba(255,255,255,0.6)",
+                      color: "#1a1a1a",
+                    }}
+                    onFocus={e => (e.currentTarget.style.borderColor = "#4ade80")}
+                    onBlur={e => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.6)")}
+                  />
+                  <input
+                    type="tel"
+                    required
+                    placeholder="Mobile number *"
+                    value={leadPhone}
+                    onChange={e => setLeadPhone(e.target.value)}
+                    className="w-full px-4 py-3 rounded-xl text-sm outline-none"
+                    style={{
+                      background: "#fff",
+                      border: "1.5px solid rgba(255,255,255,0.6)",
+                      color: "#1a1a1a",
+                    }}
+                    onFocus={e => (e.currentTarget.style.borderColor = "#4ade80")}
+                    onBlur={e => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.6)")}
+                  />
+                </div>
+
+                {/* Error */}
+                {submitError && (
+                  <p className="text-xs mb-2" style={{ color: "#fca5a5" }}>{submitError}</p>
+                )}
+
+                {/* CTA */}
+                <button
+                  type="submit"
+                  disabled={submitting}
+                  className="w-full flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-bold transition-all"
+                  style={{
+                    background: submitting ? "rgba(255,255,255,0.2)" : "#fff",
+                    color: submitting ? "rgba(255,255,255,0.6)" : "#15803d",
+                    boxShadow: submitting ? "none" : "0 4px 16px rgba(0,0,0,0.12)",
+                  }}
+                >
+                  {submitting ? "Submitting…" : (
+                    <>
+                      Get My Personalised Rate
+                      <ArrowRight size={15} />
+                    </>
+                  )}
+                </button>
+
+                {/* Trust micro-copy */}
+                <p className="text-center text-[11px] mt-3" style={{ color: "rgba(255,255,255,0.55)" }}>
+                  Free · No credit score impact · Advisor calls within 15 min
+                </p>
+              </div>
+            </form>
+          ) : (
+            /* Success state */
+            <div
+              className="rounded-3xl p-6 flex flex-col items-center text-center"
+              style={{ background: "#f0fdf4", border: "1.5px solid rgba(22,163,74,0.25)" }}
+            >
+              <div className="w-12 h-12 rounded-full flex items-center justify-center mb-3"
+                style={{ background: "rgba(22,163,74,0.12)" }}>
+                <CheckCircle2 size={24} style={{ color: "#16a34a" }} />
+              </div>
+              <p className="font-bold text-sm mb-1" style={{ color: "#15803d" }}>
+                You&apos;re all set!
+              </p>
+              <p className="text-xs" style={{ color: "#6b7280" }}>
+                An advisor will call you within 15 minutes during business hours (Mon–Sat, 9 AM–6 PM).
+              </p>
+            </div>
+          )}
         </div>
       </div>
 

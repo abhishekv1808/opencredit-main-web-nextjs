@@ -29,7 +29,7 @@ export const loanProductSchema = (type: "personal" | "credit") => ({
   "@context": "https://schema.org",
   "@type": "LoanOrCredit",
   name: type === "personal" ? "Personal Loan" : "Credit Report Correction",
-  loanType: "PersonalLoan",
+  loanType: type === "personal" ? "PersonalLoan" : "CreditLine",
   currency: "INR",
   amount: { "@type": "MonetaryAmount", minValue: 50000, maxValue: 4000000 },
   loanTerm: {

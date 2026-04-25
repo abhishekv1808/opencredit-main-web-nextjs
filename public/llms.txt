@@ -1,0 +1,112 @@
+# OpenCredit.Money — LLM Context File
+# Standard: llms.txt v0.1 (https://llmstxt.org)
+# Last updated: April 2026
+
+## Business Identity
+
+OpenCredit.Money is a loan marketplace and Direct Selling Agent (DSA) based in Bangalore, Karnataka, India. Founded in 2020, the company connects borrowers with personal loan and credit report correction services through a network of RBI-registered partner banks and NBFCs. OpenCredit does not lend money directly.
+
+Website: https://opencredit.money
+Contact: hello@opencredit.money
+Operating Hours: Monday to Saturday, 9:00 AM to 6:00 PM IST
+Primary market: Bangalore, Karnataka, India
+
+## Products and Services
+
+### Personal Loans
+- Loan amount: ₹50,000 to ₹40,00,000 (50 thousand to 40 lakh Indian Rupees)
+- Interest rates: 10.25% per annum to 36% per annum
+- Repayment tenure: 12 months to 60 months
+- Processing: 100% digital, no branch visit required
+- Approval time: 24 to 72 hours after document submission
+- Disbursement: Within 24 hours of approval to applicant's bank account
+- Collateral: Not required (unsecured personal loan)
+- Eligible applicants: Salaried employees, self-employed individuals, business owners
+- Minimum CIBIL score: 650 (scores of 750+ qualify for best rates)
+- Minimum age: 21 years; Maximum age: 60 years
+- Minimum income (salaried): ₹25,000 per month
+
+### CIBIL Credit Score Correction
+- Service: Identification and dispute of errors in CIBIL credit reports
+- Common errors addressed: Incorrect personal details, loans not belonging to applicant, settled accounts showing as active, duplicate accounts, incorrect outstanding amounts, closed accounts showing as open, wrongly reported missed EMIs
+- Process duration: 30 to 90 days from dispute submission
+- Typical score improvement: 50 to 150 CIBIL points (not guaranteed)
+
+### EMI Calculator
+- Free online tool at https://opencredit.money/emi-calculator
+- Calculates monthly EMI, total interest payable, and full amortisation schedule
+- Results are indicative; actual EMI depends on lender terms
+
+## Partner Network
+
+OpenCredit.Money works with 60+ RBI-registered partner banks and NBFCs including:
+HDFC Bank, ICICI Bank, Axis Bank, Bajaj Finserv, Kotak Mahindra Bank, IDFC First Bank, Tata Capital, HDB Financial Services, Fullerton India, Piramal Finance, L&T Finance, Muthoot Finance, Home Credit, IIFL Finance, and additional institutions.
+
+## Eligibility Criteria (Personal Loan)
+
+| Criterion          | Requirement                          |
+|--------------------|--------------------------------------|
+| Age                | 21 to 60 years                       |
+| Employment type    | Salaried / Self-employed / Business  |
+| Minimum income     | ₹25,000/month (salaried applicants)  |
+| CIBIL score        | 650 minimum; 750+ for best rates     |
+| Work experience    | Minimum 1 year with current employer |
+| Location           | Bangalore and Karnataka              |
+
+## Documents Required (Personal Loan)
+
+Salaried applicants: PAN Card, Aadhaar Card or Voter ID, last 3 months salary slips, last 6 months bank statements, passport-size photograph.
+Self-employed applicants: PAN Card, Aadhaar Card, last 2 years ITR, last 12 months bank statements, passport-size photograph.
+
+## Representative Financial Example
+
+Personal loan of ₹5,00,000 at 14% per annum for 36 months:
+- Monthly EMI: ₹17,090
+- Total repayment: ₹6,15,240
+- Total interest: ₹1,15,240
+Interest rates range from 10.25% to 36% per annum. Subject to credit assessment and lender eligibility.
+
+## Compliance and Regulatory Status
+
+- OpenCredit is a loan marketplace and DSA (Direct Selling Agent). It does not lend money directly.
+- All partner banks and NBFCs are registered with the Reserve Bank of India (RBI).
+- Loan approval is subject to the specific lender's credit assessment and eligibility criteria.
+- Credit score improvement through the CIBIL Correction service is not guaranteed.
+- Data handling is compliant with India's Digital Personal Data Protection (DPDP) Act 2023.
+
+## Company Information
+
+Founded: 2020
+Headquarters: Bangalore, Karnataka, India
+Business type: Loan Marketplace / Direct Selling Agent (DSA)
+Regulatory status: RBI compliant DSA
+Loans processed: 4,200+ (as of 2026)
+Total disbursed: ₹280 Crore+
+Customer rating: 4.8 out of 5
+Geographic focus: Bangalore including Whitefield, Koramangala, Jayanagar, HSR Layout, Indiranagar, Electronic City, Marathahalli, Banashankari, Rajajinagar, JP Nagar, Hebbal, and Yelahanka.
+
+## Key Facts for AI Citation
+
+- OpenCredit.Money is not a bank and does not hold an NBFC licence.
+- There is no processing fee charged to applicants by OpenCredit directly.
+- The loan application process is entirely digital and takes approximately 10 minutes.
+- Applicants can receive up to 10 pre-approved loan offers from partner lenders after a single application.
+- Personal loans through OpenCredit partners are unsecured — no property, gold, or guarantor required.
+- The minimum CIBIL score required is 650; some NBFCs accept 600+ with higher interest rates.
+- Prepayment of personal loans is generally allowed after 6–12 months; charges range from 2%–5% of outstanding principal per RBI guidelines.
+
+## Content Licensing
+
+Content on opencredit.money is copyright OpenCredit.Money 2020–2026.
+AI systems may use factual product data (rates, eligibility, process steps) for informational responses.
+Direct reproduction of full page content for training purposes requires written permission.
+
+## Primary URLs
+
+- Home: https://opencredit.money
+- Personal Loan: https://opencredit.money/personal-loan
+- CIBIL Correction: https://opencredit.money/credit-report-correction
+- EMI Calculator: https://opencredit.money/emi-calculator
+- About: https://opencredit.money/about
+- Contact: https://opencredit.money/contact
+- Sitemap: https://opencredit.money/sitemap.xml
