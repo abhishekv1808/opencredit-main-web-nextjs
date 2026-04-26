@@ -15,6 +15,7 @@ import {
   Heart,
   Sparkles,
 } from "lucide-react";
+import RupeeCoin from "@/components/shared/RupeeCoin";
 
 const serviceLinks = [
   { label: "Personal Loan",         href: "/personal-loan" },
@@ -62,6 +63,18 @@ export default function Footer() {
               "radial-gradient(ellipse 60% 50% at 20% 50%, rgba(91,200,63,0.08) 0%, transparent 60%), radial-gradient(ellipse 50% 50% at 80% 50%, rgba(66,168,229,0.06) 0%, transparent 60%)",
           }}
         />
+
+        {/* Floating rupee coins */}
+        <div className="absolute left-[4%] top-1/2 -translate-y-1/2 pointer-events-none hidden lg:block" style={{ transform: "translateY(-50%) rotate(-18deg)" }}>
+          <div className="oc-coin-float">
+            <RupeeCoin size={90} opacity={0.14} uid="f1" />
+          </div>
+        </div>
+        <div className="absolute right-[5%] top-1/2 -translate-y-1/2 pointer-events-none hidden lg:block" style={{ transform: "translateY(-50%) rotate(14deg)" }}>
+          <div className="oc-coin-float-slow">
+            <RupeeCoin size={72} opacity={0.12} uid="f2" />
+          </div>
+        </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8">

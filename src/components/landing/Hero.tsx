@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowRight, Shield, Star, ChevronRight, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { formatCurrency } from "@/lib/utils/format";
+import RupeeCoin from "@/components/shared/RupeeCoin";
 
 function CountUp({
   end,
@@ -75,10 +76,27 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex flex-col hero-bg-light overflow-hidden">
-      {/* Decorative Elements */}
+      {/* Blur glows */}
       <div className="absolute top-20 right-[15%] w-[500px] h-[500px] rounded-full bg-brand-green/[0.04] blur-[100px] pointer-events-none" />
       <div className="absolute bottom-20 left-[10%] w-[400px] h-[400px] rounded-full bg-brand-green/[0.03] blur-[80px] pointer-events-none" />
       <div className="absolute top-[40%] left-[50%] w-[300px] h-[300px] rounded-full bg-brand-green/[0.04] blur-[60px] pointer-events-none" />
+
+      {/* Floating rupee coins — decorative */}
+      <div className="absolute top-[14%] right-[2%] pointer-events-none hidden lg:block" style={{ transform: "rotate(18deg)" }}>
+        <div className="oc-coin-float">
+          <RupeeCoin size={88} opacity={0.22} uid="h1" />
+        </div>
+      </div>
+      <div className="absolute bottom-[22%] right-[3%] pointer-events-none hidden lg:block" style={{ transform: "rotate(-12deg)" }}>
+        <div className="oc-coin-float-slow">
+          <RupeeCoin size={60} opacity={0.16} uid="h2" />
+        </div>
+      </div>
+      <div className="absolute top-[60%] right-[22%] pointer-events-none hidden xl:block" style={{ transform: "rotate(8deg)" }}>
+        <div className="oc-coin-float-med">
+          <RupeeCoin size={44} opacity={0.13} uid="h3" />
+        </div>
+      </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex flex-col justify-center pt-32 pb-20 md:pt-40 md:pb-32">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">

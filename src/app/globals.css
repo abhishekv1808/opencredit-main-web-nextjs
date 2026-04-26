@@ -417,6 +417,16 @@ h6 {
   animation: floatBadge 3s ease-in-out infinite;
 }
 
+/* Rupee coin float */
+@keyframes oc-coin-float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-14px); }
+}
+
+.oc-coin-float { animation: oc-coin-float 6s ease-in-out infinite; }
+.oc-coin-float-slow { animation: oc-coin-float 8s ease-in-out infinite 1.2s; }
+.oc-coin-float-med  { animation: oc-coin-float 7s ease-in-out infinite 2.5s; }
+
 /* Shimmer loading */
 .shimmer {
   background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);

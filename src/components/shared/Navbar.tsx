@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import {
-  Menu, X, ChevronDown, ChevronRight, Home, CreditCard, TrendingUp,
+  Menu, X, ChevronDown, ChevronRight, Home, IndianRupee, TrendingUp,
   Calculator, Info, Phone, ArrowRight, Shield, Sparkles,
   FileCheck, Zap, LayoutDashboard, Building2,
 } from "lucide-react";
@@ -17,7 +17,7 @@ const productLinks = [
   {
     label: "Personal Loan",
     href: "/personal-loan",
-    icon: CreditCard,
+    icon: IndianRupee,
     desc: "₹50K – ₹40L at 10.25% p.a.",
     accent: "#5BC83F",
   },
@@ -46,7 +46,7 @@ const navLinks = [
 
 const allMobileLinks = [
   { label: "Home",             href: "/",                         icon: Home },
-  { label: "Personal Loan",   href: "/personal-loan",            icon: CreditCard },
+  { label: "Personal Loan",   href: "/personal-loan",            icon: IndianRupee },
   { label: "Home Loan",       href: "/home-loan",                icon: Building2 },
   { label: "CIBIL Correction",href: "/credit-report-correction", icon: TrendingUp },
   { label: "EMI Calculator",  href: "/emi-calculator",           icon: Calculator },

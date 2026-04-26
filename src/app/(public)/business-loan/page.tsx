@@ -1,117 +1,71 @@
-"use client";
-
+import type { Metadata } from "next";
 import Link from "next/link";
-import { useState } from "react";
 import {
   ArrowRight, CheckCircle2, Shield, Clock, Zap, Star,
-  ChevronDown, ChevronRight, Briefcase, TrendingUp,
+  ChevronRight, Briefcase, TrendingUp,
   Users, Building2, BadgeCheck, Banknote, Percent,
   Factory, ShoppingBag, Truck, Wrench, BarChart3,
   CreditCard, FileText, Layers, Target, Landmark,
 } from "lucide-react";
+import BusinessLoanFAQ from "@/components/landing/BusinessLoanFAQ";
+import { generatePageMetadata } from "@/lib/seo/metadata";
+
+export const metadata: Metadata = generatePageMetadata({
+  title: "Business Loan in Bangalore | SME & MSME | From 12% p.a.",
+  description:
+    "Business loans in Bangalore from ₹5 Lakhs to ₹2 Crore at 12% p.a. onwards. Working capital, equipment finance, MSME loans. 60+ lenders, 48-hour approval.",
+  path: "/business-loan",
+});
+
+const businessLoanSchema = {
+  "@context": "https://schema.org",
+  "@type": "LoanOrCredit",
+  name: "Business Loan",
+  loanType: "BusinessLoan",
+  currency: "INR",
+  amount: {
+    "@type": "MonetaryAmount",
+    minValue: 500000,
+    maxValue: 20000000,
+    currency: "INR",
+  },
+  loanTerm: {
+    "@type": "QuantitativeValue",
+    minValue: 12,
+    maxValue: 84,
+    unitCode: "MON",
+  },
+  annualPercentageRate: {
+    "@type": "QuantitativeValue",
+    minValue: 12,
+    maxValue: 36,
+    unitText: "% per annum",
+  },
+  areaServed: ["Bangalore", "Bengaluru", "Karnataka"],
+  provider: {
+    "@type": "FinancialService",
+    name: "OpenCredit.Money",
+    "@id": "https://opencredit.money/#organization",
+  },
+};
 
 /* ─── Data ─────────────────────────────────────────── */
-const stats = [
-  { icon: Building2,  value: "60+",   label: "Partner Banks & NBFCs" },
-  { icon: Clock,      value: "48hr",  label: "Approval Time" },
-  { icon: Percent,    value: "12%",   label: "Starting Interest Rate" },
-  { icon: Banknote,   value: "₹2Cr",  label: "Maximum Loan Amount" },
-];
-
 const loanTypes = [
-  {
-    icon: BarChart3,
-    title: "Working Capital Loan",
-    desc: "Fund day-to-day operations — inventory, salaries, raw materials, and short-term expenses without disrupting cash flow.",
-    amount: "₹5L – ₹1Cr",
-    tenure: "12–36 months",
-    color: "#3b82f6",
-    badge: "Most Popular",
-  },
-  {
-    icon: Factory,
-    title: "Equipment & Machinery Finance",
-    desc: "Purchase or upgrade plant, machinery, or equipment. The asset itself often serves as collateral for better rates.",
-    amount: "₹10L – ₹2Cr",
-    tenure: "24–84 months",
-    color: "#f97316",
-    badge: "Asset-Backed",
-  },
-  {
-    icon: TrendingUp,
-    title: "Business Expansion Loan",
-    desc: "Scale your business — open new branches, hire staff, enter new markets, or upgrade infrastructure.",
-    amount: "₹10L – ₹2Cr",
-    tenure: "24–60 months",
-    color: "#16a34a",
-    badge: "Growth",
-  },
-  {
-    icon: CreditCard,
-    title: "Business Overdraft / Line of Credit",
-    desc: "A revolving credit limit you draw from as needed and repay when cash flows in. Pay interest only on utilised amount.",
-    amount: "₹5L – ₹75L",
-    tenure: "12–24 months",
-    color: "#8b5cf6",
-    badge: "Flexible",
-  },
-  {
-    icon: ShoppingBag,
-    title: "MSME / SME Loan",
-    desc: "Government-backed and private MSME loans for registered micro, small, and medium enterprises across Karnataka.",
-    amount: "₹1L – ₹1Cr",
-    tenure: "12–60 months",
-    color: "#0891b2",
-    badge: "MSME",
-  },
-  {
-    icon: Truck,
-    title: "Trade Finance / Invoice Discounting",
-    desc: "Get immediate liquidity against outstanding invoices or purchase orders. Ideal for businesses with B2B payment cycles.",
-    amount: "₹5L – ₹50L",
-    tenure: "30–180 days",
-    color: "#d97706",
-    badge: "B2B",
-  },
+  { icon: BarChart3,   title: "Working Capital Loan",            desc: "Fund day-to-day operations — inventory, salaries, raw materials, and short-term expenses without disrupting cash flow.",              amount: "₹5L – ₹1Cr",   tenure: "12–36 months",  color: "#3b82f6", badge: "Most Popular" },
+  { icon: Factory,     title: "Equipment & Machinery Finance",   desc: "Purchase or upgrade plant, machinery, or equipment. The asset itself often serves as collateral for better rates.",                   amount: "₹10L – ₹2Cr",  tenure: "24–84 months",  color: "#f97316", badge: "Asset-Backed" },
+  { icon: TrendingUp,  title: "Business Expansion Loan",         desc: "Scale your business — open new branches, hire staff, enter new markets, or upgrade infrastructure.",                                   amount: "₹10L – ₹2Cr",  tenure: "24–60 months",  color: "#16a34a", badge: "Growth" },
+  { icon: CreditCard,  title: "Business Overdraft / Line of Credit", desc: "A revolving credit limit you draw from as needed and repay when cash flows in. Pay interest only on utilised amount.",          amount: "₹5L – ₹75L",   tenure: "12–24 months",  color: "#8b5cf6", badge: "Flexible" },
+  { icon: ShoppingBag, title: "MSME / SME Loan",                 desc: "Government-backed and private MSME loans for registered micro, small, and medium enterprises across Karnataka.",                     amount: "₹1L – ₹1Cr",   tenure: "12–60 months",  color: "#0891b2", badge: "MSME" },
+  { icon: Truck,       title: "Trade Finance / Invoice Discounting", desc: "Get immediate liquidity against outstanding invoices or purchase orders. Ideal for businesses with B2B payment cycles.",         amount: "₹5L – ₹50L",   tenure: "30–180 days",   color: "#d97706", badge: "B2B" },
 ];
 
 const features = [
-  {
-    icon: Zap,
-    title: "Fast Approval in 48 Hours",
-    desc: "Our streamlined digital process and 60+ lender network means business loan decisions arrive within 48 hours — not weeks.",
-    badge: "Fastest",
-  },
-  {
-    icon: Layers,
-    title: "6 Loan Products Under One Roof",
-    desc: "From working capital to equipment finance — we assess your business need and match you with the most suitable product.",
-    badge: "Comprehensive",
-  },
-  {
-    icon: Shield,
-    title: "Secured & Unsecured Options",
-    desc: "No assets? No problem. We have unsecured business loan options up to ₹75L based on your business revenue and creditworthiness.",
-    badge: "Flexible",
-  },
-  {
-    icon: BadgeCheck,
-    title: "Dedicated Business Advisor",
-    desc: "A relationship manager with business lending expertise guides you from document preparation to final disbursement.",
-    badge: "Assisted",
-  },
-  {
-    icon: Target,
-    title: "MSME Government Schemes",
-    desc: "We help eligible businesses access CGTMSE, Mudra, and other government-backed schemes for subsidised interest rates.",
-    badge: "Subsidised",
-  },
-  {
-    icon: Users,
-    title: "All Business Structures Welcome",
-    desc: "Sole proprietorship, partnership, LLP, private limited, or OPC — we have lender partners for every business type.",
-    badge: "Inclusive",
-  },
+  { icon: Zap,        title: "Fast Approval in 48 Hours",           desc: "Our streamlined digital process and 60+ lender network means business loan decisions arrive within 48 hours — not weeks.", badge: "Fastest" },
+  { icon: Layers,     title: "6 Loan Products Under One Roof",      desc: "From working capital to equipment finance — we assess your business need and match you with the most suitable product.", badge: "Comprehensive" },
+  { icon: Shield,     title: "Secured & Unsecured Options",         desc: "No assets? No problem. We have unsecured business loan options up to ₹75L based on your business revenue and creditworthiness.", badge: "Flexible" },
+  { icon: BadgeCheck, title: "Dedicated Business Advisor",          desc: "A relationship manager with business lending expertise guides you from document preparation to final disbursement.", badge: "Assisted" },
+  { icon: Target,     title: "MSME Government Schemes",             desc: "We help eligible businesses access CGTMSE, Mudra, and other government-backed schemes for subsidised interest rates.", badge: "Subsidised" },
+  { icon: Users,      title: "All Business Structures Welcome",     desc: "Sole proprietorship, partnership, LLP, private limited, or OPC — we have lender partners for every business type.", badge: "Inclusive" },
 ];
 
 const steps = [
@@ -152,113 +106,57 @@ const partners = [
 ];
 
 const testimonials = [
-  {
-    name: "Arjun Shetty",      role: "Restaurant Owner",        location: "Koramangala",    amount: "₹25L",  rate: "14.5%", avatar: "AS", color: "#f97316",
-    review: "Applied for a working capital loan on Monday, had the funds by Thursday. Our expansion into the second outlet finally happened!",
-  },
-  {
-    name: "Meena Iyer",        role: "Garment Manufacturer",    location: "Peenya",         amount: "₹60L",  rate: "13.0%", avatar: "MI", color: "#8b5cf6",
-    review: "Needed machinery finance urgently. OpenCredit matched us with an asset-backed loan at a rate I didn't expect. Complete professionals.",
-  },
-  {
-    name: "Ravi Kumar",        role: "IT Services Firm",        location: "Whitefield",     amount: "₹40L",  rate: "15.5%", avatar: "RK", color: "#3b82f6",
-    review: "As an LLP with 3 years of operation, getting a business loan was frustrating. OpenCredit found 4 lenders who actually understood our business.",
-  },
-  {
-    name: "Sunita Reddy",      role: "Pharma Distributor",      location: "Rajajinagar",    amount: "₹80L",  rate: "12.5%", avatar: "SR", color: "#16a34a",
-    review: "They helped us access CGTMSE-backed lending which reduced our processing fees significantly. Highly knowledgeable team.",
-  },
-  {
-    name: "Farhan Khan",       role: "Construction Contractor", location: "Yeshwanthpur",   amount: "₹1.2Cr", rate: "13.5%", avatar: "FK", color: "#0891b2",
-    review: "Large loan, complex profile. But OpenCredit's advisor sat with us for an hour, prepared our case, and we got approved in 5 days.",
-  },
-  {
-    name: "Kavitha Nair",      role: "Bakery Chain Founder",    location: "HSR Layout",     amount: "₹18L",  rate: "15.0%", avatar: "KN", color: "#ec4899",
-    review: "Used an OD facility to manage seasonal cash flow. It's been a game-changer — I draw what I need and only pay interest on that amount.",
-  },
+  { name: "Arjun Shetty",  role: "Restaurant Owner",        location: "Koramangala",  amount: "₹25L",  rate: "14.5%", avatar: "AS", color: "#f97316", review: "Applied for a working capital loan on Monday, had the funds by Thursday. Our expansion into the second outlet finally happened!" },
+  { name: "Meena Iyer",    role: "Garment Manufacturer",    location: "Peenya",        amount: "₹60L",  rate: "13.0%", avatar: "MI", color: "#8b5cf6", review: "Needed machinery finance urgently. OpenCredit matched us with an asset-backed loan at a rate I didn't expect. Complete professionals." },
+  { name: "Ravi Kumar",    role: "IT Services Firm",        location: "Whitefield",    amount: "₹40L",  rate: "15.5%", avatar: "RK", color: "#3b82f6", review: "As an LLP with 3 years of operation, getting a business loan was frustrating. OpenCredit found 4 lenders who actually understood our business." },
+  { name: "Sunita Reddy",  role: "Pharma Distributor",      location: "Rajajinagar",   amount: "₹80L",  rate: "12.5%", avatar: "SR", color: "#16a34a", review: "They helped us access CGTMSE-backed lending which reduced our processing fees significantly. Highly knowledgeable team." },
+  { name: "Farhan Khan",   role: "Construction Contractor", location: "Yeshwanthpur",  amount: "₹1.2Cr",rate: "13.5%", avatar: "FK", color: "#0891b2", review: "Large loan, complex profile. But OpenCredit's advisor sat with us for an hour, prepared our case, and we got approved in 5 days." },
+  { name: "Kavitha Nair",  role: "Bakery Chain Founder",    location: "HSR Layout",    amount: "₹18L",  rate: "15.0%", avatar: "KN", color: "#ec4899", review: "Used an OD facility to manage seasonal cash flow. It's been a game-changer — I draw what I need and only pay interest on that amount." },
 ];
-
-const faqs = [
-  { q: "What types of business loans do you offer?",               a: "We offer 6 business loan products: Working Capital Loans, Equipment & Machinery Finance, Business Expansion Loans, Business Overdraft / Line of Credit, MSME/SME Loans, and Trade Finance / Invoice Discounting. Our advisors help you choose the best fit." },
-  { q: "What is the minimum business vintage required?",            a: "Most lenders require a minimum of 2 years of business operation. However, some fintech lenders in our network extend loans to businesses as young as 1 year with strong bank statement cash flows." },
-  { q: "Is GST registration mandatory?",                            a: "GST registration is required by most traditional banks, especially for loans above ₹20L. Some NBFC partners accept non-GST registered businesses for smaller loan amounts up to ₹15L." },
-  { q: "Can I get a business loan without collateral?",             a: "Yes. Unsecured business loans up to ₹75L are available through our NBFC partners. For loans above ₹50L, collateral (property, machinery, or government-backed CGTMSE guarantee) is typically required." },
-  { q: "What interest rates should I expect?",                      a: "Business loan rates start from 12% p.a. and can go up to 36% p.a. depending on your credit profile, business vintage, annual turnover, and lender. Secured loans typically get 12%–18% while unsecured loans are 18%–28%." },
-  { q: "How does the overdraft facility work?",                     a: "An overdraft (OD) is a revolving credit limit against your current account or assets. You withdraw as needed up to your approved limit and interest accrues only on the amount utilised daily. Ideal for businesses with irregular cash flows." },
-  { q: "Can proprietorships and partnerships apply?",               a: "Yes. We work with all business structures — sole proprietorships, partnerships, LLPs, private limited companies, and OPCs. Requirements vary slightly by structure but all are eligible to apply." },
-  { q: "How long does it take to get the loan?",                    a: "Approval decisions typically come within 48 hours of complete document submission. Disbursement follows in 2–3 working days after agreement signing. Complex or large-ticket loans may take 5–7 working days for due diligence." },
-];
-
-function FAQItem({ q, a }: { q: string; a: string }) {
-  const [open, setOpen] = useState(false);
-  return (
-    <div className="rounded-2xl overflow-hidden transition-all"
-      style={{ border: open ? "1px solid rgba(22,163,74,0.3)" : "1px solid #f0f0f0", background: "#fff" }}>
-      <button onClick={() => setOpen(!open)} className="w-full flex items-center justify-between px-6 py-5 text-left">
-        <span className="text-sm font-semibold pr-4" style={{ color: "#1a1a1a" }}>{q}</span>
-        <div className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 transition-colors"
-          style={{ background: open ? "#16a34a" : "#f4f5f7" }}>
-          <ChevronDown size={14}
-            style={{ color: open ? "#fff" : "#6b7280", transform: open ? "rotate(180deg)" : "none", transition: "transform 0.2s" }} />
-        </div>
-      </button>
-      {open && (
-        <div className="px-6 pb-5">
-          <p className="text-sm leading-relaxed" style={{ color: "#6b7280" }}>{a}</p>
-        </div>
-      )}
-    </div>
-  );
-}
 
 /* ─── Page ──────────────────────────────────────────── */
 export default function BusinessLoanPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(businessLoanSchema) }}
+      />
+
       {/* ══════════════════════════════════════════════
-          HERO — Light background
+          HERO
       ══════════════════════════════════════════════ */}
-      <section className="relative overflow-hidden" style={{ background: "#fffbf5" }}>
+      <section className="relative overflow-hidden" style={{ background: "#f0faf4" }}>
 
-        {/* Top orange accent stripe */}
         <div className="absolute top-0 left-0 right-0 h-[3px]"
-          style={{ background: "linear-gradient(90deg, #f97316 0%, #f59e0b 50%, #f97316 100%)" }} />
-
-        {/* Subtle dot texture */}
+          style={{ background: "linear-gradient(90deg, #5BC83F 0%, #16a34a 50%, #5BC83F 100%)" }} />
         <div className="absolute inset-0 pointer-events-none opacity-40"
-          style={{
-            backgroundImage: "radial-gradient(circle, #f97316 1px, transparent 1px)",
-            backgroundSize: "40px 40px",
-          }} />
-
-        {/* Soft orange glow top-right */}
+          style={{ backgroundImage: "radial-gradient(circle, #16a34a 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
         <div className="absolute -top-20 -right-20 w-[500px] h-[500px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(249,115,22,0.08) 0%, transparent 70%)" }} />
+          style={{ background: "radial-gradient(circle, rgba(22,163,74,0.08) 0%, transparent 70%)" }} />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-36 pb-16">
 
-          {/* Pill badge */}
           <div className="flex justify-center mb-7">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full"
-              style={{ background: "rgba(249,115,22,0.08)", border: "1px solid rgba(249,115,22,0.20)" }}>
-              <Briefcase size={13} style={{ color: "#f97316" }} />
-              <span className="text-xs font-semibold" style={{ color: "#ea580c" }}>
+              style={{ background: "rgba(22,163,74,0.08)", border: "1px solid rgba(22,163,74,0.20)" }}>
+              <Briefcase size={13} style={{ color: "#16a34a" }} />
+              <span className="text-xs font-semibold" style={{ color: "#15803d" }}>
                 Business Loan · Bangalore · SME &amp; MSME Specialists
               </span>
             </div>
           </div>
 
-          {/* Headline */}
           <div className="text-center max-w-3xl mx-auto mb-6">
             <h1 className="font-extrabold leading-[1.08] tracking-tight mb-5"
               style={{ fontSize: "clamp(36px, 5.5vw, 64px)", color: "#111827" }}>
               Fund Your Business.{" "}
-              <span style={{ color: "#f97316" }}>Grow Without Limits.</span>
+              <span style={{ color: "#5BC83F" }}>Grow Without Limits.</span>
             </h1>
             <p className="text-base md:text-lg leading-relaxed mb-2" style={{ color: "#6b7280" }}>
               Working capital, machinery, expansion, or overdraft —{" "}
               <strong style={{ color: "#111827" }}>₹5L to ₹2 Crore</strong> from{" "}
-              <strong style={{ color: "#f97316" }}>60+ lenders</strong> at rates from{" "}
+              <strong style={{ color: "#16a34a" }}>60+ lenders</strong> at rates from{" "}
               <strong style={{ color: "#16a34a" }}>12% p.a.</strong>
             </p>
             <p className="text-xs" style={{ color: "#9ca3af" }}>
@@ -266,30 +164,28 @@ export default function BusinessLoanPage() {
             </p>
           </div>
 
-          {/* CTAs */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-10">
             <Link href="/contact">
-              <span className="inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl text-sm font-bold text-white cursor-pointer transition-all"
-                style={{ background: "linear-gradient(135deg, #f97316 0%, #ea580c 100%)", boxShadow: "0 6px 24px rgba(249,115,22,0.28)" }}>
+              <span className="inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl text-sm font-bold text-white cursor-pointer"
+                style={{ background: "linear-gradient(135deg, #5BC83F 0%, #16a34a 100%)", boxShadow: "0 6px 24px rgba(22,163,74,0.28)" }}>
                 Talk to Business Advisor — Free
                 <ArrowRight size={15} />
               </span>
             </Link>
             <Link href="/emi-calculator">
-              <span className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl text-sm font-semibold cursor-pointer transition-all"
+              <span className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl text-sm font-semibold cursor-pointer transition-colors hover:border-green-600 hover:text-green-700"
                 style={{ background: "#fff", border: "1.5px solid #e5e7eb", color: "#374151", boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}>
-                <Zap size={15} style={{ color: "#f97316" }} />
+                <Zap size={15} style={{ color: "#16a34a" }} />
                 Calculate EMI
               </span>
             </Link>
           </div>
 
-          {/* Trust strip */}
           <div className="flex items-center justify-center gap-6 flex-wrap mb-12">
             {[
-              { icon: CheckCircle2, text: "RBI Compliant Lenders",    color: "#16a34a" },
-              { icon: Shield,       text: "No Hidden Charges",        color: "#f97316" },
-              { icon: Users,        text: "All Business Structures",  color: "#3b82f6" },
+              { icon: CheckCircle2, text: "RBI Compliant Lenders",   color: "#16a34a" },
+              { icon: Shield,       text: "No Hidden Charges",       color: "#16a34a" },
+              { icon: Users,        text: "All Business Structures", color: "#3b82f6" },
             ].map(({ icon: Icon, text, color }) => (
               <div key={text} className="flex items-center gap-1.5">
                 <Icon size={14} style={{ color }} />
@@ -315,7 +211,7 @@ export default function BusinessLoanPage() {
                 const Icon = pt.icon;
                 return (
                   <div key={pt.label}
-                    className="rounded-2xl p-4 flex flex-col items-center text-center transition-all duration-200 cursor-default"
+                    className="rounded-2xl p-4 flex flex-col items-center text-center cursor-default"
                     style={{ background: "#fff", border: "1.5px solid #f0f0f0", boxShadow: "0 1px 4px rgba(0,0,0,0.04)" }}>
                     <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-2.5"
                       style={{ background: `${pt.color}12` }}>
@@ -333,22 +229,20 @@ export default function BusinessLoanPage() {
           <div className="rounded-2xl overflow-hidden" style={{ background: "#fff", border: "1.5px solid #f0f0f0", boxShadow: "0 2px 12px rgba(0,0,0,0.05)" }}>
             <div className="grid grid-cols-2 md:grid-cols-4">
               {[
-                { value: "60+",   label: "Partner Banks & NBFCs",  sub: "Incl. fintechs",          color: "#f97316" },
+                { value: "60+",   label: "Partner Banks & NBFCs",  sub: "Incl. fintechs",          color: "#16a34a" },
                 { value: "48hr",  label: "Loan Approval Time",     sub: "From doc submission",     color: "#16a34a" },
-                { value: "12%",   label: "Starting Interest Rate", sub: "Per annum (secured)",     color: "#f97316" },
-                { value: "₹2 Cr", label: "Maximum Loan Amount",    sub: "For eligible businesses", color: "#3b82f6" },
+                { value: "12%",   label: "Starting Interest Rate", sub: "Per annum (secured)",     color: "#16a34a" },
+                { value: "₹2 Cr", label: "Maximum Loan Amount",    sub: "For eligible businesses", color: "#1B3A6B" },
               ].map((s, i) => (
                 <div key={s.label} className="px-6 py-5 text-center"
                   style={{ borderRight: i < 3 ? "1px solid #f0f0f0" : "none" }}>
-                  <p className="font-extrabold font-mono text-2xl md:text-3xl leading-none mb-1"
-                    style={{ color: s.color }}>{s.value}</p>
+                  <p className="font-extrabold font-mono text-2xl md:text-3xl leading-none mb-1" style={{ color: s.color }}>{s.value}</p>
                   <p className="text-xs font-semibold mb-0.5" style={{ color: "#111827" }}>{s.label}</p>
                   <p className="text-[10px]" style={{ color: "#9ca3af" }}>{s.sub}</p>
                 </div>
               ))}
             </div>
           </div>
-
         </div>
 
         {/* Wave divider */}
@@ -360,13 +254,13 @@ export default function BusinessLoanPage() {
       </section>
 
       {/* ══════════════════════════════════════════════
-          LOAN TYPES — 6-card grid
+          LOAN TYPES
       ══════════════════════════════════════════════ */}
       <section className="py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <span className="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-4"
-              style={{ background: "rgba(249,115,22,0.1)", color: "#f97316" }}>
+              style={{ background: "rgba(22,163,74,0.1)", color: "#16a34a" }}>
               Products
             </span>
             <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4" style={{ color: "#1a1a1a" }}>
@@ -399,9 +293,7 @@ export default function BusinessLoanPage() {
                       <Icon size={20} style={{ color: lt.color }} />
                     </div>
                     <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full"
-                      style={i === 0
-                        ? { background: `${lt.color}20`, color: lt.color }
-                        : { background: `${lt.color}10`, color: lt.color }}>
+                      style={{ background: i === 0 ? `${lt.color}20` : `${lt.color}10`, color: lt.color }}>
                       {lt.badge}
                     </span>
                   </div>
@@ -429,7 +321,7 @@ export default function BusinessLoanPage() {
       </section>
 
       {/* ══════════════════════════════════════════════
-          WHY OPENCREDIT — Features
+          WHY OPENCREDIT
       ══════════════════════════════════════════════ */}
       <section className="py-20 md:py-28 relative overflow-hidden" style={{ background: "#f9fafb" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -443,20 +335,16 @@ export default function BusinessLoanPage() {
               <span style={{ color: "#16a34a" }}>Fund Your Business</span>
             </h2>
             <p className="text-base max-w-2xl mx-auto" style={{ color: "#6b7280" }}>
-              We don't just connect you to one lender — we navigate 60+ options to find the best fit for your business profile.
+              We don&apos;t just connect you to one lender — we navigate 60+ options to find the best fit for your business profile.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {features.map((f, i) => {
+            {features.map(f => {
               const Icon = f.icon;
               return (
                 <div key={f.title} className="rounded-2xl p-7 transition-all duration-300 hover:-translate-y-1"
-                  style={{
-                    background: "#fff",
-                    border: "1px solid #f0f0f0",
-                    boxShadow: "0 1px 3px rgba(0,0,0,0.05)",
-                  }}>
+                  style={{ background: "#fff", border: "1px solid #f0f0f0", boxShadow: "0 1px 3px rgba(0,0,0,0.05)" }}>
                   <div className="flex items-start justify-between mb-5">
                     <div className="w-11 h-11 rounded-xl flex items-center justify-center" style={{ background: "rgba(22,163,74,0.08)" }}>
                       <Icon size={20} style={{ color: "#16a34a" }} />
@@ -476,13 +364,13 @@ export default function BusinessLoanPage() {
       </section>
 
       {/* ══════════════════════════════════════════════
-          HOW IT WORKS — 5 Steps
+          HOW IT WORKS
       ══════════════════════════════════════════════ */}
       <section className="py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span className="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-4"
-              style={{ background: "rgba(249,115,22,0.1)", color: "#f97316" }}>
+              style={{ background: "rgba(22,163,74,0.1)", color: "#16a34a" }}>
               Simple Process
             </span>
             <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4" style={{ color: "#1a1a1a" }}>
@@ -496,19 +384,19 @@ export default function BusinessLoanPage() {
 
           <div className="relative">
             <div className="hidden lg:block absolute top-10 left-0 right-0 h-px mx-32"
-              style={{ background: "linear-gradient(to right, transparent, #f97316 20%, #f97316 80%, transparent)" }} />
+              style={{ background: "linear-gradient(to right, transparent, #16a34a 20%, #16a34a 80%, transparent)" }} />
 
             <div className="grid md:grid-cols-5 gap-6">
               {steps.map((step, i) => (
                 <div key={step.num} className="relative text-center">
                   <div className="w-20 h-20 rounded-2xl flex flex-col items-center justify-center mx-auto mb-5 relative z-10"
                     style={{
-                      background: i === 0 ? "#f97316" : "#fff",
+                      background: i === 0 ? "#16a34a" : "#fff",
                       border: i === 0 ? "none" : "2px solid #e5e7eb",
-                      boxShadow: i === 0 ? "0 10px 40px rgba(249,115,22,0.3)" : "0 2px 8px rgba(0,0,0,0.06)",
+                      boxShadow: i === 0 ? "0 10px 40px rgba(22,163,74,0.3)" : "0 2px 8px rgba(0,0,0,0.06)",
                     }}>
                     <span className="text-xs font-bold uppercase tracking-wider" style={{ color: i === 0 ? "rgba(255,255,255,0.7)" : "#9ca3af" }}>{step.num}</span>
-                    <ChevronRight size={16} style={{ color: i === 0 ? "#fff" : "#f97316", marginTop: "2px" }} />
+                    <ChevronRight size={16} style={{ color: i === 0 ? "#fff" : "#16a34a", marginTop: "2px" }} />
                   </div>
                   <h3 className="font-bold text-sm mb-2" style={{ color: "#1a1a1a" }}>{step.title}</h3>
                   <p className="text-xs leading-relaxed" style={{ color: "#9ca3af" }}>{step.desc}</p>
@@ -519,10 +407,7 @@ export default function BusinessLoanPage() {
 
           <div className="text-center mt-12">
             <Link href="/contact">
-              <span className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl text-sm font-bold text-white cursor-pointer transition-all"
-                style={{ background: "#16a34a" }}
-                onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = "#15803d"}
-                onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = "#16a34a"}>
+              <span className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl text-sm font-bold text-white cursor-pointer bg-green-600 hover:bg-green-700 transition-colors">
                 Talk to Our Business Advisor
                 <ArrowRight size={16} />
               </span>
@@ -549,8 +434,8 @@ export default function BusinessLoanPage() {
             <div className="bg-white rounded-3xl p-8"
               style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.06), 0 0 0 1px rgba(0,0,0,0.04)" }}>
               <div className="flex items-center gap-3 mb-7">
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: "#fff7ed" }}>
-                  <Star size={18} style={{ color: "#f97316" }} />
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: "#f0fdf4" }}>
+                  <Star size={18} style={{ color: "#16a34a" }} />
                 </div>
                 <h3 className="font-bold text-lg" style={{ color: "#1a1a1a" }}>Eligibility Criteria</h3>
               </div>
@@ -563,7 +448,7 @@ export default function BusinessLoanPage() {
                   </div>
                 ))}
               </div>
-              <div className="mt-6 rounded-xl p-4" style={{ background: "#fff7ed", border: "1px solid rgba(249,115,22,0.15)" }}>
+              <div className="mt-6 rounded-xl p-4" style={{ background: "#f0fdf4", border: "1px solid rgba(22,163,74,0.15)" }}>
                 <p className="text-xs leading-relaxed" style={{ color: "#6b7280" }}>
                   <strong style={{ color: "#1a1a1a" }}>Note:</strong> Eligibility varies by lender and loan product. Final assessment is at the lender&apos;s discretion. Subject to credit and business due diligence.
                 </p>
@@ -594,10 +479,7 @@ export default function BusinessLoanPage() {
                 </p>
               </div>
               <Link href="/contact">
-                <span className="flex items-center justify-center gap-2 w-full py-3.5 rounded-2xl text-sm font-bold text-white cursor-pointer transition-all"
-                  style={{ background: "#16a34a" }}
-                  onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = "#15803d"}
-                  onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = "#16a34a"}>
+                <span className="flex items-center justify-center gap-2 w-full py-3.5 rounded-2xl text-sm font-bold text-white cursor-pointer bg-green-600 hover:bg-green-700 transition-colors">
                   Get Free Eligibility Check
                   <ArrowRight size={16} />
                 </span>
@@ -642,12 +524,12 @@ export default function BusinessLoanPage() {
         <div className="absolute inset-0 pointer-events-none"
           style={{ backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px)", backgroundSize: "32px 32px" }} />
         <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(249,115,22,0.10) 0%, transparent 70%)" }} />
+          style={{ background: "radial-gradient(circle, rgba(22,163,74,0.10) 0%, transparent 70%)" }} />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <span className="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-4"
-              style={{ background: "rgba(249,115,22,0.15)", color: "#fb923c" }}>
+              style={{ background: "rgba(22,163,74,0.15)", color: "#4ade80" }}>
               Customer Stories
             </span>
             <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-3">
@@ -705,28 +587,8 @@ export default function BusinessLoanPage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════
-          FAQ
-      ══════════════════════════════════════════════ */}
-      <section className="py-20 md:py-28 bg-white">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <span className="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-4"
-              style={{ background: "rgba(22,163,74,0.1)", color: "#16a34a" }}>
-              FAQ
-            </span>
-            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight" style={{ color: "#1a1a1a" }}>
-              Common{" "}
-              <span style={{ color: "#16a34a" }}>Questions</span>
-            </h2>
-          </div>
-          <div className="space-y-3">
-            {faqs.map(faq => (
-              <FAQItem key={faq.q} q={faq.q} a={faq.a} />
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* FAQ — client component */}
+      <BusinessLoanFAQ />
 
       {/* ══════════════════════════════════════════════
           FINAL CTA
@@ -735,11 +597,11 @@ export default function BusinessLoanPage() {
         <div className="absolute inset-0 pointer-events-none"
           style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(ellipse, rgba(249,115,22,0.10) 0%, transparent 70%)" }} />
+          style={{ background: "radial-gradient(ellipse, rgba(22,163,74,0.10) 0%, transparent 70%)" }} />
 
         <div className="relative max-w-3xl mx-auto px-4 text-center">
           <span className="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-6"
-            style={{ background: "rgba(249,115,22,0.15)", color: "#fb923c" }}>
+            style={{ background: "rgba(22,163,74,0.15)", color: "#4ade80" }}>
             Get Started Today
           </span>
           <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">
@@ -758,19 +620,13 @@ export default function BusinessLoanPage() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact">
-              <span className="inline-flex items-center gap-2 px-10 py-4 rounded-2xl text-base font-bold text-white cursor-pointer transition-all"
-                style={{ background: "#16a34a" }}
-                onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = "#15803d"}
-                onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = "#16a34a"}>
+              <span className="inline-flex items-center gap-2 px-10 py-4 rounded-2xl text-base font-bold text-white cursor-pointer bg-green-600 hover:bg-green-700 transition-colors">
                 Talk to Business Advisor — Free
                 <ArrowRight size={18} />
               </span>
             </Link>
             <Link href="/emi-calculator">
-              <span className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl text-base font-bold cursor-pointer transition-all"
-                style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.12)", color: "rgba(255,255,255,0.7)" }}
-                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.10)"; (e.currentTarget as HTMLElement).style.color = "#fff"; }}
-                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.06)"; (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.7)"; }}>
+              <span className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl text-base font-bold cursor-pointer transition-colors bg-white/[0.06] hover:bg-white/10 border border-white/[0.12] text-white/70 hover:text-white">
                 <Zap size={16} />
                 Calculate EMI
               </span>
