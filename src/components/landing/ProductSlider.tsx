@@ -187,7 +187,7 @@ export default function ProductSlider() {
             }}
           >
             {products.map((p, i) => {
-              const Icon = p.icon;
+              const Icon = p.icon as React.ComponentType<{ size?: number; style?: React.CSSProperties }> | null;
               return (
                 /* Responsive card widths:
                    mobile  → 83vw  (1 card + peek)

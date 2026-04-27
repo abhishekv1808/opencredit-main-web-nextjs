@@ -10,23 +10,23 @@ const contactInfo = [
   {
     icon: Phone,
     label: "Call Us",
-    value: "+91 98765 43210",
+    value: "+91 99000 77949",
     sub: "Mon–Sat, 9 AM – 6 PM",
-    href: "tel:+919876543210",
+    href: "tel:+919900077949",
   },
   {
     icon: Mail,
     label: "Email",
-    value: "hello@opencredit.money",
+    value: "contact@opencredit.money",
     sub: "Reply within 24 hours",
-    href: "mailto:hello@opencredit.money",
+    href: "mailto:contact@opencredit.money",
   },
   {
     icon: MapPin,
     label: "Office",
-    value: "123, MG Road, Bangalore",
-    sub: "Karnataka — 560001",
-    href: "https://maps.google.com",
+    value: "Metro Pillar 471, Narasappa Road",
+    sub: "T. Dasarahalli, Bengaluru — 560057",
+    href: "https://maps.google.com/maps?q=Metro+Pillar+471+Narasappa+Road+T+Dasarahalli+Bengaluru+560057",
   },
   {
     icon: Clock,
@@ -92,7 +92,7 @@ export default function ContactPage() {
               {/* Quick-action buttons */}
               <div className="flex flex-wrap gap-3">
                 <a
-                  href="tel:+919876543210"
+                  href="tel:+919900077949"
                   className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold text-white transition-all hover:scale-[1.03] active:scale-[0.98]"
                   style={{ background: "linear-gradient(135deg,#5BC83F,#3DA52A)", boxShadow: "0 4px 16px rgba(91,200,63,0.3)" }}
                 >
@@ -100,7 +100,7 @@ export default function ContactPage() {
                   Call Now
                 </a>
                 <a
-                  href="https://wa.me/919876543210?text=Hi%2C%20I%20need%20help%20with%20a%20loan"
+                  href="https://wa.me/919900077949?text=Hi%2C%20I%20need%20help%20with%20a%20loan"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold transition-all hover:scale-[1.03] active:scale-[0.98]"
@@ -155,7 +155,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <p className="text-xs font-bold" style={{ color: "#1a1a1a" }}>Call Us</p>
-                  <p className="text-[11px]" style={{ color: "#9ca3af" }}>+91 98765 43210</p>
+                  <p className="text-[11px]" style={{ color: "#9ca3af" }}>+91 99000 77949</p>
                 </div>
               </div>
 
@@ -193,7 +193,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <p className="text-xs font-bold" style={{ color: "#1a1a1a" }}>Office</p>
-                  <p className="text-[11px]" style={{ color: "#9ca3af" }}>MG Road, Bangalore</p>
+                  <p className="text-[11px]" style={{ color: "#9ca3af" }}>T. Dasarahalli, Bengaluru</p>
                 </div>
               </div>
 
@@ -272,7 +272,7 @@ export default function ContactPage() {
                   business hours.
                 </p>
                 <a
-                  href="https://wa.me/919876543210?text=Hi%2C%20I%20need%20help%20with%20a%20personal%20loan"
+                  href="https://wa.me/919900077949?text=Hi%2C%20I%20need%20help%20with%20a%20personal%20loan"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

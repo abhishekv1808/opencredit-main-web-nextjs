@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 
-const WA_NUMBER  = "919876543210";
+const WA_NUMBER  = "919900077949";
 const WA_MESSAGE = encodeURIComponent(
   "Hi, I need help with a loan from OpenCredit.Money"
 );
