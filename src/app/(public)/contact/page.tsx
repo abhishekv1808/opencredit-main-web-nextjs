@@ -46,10 +46,32 @@ export default function ContactPage() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [formError, setFormError] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setSubmitting(true);
+    setFormError("");
+    try {
+      const res = await fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          phone: form.phone,
+          email: form.email,
+          source: `contact_form — ${form.subject}`,
+          message: form.message,
+        }),
+      });
+      if (!res.ok) throw new Error("Failed to submit");
+      setSubmitted(true);
+    } catch {
+      setFormError("Something went wrong. Please call us directly at +91 99000 77949.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -391,9 +413,21 @@ export default function ContactPage() {
                     .
                   </div>
 
-                  <Button type="submit" variant="accent" size="lg" className="w-full group">
+                  {formError && (
+                    <p className="text-sm text-red-500 bg-red-50 border border-red-200 rounded-xl px-4 py-3">
+                      {formError}
+                    </p>
+                  )}
+
+                  <Button
+                    type="submit"
+                    variant="accent"
+                    size="lg"
+                    className="w-full group"
+                    disabled={submitting}
+                  >
                     <Send size={18} />
-                    Send Message
+                    {submitting ? "Sending…" : "Send Message"}
                   </Button>
                 </form>
               )}

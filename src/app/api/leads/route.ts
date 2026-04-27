@@ -5,7 +5,7 @@ export async function POST(req: Request) {
   const supabase = await createClient();
 
   const body = await req.json();
-  const { name, phone, email, source, loan_amount } = body;
+  const { name, phone, email, source, loan_amount, message } = body;
 
   if (!phone) {
     return NextResponse.json({ error: "Phone number required" }, { status: 400 });
@@ -33,6 +33,7 @@ export async function POST(req: Request) {
         <p><strong>Phone:</strong> ${phone}</p>
         <p><strong>Email:</strong> ${email || "—"}</p>
         <p><strong>Loan Amount:</strong> ₹${loan_amount?.toLocaleString("en-IN") || "—"}</p>
+        ${message ? `<p><strong>Message:</strong> ${message}</p>` : ""}
       `,
     });
   } catch {
