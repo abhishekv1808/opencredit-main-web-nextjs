@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowRight, CheckCircle2, Shield, Clock, Zap, Star,
   ChevronRight, Home, GraduationCap, Heart,
@@ -46,14 +47,14 @@ const features = [
 ];
 
 const purposes = [
-  { icon: Home,          label: "Home Renovation",     color: "#3b82f6" },
-  { icon: GraduationCap, label: "Education",           color: "#8b5cf6" },
-  { icon: Heart,         label: "Medical",             color: "#ef4444" },
-  { icon: Plane,         label: "Travel",              color: "#16a34a" },
-  { icon: Car,           label: "Vehicle",             color: "#f97316" },
-  { icon: Briefcase,     label: "Business",            color: "#0891b2" },
-  { icon: Wrench,        label: "Repairs",             color: "#d97706" },
-  { icon: CreditCard,    label: "Debt Consolidation",  color: "#6366f1" },
+  { icon: Home,          label: "Home Renovation",    color: "#3b82f6", image: "/images/usecase-home-renovation.jpg" },
+  { icon: GraduationCap, label: "Education",          color: "#8b5cf6", image: "/images/usecase-education.jpg" },
+  { icon: Heart,         label: "Medical",            color: "#ef4444", image: null },
+  { icon: Plane,         label: "Travel",             color: "#16a34a", image: "/images/usecase-travel.jpg" },
+  { icon: Car,           label: "Vehicle",            color: "#f97316", image: "/images/usecase-finance-control.jpeg" },
+  { icon: Briefcase,     label: "Business",           color: "#0891b2", image: null },
+  { icon: Wrench,        label: "Repairs",            color: "#d97706", image: null },
+  { icon: CreditCard,    label: "Debt Consolidation", color: "#6366f1", image: "/images/usecase-finance-control.jpeg" },
 ];
 
 const eligibility = [
@@ -151,58 +152,36 @@ export default function PersonalLoanPage() {
               <PersonalLoanHeroForm />
             </div>
 
-            {/* Right — Stat Cards */}
-            <div className="hidden lg:grid grid-cols-2 gap-4">
-              <div className="col-span-2 rounded-3xl p-7 relative overflow-hidden"
-                style={{ background: "#fff", border: "1px solid #e5e7eb", boxShadow: "0 4px 24px rgba(0,0,0,0.06)" }}>
-                <div className="absolute -right-8 -top-8 w-40 h-40 rounded-full"
-                  style={{ background: "radial-gradient(circle, rgba(22,163,74,0.12) 0%, transparent 70%)" }} />
-                <div className="relative">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-11 h-11 rounded-2xl flex items-center justify-center" style={{ background: "rgba(22,163,74,0.10)" }}>
-                      <Zap size={20} style={{ color: "#16a34a" }} />
-                    </div>
-                    <div>
-                      <p className="font-bold text-sm" style={{ color: "#1a1a1a" }}>Instant Matching</p>
-                      <p className="text-xs" style={{ color: "#9ca3af" }}>Get 10 offers in 5 minutes</p>
-                    </div>
+            {/* Right — Hero Image */}
+            <div className="hidden lg:flex items-center justify-center">
+              <div className="relative w-full max-w-lg" style={{ transform: "rotate(1.5deg)" }}>
+                <div className="relative rounded-2xl overflow-hidden" style={{ boxShadow: "0 30px 80px rgba(0,0,0,0.18)" }}>
+                  <Image
+                    src="/images/hero-loan-approval.jpg"
+                    alt="Personal loan approval on mobile"
+                    width={600}
+                    height={500}
+                    className="w-full h-auto object-cover"
+                    priority
+                  />
+                </div>
+                {/* Floating disbursal badge */}
+                <div className="absolute -bottom-4 -left-6 rounded-2xl px-5 py-3.5 flex items-center gap-3"
+                  style={{ background: "#fff", boxShadow: "0 8px 32px rgba(0,0,0,0.12)" }}>
+                  <div className="w-9 h-9 rounded-xl flex items-center justify-center" style={{ background: "#f0fdf4" }}>
+                    <Zap size={16} style={{ color: "#16a34a" }} />
                   </div>
-                  <div className="flex items-end gap-2">
-                    <span className="text-5xl font-extrabold font-mono" style={{ color: "#16a34a" }}>10</span>
-                    <span className="text-lg font-semibold mb-1" style={{ color: "#1a1a1a" }}>pre-approved offers</span>
-                  </div>
-                  <p className="text-xs mt-2" style={{ color: "#9ca3af" }}>From 60+ partner banks & NBFCs</p>
-                </div>
-              </div>
-
-              <div className="rounded-3xl p-6 flex flex-col justify-between"
-                style={{ background: "linear-gradient(135deg, #15803d 0%, #16a34a 100%)", minHeight: "140px", boxShadow: "0 12px 32px rgba(22,163,74,0.28)" }}>
-                <p className="text-white/70 text-xs font-semibold uppercase tracking-wider">Starting Rate</p>
-                <div>
-                  <p className="text-white font-extrabold text-4xl font-mono leading-none">10.25%</p>
-                  <p className="text-white/70 text-xs mt-1">per annum</p>
-                </div>
-              </div>
-
-              <div className="rounded-3xl p-6 flex flex-col justify-between"
-                style={{ background: "#fff", border: "1px solid #e5e7eb", boxShadow: "0 2px 12px rgba(0,0,0,0.05)", minHeight: "140px" }}>
-                <p className="text-xs font-semibold uppercase tracking-wider" style={{ color: "#9ca3af" }}>Disbursal</p>
-                <div>
-                  <p className="font-extrabold text-4xl font-mono leading-none" style={{ color: "#1a1a1a" }}>24</p>
-                  <p className="text-xs mt-1" style={{ color: "#6b7280" }}>hours to account</p>
-                </div>
-              </div>
-
-              <div className="col-span-2 rounded-3xl p-5" style={{ background: "#f9fafb", border: "1px solid #e5e7eb" }}>
-                <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-xs font-medium" style={{ color: "#9ca3af" }}>Loan Amount Range</p>
-                    <p className="font-bold text-lg mt-1 font-mono" style={{ color: "#1a1a1a" }}>₹50,000 — ₹40,00,000</p>
+                    <p className="text-[11px] font-semibold" style={{ color: "#9ca3af" }}>Disbursed in</p>
+                    <p className="font-extrabold text-sm font-mono" style={{ color: "#1a1a1a" }}>24 hours</p>
                   </div>
-                  <div className="text-right">
-                    <p className="text-xs font-medium" style={{ color: "#9ca3af" }}>Tenure</p>
-                    <p className="font-bold text-lg mt-1 font-mono" style={{ color: "#1a1a1a" }}>12 — 60 months</p>
-                  </div>
+                </div>
+                {/* Floating rate badge */}
+                <div className="absolute -top-4 -right-4 rounded-2xl px-5 py-3 text-center"
+                  style={{ background: "#16a34a", boxShadow: "0 8px 32px rgba(22,163,74,0.35)" }}>
+                  <p className="text-white/70 text-[10px] font-semibold uppercase tracking-wide">From</p>
+                  <p className="text-white font-extrabold text-xl font-mono leading-none">10.25%</p>
+                  <p className="text-white/70 text-[10px] mt-0.5">p.a.</p>
                 </div>
               </div>
             </div>
@@ -255,37 +234,54 @@ export default function PersonalLoanPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {features.map((f, i) => {
-              const Icon = f.icon;
-              return (
-                <div key={f.title} className="group rounded-2xl p-7 transition-all duration-300 hover:-translate-y-1"
-                  style={{
-                    background: i === 0 ? "#1a1a1a" : "#fff",
-                    border: i === 0 ? "none" : "1px solid #f0f0f0",
-                    boxShadow: i === 0 ? "0 20px 60px rgba(0,0,0,0.15)" : "0 1px 3px rgba(0,0,0,0.05)",
-                  }}>
-                  <div className="flex items-start justify-between mb-5">
-                    <div className="w-11 h-11 rounded-xl flex items-center justify-center"
-                      style={{ background: i === 0 ? "rgba(22,163,74,0.2)" : "rgba(22,163,74,0.08)" }}>
-                      <Icon size={20} style={{ color: "#16a34a" }} />
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+
+            {/* Left — Advisor image */}
+            <div className="relative rounded-2xl overflow-hidden flex-shrink-0"
+              style={{ aspectRatio: "4/3", maxWidth: "520px", boxShadow: "0 20px 60px rgba(0,0,0,0.10)" }}>
+              <Image
+                src="/images/features-advisor-customer.jpg"
+                alt="OpenCredit loan advisor helping customer"
+                fill
+                className="object-cover"
+                loading="lazy"
+              />
+            </div>
+
+            {/* Right — Feature cards */}
+            <div className="grid sm:grid-cols-2 gap-4">
+              {features.map((f, i) => {
+                const Icon = f.icon;
+                return (
+                  <div key={f.title} className="group rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1"
+                    style={{
+                      background: i === 0 ? "#1a1a1a" : "#fff",
+                      border: i === 0 ? "none" : "1px solid #f0f0f0",
+                      boxShadow: i === 0 ? "0 20px 60px rgba(0,0,0,0.15)" : "0 1px 3px rgba(0,0,0,0.05)",
+                    }}>
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="w-10 h-10 rounded-xl flex items-center justify-center"
+                        style={{ background: i === 0 ? "rgba(22,163,74,0.2)" : "rgba(22,163,74,0.08)" }}>
+                        <Icon size={18} style={{ color: "#16a34a" }} />
+                      </div>
+                      <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full"
+                        style={i === 0
+                          ? { background: "rgba(74,222,128,0.15)", color: "#4ade80" }
+                          : { background: "#f0fdf4", color: "#16a34a" }}>
+                        {f.badge}
+                      </span>
                     </div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full"
-                      style={i === 0
-                        ? { background: "rgba(74,222,128,0.15)", color: "#4ade80" }
-                        : { background: "#f0fdf4", color: "#16a34a" }}>
-                      {f.badge}
-                    </span>
+                    <h3 className="font-bold text-sm mb-1.5" style={{ color: i === 0 ? "#fff" : "#1a1a1a" }}>
+                      {f.title}
+                    </h3>
+                    <p className="text-xs leading-relaxed" style={{ color: i === 0 ? "rgba(255,255,255,0.5)" : "#6b7280" }}>
+                      {f.desc}
+                    </p>
                   </div>
-                  <h3 className="font-bold text-base mb-2" style={{ color: i === 0 ? "#fff" : "#1a1a1a" }}>
-                    {f.title}
-                  </h3>
-                  <p className="text-sm leading-relaxed" style={{ color: i === 0 ? "rgba(255,255,255,0.5)" : "#6b7280" }}>
-                    {f.desc}
-                  </p>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
+
           </div>
         </div>
       </section>
@@ -365,17 +361,48 @@ export default function PersonalLoanPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
             {purposes.map(p => {
               const Icon = p.icon;
               return (
-                <div key={p.label} className="rounded-2xl p-5 text-center group cursor-default transition-all hover:-translate-y-1 hover:shadow-md"
-                  style={{ background: "#f9fafb", border: "1px solid #f0f0f0" }}>
-                  <div className="w-10 h-10 rounded-xl flex items-center justify-center mx-auto mb-3"
-                    style={{ background: `${p.color}15` }}>
-                    <Icon size={18} style={{ color: p.color }} />
-                  </div>
-                  <p className="text-[11px] font-semibold leading-tight" style={{ color: "#374151" }}>{p.label}</p>
+                <div key={p.label}
+                  className="group rounded-2xl overflow-hidden cursor-default transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                  style={{ background: "#fff", border: "1px solid #f0f0f0", boxShadow: "0 1px 4px rgba(0,0,0,0.05)" }}>
+
+                  {p.image ? (
+                    <div className="relative overflow-hidden rounded-t-2xl" style={{ height: "190px" }}>
+                      <Image
+                        src={p.image}
+                        alt={`Personal loan for ${p.label}`}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        loading="lazy"
+                        sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                      />
+                      <div className="absolute inset-x-0 bottom-0 h-16"
+                        style={{ background: "linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 100%)" }} />
+                      <p className="absolute bottom-3 left-4 text-sm font-bold text-white drop-shadow">{p.label}</p>
+                    </div>
+                  ) : (
+                    <div className="flex flex-col items-center justify-center rounded-t-2xl"
+                      style={{ height: "190px", background: `${p.color}0f` }}>
+                      <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-3"
+                        style={{ background: `${p.color}18` }}>
+                        <Icon size={26} style={{ color: p.color }} />
+                      </div>
+                      <p className="text-sm font-bold" style={{ color: "#374151" }}>{p.label}</p>
+                    </div>
+                  )}
+
+                  {p.image && (
+                    <div className="flex items-center gap-2 px-4 py-3">
+                      <div className="w-6 h-6 rounded-lg flex items-center justify-center flex-shrink-0"
+                        style={{ background: `${p.color}15` }}>
+                        <Icon size={12} style={{ color: p.color }} />
+                      </div>
+                      <p className="text-xs font-semibold" style={{ color: "#374151" }}>{p.label}</p>
+                    </div>
+                  )}
                 </div>
               );
             })}
@@ -488,6 +515,19 @@ export default function PersonalLoanPage() {
           TESTIMONIALS
       ══════════════════════════════════════════════ */}
       <section className="py-20 md:py-28 relative overflow-hidden" style={{ background: "#0d0d0d" }}>
+
+        {/* Background photo */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/testimonials-bangalore-team.jpg"
+            alt="Happy OpenCredit customers in Bangalore"
+            fill
+            className="object-cover object-center"
+            loading="lazy"
+          />
+          <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.78)" }} />
+        </div>
+
         <div className="absolute inset-0 pointer-events-none"
           style={{ backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px)", backgroundSize: "32px 32px" }} />
         <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full pointer-events-none"

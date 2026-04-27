@@ -2,11 +2,8 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
-import {
-  ArrowRight, ChevronLeft, ChevronRight,
-  CreditCard, TrendingUp, Home, Briefcase,
-  Car, Building2, GraduationCap, Landmark,
-} from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 
 const products = [
   {
@@ -14,7 +11,8 @@ const products = [
     tagline: "From 10.25% p.a.",
     desc: "Instant funds for any need — medical, travel, wedding, or renovation. 100% online, no collateral, approval in 24 hours.",
     href: "/personal-loan",
-    icon: CreditCard,
+    image: "/images/personal_loan.jpg",
+    icon: null,
     iconColor: "#0284c7",
     iconBg: "#e0f2fe",
     comingSoon: false,
@@ -24,7 +22,8 @@ const products = [
     tagline: "From 8.40% p.a.",
     desc: "Finance your dream home with the lowest available rates from 60+ lenders. Up to ₹10 Crore, tenure up to 30 years.",
     href: "/home-loan",
-    icon: Home,
+    image: "/images/home_loan.jpg",
+    icon: null,
     iconColor: "#1B3A6B",
     iconBg: "#EBF0FA",
     comingSoon: false,
@@ -34,57 +33,63 @@ const products = [
     tagline: "From 10% p.a.",
     desc: "Fuel your business ambitions with working capital, equipment finance, or expansion loans from 60+ lenders.",
     href: "/business-loan",
-    icon: Briefcase,
+    image: "/images/business_loan.jpg",
+    icon: null,
     iconColor: "#b45309",
     iconBg: "#fef3c7",
     comingSoon: false,
   },
   {
     title: "Car Loan",
-    tagline: "Coming Soon",
+    tagline: "Apply Now",
     desc: "New and used car loans at the best rates — doorstep documentation, fast approval, and up to 100% on-road funding.",
     href: "/car-loan",
-    icon: Car,
+    image: "/images/car_loan.jpg",
+    icon: null,
     iconColor: "#16a34a",
     iconBg: "#f0fdf4",
-    comingSoon: true,
+    comingSoon: false,
   },
   {
     title: "Mortgage Loan",
     tagline: "Coming Soon",
     desc: "Unlock the value of your property with a Loan Against Property — up to 70% LTV, all property types accepted.",
     href: "/mortgage-loan",
-    icon: Building2,
+    image: "/images/mortgage_loan.jpg",
+    icon: null,
     iconColor: "#ea580c",
     iconBg: "#fff7ed",
     comingSoon: true,
   },
   {
     title: "Education Loan",
-    tagline: "Coming Soon",
+    tagline: "Apply Now",
     desc: "Fund your higher education in India or abroad. Collateral-free options, moratorium during course, Section 80E tax benefit.",
     href: "/education-loan",
-    icon: GraduationCap,
+    image: "/images/education_loan.jpg",
+    icon: null,
     iconColor: "#0369a1",
     iconBg: "#e0f2fe",
-    comingSoon: true,
+    comingSoon: false,
   },
   {
     title: "Credit Cards",
-    tagline: "Coming Soon",
+    tagline: "Compare Now",
     desc: "Compare India's best credit cards — cashback, travel rewards, lounge access, and zero annual fee options.",
     href: "/credit-cards",
-    icon: Landmark,
+    image: "/images/credit_card.jpg",
+    icon: null,
     iconColor: "#db2777",
     iconBg: "#fdf2f8",
-    comingSoon: true,
+    comingSoon: false,
   },
   {
     title: "CIBIL Correction",
     tagline: "30–90 Day Results",
     desc: "Fix inaccurate entries on your credit report. Expert dispute handling to boost your score in 30–90 days.",
     href: "/credit-report-correction",
-    icon: TrendingUp,
+    image: "/images/credit_score_correction.jpg",
+    icon: null,
     iconColor: "#059669",
     iconBg: "#ecfdf5",
     comingSoon: false,
@@ -93,7 +98,6 @@ const products = [
 
 export default function ProductSlider() {
   const [current, setCurrent] = useState(0);
-  const [paused, setPaused] = useState(false);
   const [cardPx, setCardPx] = useState(0);
   const [maxIdx, setMaxIdx] = useState(products.length - 1);
 
@@ -126,17 +130,12 @@ export default function ProductSlider() {
   const next = useCallback(() => setCurrent(c => (c >= maxIdx ? 0 : c + 1)), [maxIdx]);
 
   useEffect(() => {
-    if (paused) return;
-    const t = setInterval(next, 4500);
+    const t = setInterval(next, 2500);
     return () => clearInterval(t);
-  }, [paused, next]);
+  }, [next]);
 
   return (
-    <section
-      className="py-20 md:py-28 bg-white overflow-hidden"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-    >
+    <section className="py-20 md:py-28 bg-white overflow-hidden">
       {/* Header */}
       <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center mb-12">
         <p className="text-xs font-bold uppercase tracking-[0.2em] mb-3" style={{ color: "#16a34a" }}>
@@ -207,18 +206,28 @@ export default function ProductSlider() {
                     {/* Card image area */}
                     <div
                       className="relative flex-shrink-0 flex items-center justify-center overflow-hidden"
-                      style={{ height: "240px", background: `linear-gradient(135deg, ${p.iconBg} 0%, #f9fafb 100%)` }}
+                      style={{ height: "240px", background: p.image ? undefined : `linear-gradient(135deg, ${p.iconBg} 0%, #f9fafb 100%)` }}
                     >
-                      <div
-                        className="w-24 h-24 rounded-3xl flex items-center justify-center transition-transform duration-500 group-hover:scale-110"
-                        style={{ background: "#fff", boxShadow: `0 12px 40px ${p.iconColor}22` }}
-                      >
-                        <Icon size={44} style={{ color: p.iconColor }} />
-                      </div>
+                      {p.image ? (
+                        <Image
+                          src={p.image}
+                          alt={p.title}
+                          fill
+                          className="object-cover transition-transform duration-500 group-hover:scale-105"
+                          sizes="(max-width: 640px) 83vw, (max-width: 1024px) 47vw, (max-width: 1280px) 31vw, 24vw"
+                        />
+                      ) : Icon ? (
+                        <div
+                          className="w-24 h-24 rounded-3xl flex items-center justify-center transition-transform duration-500 group-hover:scale-110"
+                          style={{ background: "#fff", boxShadow: `0 12px 40px ${p.iconColor}22` }}
+                        >
+                          <Icon size={44} style={{ color: p.iconColor }} />
+                        </div>
+                      ) : null}
 
                       {/* Tagline / Coming Soon pill */}
                       <span
-                        className="absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-bold"
+                        className="absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-bold z-10"
                         style={
                           p.comingSoon
                             ? { background: "#f1f5f9", color: "#64748b", boxShadow: "0 2px 8px rgba(0,0,0,0.08)" }
@@ -231,7 +240,7 @@ export default function ProductSlider() {
                       {/* Coming Soon overlay strip */}
                       {p.comingSoon && (
                         <div
-                          className="absolute bottom-0 inset-x-0 flex items-center justify-center py-1.5"
+                          className="absolute bottom-0 inset-x-0 flex items-center justify-center py-1.5 z-10"
                           style={{ background: "rgba(255,255,255,0.82)", backdropFilter: "blur(6px)", borderTop: "1px solid rgba(0,0,0,0.05)" }}
                         >
                           <span className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider" style={{ color: "#64748b" }}>
