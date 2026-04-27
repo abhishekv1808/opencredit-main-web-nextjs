@@ -300,10 +300,10 @@ export default function Footer() {
                     />
                   </div>
                   <a
-                    href="mailto:hello@opencredit.money"
+                    href="mailto:contact@opencredit.money"
                     className="text-white/35 hover:text-white text-[13px] transition-colors"
                   >
-                    hello@opencredit.money
+                    contact@opencredit.money
                   </a>
                 </div>
 
@@ -363,8 +363,8 @@ export default function Footer() {
               </p>
             </div>
 
-            <p className="text-[10.5px] text-white/18 leading-[1.9] max-w-4xl mx-auto text-center">
-              <strong className="text-white/25 font-semibold">
+            <p className="text-[11px] text-white/50 leading-[1.9] max-w-4xl mx-auto text-center">
+              <strong className="text-white/70 font-semibold">
                 RBI Disclaimer:
               </strong>{" "}
               Open Credit is a loan marketplace/DSA (Direct Selling Agent). We
