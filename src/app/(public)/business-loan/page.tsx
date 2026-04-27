@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import BusinessLoanFAQ from "@/components/landing/BusinessLoanFAQ";
 import { generatePageMetadata } from "@/lib/seo/metadata";
+import { breadcrumbSchema } from "@/lib/seo/jsonld";
 
 export const metadata: Metadata = generatePageMetadata({
   title: "Business Loan in Bangalore | SME & MSME | From 12% p.a.",
@@ -121,6 +122,13 @@ export default function BusinessLoanPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(businessLoanSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema([
+          { name: "Home", url: "https://opencredit.money" },
+          { name: "Business Loan", url: "https://opencredit.money/business-loan" },
+        ])) }}
       />
 
       {/* ══════════════════════════════════════════════

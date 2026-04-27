@@ -10,29 +10,21 @@ import Testimonials from "@/components/landing/Testimonials";
 import TrustBadges from "@/components/landing/TrustBadges";
 import FAQ from "@/components/landing/FAQ";
 import { localBusinessSchema } from "@/lib/seo/jsonld";
+import { generatePageMetadata } from "@/lib/seo/metadata";
 
-export const metadata: Metadata = {
-  title: "Personal Loans & CIBIL Correction in Bangalore | OpenCredit.Money",
+export const metadata: Metadata = generatePageMetadata({
+  title: "Instant Personal Loans Across India",
   description:
-    "Get instant personal loans from ₹50,000 to ₹40 Lakh in Bangalore. Interest rates from 10.25% p.a. Expert CIBIL credit score correction. RBI compliant. Apply online in 10 minutes.",
-  alternates: {
-    canonical: "https://opencredit.money",
-  },
-  openGraph: {
-    title: "OpenCredit.Money — Personal Loans & CIBIL Correction in Bangalore",
-    description:
-      "Get instant personal loans in Bangalore. Rates from 10.25% p.a. Expert CIBIL correction. 25+ partner banks.",
-    url: "https://opencredit.money",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "OpenCredit.Money — Bangalore Loan Marketplace",
-      },
-    ],
-  },
-};
+    "Get instant personal loans from ₹50,000 to ₹40 Lakh across India. Interest rates from 10.25% p.a. Compare 60+ lenders. Expert CIBIL credit score correction. RBI compliant. Apply online in 10 minutes.",
+  path: "/",
+  keywords: [
+    "instant personal loan",
+    "personal loan online",
+    "loan marketplace India",
+    "best loan rates India",
+    "quick loan approval",
+  ],
+});
 
 export default function HomePage() {
   return (

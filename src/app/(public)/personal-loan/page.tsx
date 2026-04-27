@@ -1,18 +1,19 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
+
 import {
   ArrowRight, CheckCircle2, Shield, Clock, Zap, Star,
-  ChevronRight, Home, GraduationCap, Heart,
-  Plane, Car, Briefcase, Wrench, CreditCard, TrendingUp,
+  ChevronRight, TrendingUp,
   Users, Building2, BadgeCheck, Timer, IndianRupee, Percent,
 } from "lucide-react";
 import ActivityTicker from "@/components/shared/ActivityTicker";
 import EligibilityWidget from "@/components/landing/EligibilityWidget";
 import PersonalLoanHeroForm from "@/components/landing/PersonalLoanHeroForm";
+import PurposeCarousel from "@/components/landing/PurposeCarousel";
+import PartnerMarquee from "@/components/landing/PartnerMarquee";
 import PersonalLoanFAQ from "@/components/landing/PersonalLoanFAQ";
 import { generatePageMetadata } from "@/lib/seo/metadata";
-import { loanProductSchema } from "@/lib/seo/jsonld";
+import { loanProductSchema, breadcrumbSchema } from "@/lib/seo/jsonld";
 
 export const metadata: Metadata = generatePageMetadata({
   title: "Personal Loan in Bangalore | From 10.25% p.a.",
@@ -46,16 +47,7 @@ const features = [
   { icon: Users,      title: "Dedicated Support",           desc: "A dedicated loan advisor guides you from application to disbursement, answering every question along the way.", badge: "Assisted" },
 ];
 
-const purposes = [
-  { icon: Home,          label: "Home Renovation",    color: "#3b82f6", image: "/images/usecase-home-renovation.jpg" },
-  { icon: GraduationCap, label: "Education",          color: "#8b5cf6", image: "/images/usecase-education.jpg" },
-  { icon: Heart,         label: "Medical",            color: "#ef4444", image: null },
-  { icon: Plane,         label: "Travel",             color: "#16a34a", image: "/images/usecase-travel.jpg" },
-  { icon: Car,           label: "Vehicle",            color: "#f97316", image: "/images/usecase-finance-control.jpeg" },
-  { icon: Briefcase,     label: "Business",           color: "#0891b2", image: null },
-  { icon: Wrench,        label: "Repairs",            color: "#d97706", image: null },
-  { icon: CreditCard,    label: "Debt Consolidation", color: "#6366f1", image: "/images/usecase-finance-control.jpeg" },
-];
+
 
 const eligibility = [
   { label: "Age",             value: "21 – 60 years" },
@@ -75,12 +67,6 @@ const documents = [
   "Passport-size photograph",
 ];
 
-const partners = [
-  "HDFC Bank", "ICICI Bank", "Axis Bank", "Bajaj Finserv",
-  "Kotak Mahindra", "IDFC First", "Tata Capital", "HDB Financial",
-  "Fullerton India", "Piramal Finance", "L&T Finance", "Muthoot Finance",
-  "Home Credit", "IIFL Finance",
-];
 
 const testimonials = [
   { name: "Priya Sharma",    role: "Software Engineer",    location: "Whitefield",      amount: "₹8L",  rate: "11.5%", review: "Applied Monday morning, funds in my account by Wednesday. Completely paperless. Team was super responsive.", avatar: "PS", color: "#8b5cf6" },
@@ -99,52 +85,74 @@ export default function PersonalLoanPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(loanProductSchema("personal")) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema([
+          { name: "Home", url: "https://opencredit.money" },
+          { name: "Personal Loan", url: "https://opencredit.money/personal-loan" },
+        ])) }}
+      />
 
       {/* ══════════════════════════════════════════════
-          HERO
+          HERO — Premium Dark
       ══════════════════════════════════════════════ */}
-      <section className="relative overflow-hidden" style={{ background: "#f0faf4", minHeight: "100vh", display: "flex", alignItems: "center" }}>
+      <section className="relative overflow-hidden" style={{ background: "linear-gradient(170deg, #0a0f0a 0%, #0f1a0f 40%, #0d1f0d 100%)", minHeight: "100vh", display: "flex", alignItems: "center" }}>
 
-        <div className="absolute inset-0 pointer-events-none"
-          style={{ backgroundImage: "radial-gradient(circle, #16a34a18 1px, transparent 1px)", backgroundSize: "32px 32px" }} />
-        <div className="absolute -top-40 -right-32 w-[600px] h-[600px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(22,163,74,0.13) 0%, transparent 65%)" }} />
-        <div className="absolute -bottom-32 -left-32 w-[500px] h-[500px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(37,99,235,0.06) 0%, transparent 65%)" }} />
-        <div className="absolute top-0 left-0 right-0 h-1 pointer-events-none"
-          style={{ background: "linear-gradient(90deg, #16a34a 0%, #22c55e 50%, #16a34a 100%)" }} />
+        {/* Animated glow orbs */}
+        <div className="absolute top-20 right-[15%] w-[500px] h-[500px] rounded-full pointer-events-none"
+          style={{ background: "radial-gradient(circle, rgba(22,163,74,0.15) 0%, transparent 60%)", filter: "blur(60px)" }} />
+        <div className="absolute -bottom-20 left-[10%] w-[400px] h-[400px] rounded-full pointer-events-none"
+          style={{ background: "radial-gradient(circle, rgba(34,197,94,0.08) 0%, transparent 60%)", filter: "blur(40px)" }} />
+        <div className="absolute top-[60%] right-[5%] w-[200px] h-[200px] rounded-full pointer-events-none"
+          style={{ background: "radial-gradient(circle, rgba(59,130,246,0.06) 0%, transparent 60%)", filter: "blur(30px)" }} />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-24 md:pt-40 md:pb-32 w-full">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+        {/* Grid pattern */}
+        <div className="absolute inset-0 pointer-events-none" style={{ opacity: 0.04 }}>
+          <div style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)", backgroundSize: "64px 64px", width: "100%", height: "100%" }} />
+        </div>
 
-            {/* Left — Copy */}
-            <div>
+        {/* Top accent bar */}
+        <div className="absolute top-0 left-0 right-0 h-px pointer-events-none"
+          style={{ background: "linear-gradient(90deg, transparent 0%, #22c55e 50%, transparent 100%)" }} />
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-28 md:pt-40 md:pb-36 w-full">
+          <div className="grid lg:grid-cols-12 gap-12 items-center">
+
+            {/* Left — Copy (7 cols) */}
+            <div className="lg:col-span-7">
+
+              {/* Badge */}
               <div className="inline-flex items-center gap-2 rounded-full px-4 py-2 mb-8"
-                style={{ background: "rgba(22,163,74,0.10)", border: "1px solid rgba(22,163,74,0.22)" }}>
-                <span className="w-1.5 h-1.5 rounded-full inline-block animate-pulse" style={{ background: "#16a34a" }} />
-                <span className="text-xs font-semibold" style={{ color: "#15803d" }}>
+                style={{ background: "rgba(22,163,74,0.12)", border: "1px solid rgba(22,163,74,0.2)", backdropFilter: "blur(8px)" }}>
+                <span className="w-1.5 h-1.5 rounded-full inline-block animate-pulse" style={{ background: "#4ade80" }} />
+                <span className="text-xs font-semibold" style={{ color: "#4ade80" }}>
                   Personal Loan · Bangalore · Instant Approval
                 </span>
               </div>
 
-              <h1 className="font-extrabold leading-[1.08] tracking-tight mb-6" style={{ fontSize: "clamp(38px,5.5vw,64px)", color: "#0f1a0f" }}>
-                Unsecured{" "}
-                <span style={{ color: "#16a34a" }}>Personal Loan</span>
-                <br />up to{" "}
+              {/* Headline */}
+              <h1 className="font-extrabold leading-[1.05] tracking-tight mb-6" style={{ fontSize: "clamp(40px,5.8vw,68px)" }}>
+                <span style={{ color: "rgba(255,255,255,0.9)" }}>Unsecured </span>
+                <span style={{ color: "#4ade80" }}>Personal&nbsp;Loan</span>
+                <br />
+                <span style={{ color: "rgba(255,255,255,0.9)" }}>up to </span>
                 <span className="relative inline-block">
-                  <span style={{ color: "#16a34a" }}>₹40 Lakhs</span>
+                  <span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(135deg, #4ade80 0%, #22c55e 50%, #16a34a 100%)" }}>
+                    ₹40 Lakhs
+                  </span>
                   <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 8" fill="none">
-                    <path d="M2 6 Q100 1 198 6" stroke="#16a34a" strokeWidth="2.5" strokeLinecap="round" fill="none" opacity="0.5" />
+                    <path d="M2 6 Q100 1 198 6" stroke="#22c55e" strokeWidth="2" strokeLinecap="round" fill="none" opacity="0.4" />
                   </svg>
                 </span>
               </h1>
 
-              <p className="text-lg mb-3 max-w-lg leading-relaxed" style={{ color: "#4b5563" }}>
+              {/* Subheading */}
+              <p className="text-lg mb-3 max-w-lg leading-relaxed" style={{ color: "rgba(255,255,255,0.5)" }}>
                 Minimal documentation. Completely digital. Lowest rate of interest from{" "}
-                <span className="font-bold" style={{ color: "#16a34a" }}>10.25% p.a.</span>{" "}
+                <span className="font-bold" style={{ color: "#4ade80" }}>10.25% p.a.</span>{" "}
                 with disbursement in just 24 hours.
               </p>
-              <p className="text-xs mb-10" style={{ color: "#9ca3af" }}>
+              <p className="text-xs mb-10" style={{ color: "rgba(255,255,255,0.25)" }}>
                 Subject to credit assessment · Rates 10.25%–36% p.a. · Tenure 12–60 months
               </p>
 
@@ -152,37 +160,59 @@ export default function PersonalLoanPage() {
               <PersonalLoanHeroForm />
             </div>
 
-            {/* Right — Hero Image */}
-            <div className="hidden lg:flex items-center justify-center">
-              <div className="relative w-full max-w-lg" style={{ transform: "rotate(1.5deg)" }}>
-                <div className="relative rounded-2xl overflow-hidden" style={{ boxShadow: "0 30px 80px rgba(0,0,0,0.18)" }}>
-                  <Image
-                    src="/images/hero-loan-approval.jpg"
-                    alt="Personal loan approval on mobile"
-                    width={600}
-                    height={500}
-                    className="w-full h-auto object-cover"
-                    priority
-                  />
-                </div>
-                {/* Floating disbursal badge */}
-                <div className="absolute -bottom-4 -left-6 rounded-2xl px-5 py-3.5 flex items-center gap-3"
-                  style={{ background: "#fff", boxShadow: "0 8px 32px rgba(0,0,0,0.12)" }}>
-                  <div className="w-9 h-9 rounded-xl flex items-center justify-center" style={{ background: "#f0fdf4" }}>
-                    <Zap size={16} style={{ color: "#16a34a" }} />
+            {/* Right — Stat strip (5 cols) */}
+            <div className="hidden lg:flex lg:col-span-5 flex-col gap-4">
+              {stats.map((s, i) => {
+                const Icon = s.icon;
+                return (
+                  <div key={s.label}
+                    className="rounded-2xl p-5 flex items-center gap-5 transition-all duration-300 hover:-translate-y-0.5"
+                    style={{
+                      background: i === 0
+                        ? "linear-gradient(135deg, rgba(22,163,74,0.15) 0%, rgba(22,163,74,0.05) 100%)"
+                        : "rgba(255,255,255,0.03)",
+                      border: i === 0
+                        ? "1px solid rgba(22,163,74,0.25)"
+                        : "1px solid rgba(255,255,255,0.06)",
+                      backdropFilter: "blur(12px)",
+                    }}>
+                    <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
+                      style={{
+                        background: i === 0 ? "rgba(22,163,74,0.2)" : "rgba(255,255,255,0.05)",
+                        border: "1px solid rgba(255,255,255,0.06)",
+                      }}>
+                      <Icon size={20} style={{ color: i === 0 ? "#4ade80" : "rgba(255,255,255,0.5)" }} />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="font-extrabold font-mono text-2xl leading-none mb-0.5"
+                        style={{ color: i === 0 ? "#4ade80" : "#fff" }}>
+                        {s.value}
+                      </p>
+                      <p className="text-xs" style={{ color: "rgba(255,255,255,0.35)" }}>{s.label}</p>
+                    </div>
+                    {i === 0 && (
+                      <span className="text-[9px] font-bold uppercase tracking-wider px-2 py-1 rounded-md"
+                        style={{ background: "rgba(74,222,128,0.12)", color: "#4ade80" }}>
+                        Best
+                      </span>
+                    )}
                   </div>
-                  <div>
-                    <p className="text-[11px] font-semibold" style={{ color: "#9ca3af" }}>Disbursed in</p>
-                    <p className="font-extrabold text-sm font-mono" style={{ color: "#1a1a1a" }}>24 hours</p>
-                  </div>
-                </div>
-                {/* Floating rate badge */}
-                <div className="absolute -top-4 -right-4 rounded-2xl px-5 py-3 text-center"
-                  style={{ background: "#16a34a", boxShadow: "0 8px 32px rgba(22,163,74,0.35)" }}>
-                  <p className="text-white/70 text-[10px] font-semibold uppercase tracking-wide">From</p>
-                  <p className="text-white font-extrabold text-xl font-mono leading-none">10.25%</p>
-                  <p className="text-white/70 text-[10px] mt-0.5">p.a.</p>
-                </div>
+                );
+              })}
+
+              {/* Mini trust bar */}
+              <div className="rounded-xl px-5 py-3 flex items-center justify-center gap-6"
+                style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.04)" }}>
+                {[
+                  { emoji: "🛡️", text: "RBI Compliant" },
+                  { emoji: "🔒", text: "256-bit SSL" },
+                  { emoji: "📋", text: "No Paperwork" },
+                ].map(t => (
+                  <span key={t.text} className="flex items-center gap-1.5 text-[10px] font-medium"
+                    style={{ color: "rgba(255,255,255,0.3)" }}>
+                    <span>{t.emoji}</span> {t.text}
+                  </span>
+                ))}
               </div>
             </div>
 
@@ -194,10 +224,10 @@ export default function PersonalLoanPage() {
               const Icon = s.icon;
               return (
                 <div key={s.label} className="rounded-2xl p-4 text-center"
-                  style={{ background: "#fff", border: "1px solid #e5e7eb", boxShadow: "0 1px 4px rgba(0,0,0,0.05)" }}>
-                  <Icon size={16} className="mx-auto mb-1" style={{ color: "#16a34a" }} />
-                  <p className="font-bold font-mono text-xl mb-1" style={{ color: "#16a34a" }}>{s.value}</p>
-                  <p className="text-[11px]" style={{ color: "#6b7280" }}>{s.label}</p>
+                  style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", backdropFilter: "blur(8px)" }}>
+                  <Icon size={16} className="mx-auto mb-1" style={{ color: "#4ade80" }} />
+                  <p className="font-bold font-mono text-xl mb-1" style={{ color: "#4ade80" }}>{s.value}</p>
+                  <p className="text-[11px]" style={{ color: "rgba(255,255,255,0.35)" }}>{s.label}</p>
                 </div>
               );
             })}
@@ -234,54 +264,37 @@ export default function PersonalLoanPage() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-
-            {/* Left — Advisor image */}
-            <div className="relative rounded-2xl overflow-hidden flex-shrink-0"
-              style={{ aspectRatio: "4/3", maxWidth: "520px", boxShadow: "0 20px 60px rgba(0,0,0,0.10)" }}>
-              <Image
-                src="/images/features-advisor-customer.jpg"
-                alt="OpenCredit loan advisor helping customer"
-                fill
-                className="object-cover"
-                loading="lazy"
-              />
-            </div>
-
-            {/* Right — Feature cards */}
-            <div className="grid sm:grid-cols-2 gap-4">
-              {features.map((f, i) => {
-                const Icon = f.icon;
-                return (
-                  <div key={f.title} className="group rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1"
-                    style={{
-                      background: i === 0 ? "#1a1a1a" : "#fff",
-                      border: i === 0 ? "none" : "1px solid #f0f0f0",
-                      boxShadow: i === 0 ? "0 20px 60px rgba(0,0,0,0.15)" : "0 1px 3px rgba(0,0,0,0.05)",
-                    }}>
-                    <div className="flex items-start justify-between mb-4">
-                      <div className="w-10 h-10 rounded-xl flex items-center justify-center"
-                        style={{ background: i === 0 ? "rgba(22,163,74,0.2)" : "rgba(22,163,74,0.08)" }}>
-                        <Icon size={18} style={{ color: "#16a34a" }} />
-                      </div>
-                      <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full"
-                        style={i === 0
-                          ? { background: "rgba(74,222,128,0.15)", color: "#4ade80" }
-                          : { background: "#f0fdf4", color: "#16a34a" }}>
-                        {f.badge}
-                      </span>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {features.map((f, i) => {
+              const Icon = f.icon;
+              return (
+                <div key={f.title} className="group rounded-2xl p-7 transition-all duration-300 hover:-translate-y-1"
+                  style={{
+                    background: i === 0 ? "#1a1a1a" : "#fff",
+                    border: i === 0 ? "none" : "1px solid #f0f0f0",
+                    boxShadow: i === 0 ? "0 20px 60px rgba(0,0,0,0.15)" : "0 1px 3px rgba(0,0,0,0.05)",
+                  }}>
+                  <div className="flex items-start justify-between mb-5">
+                    <div className="w-11 h-11 rounded-xl flex items-center justify-center"
+                      style={{ background: i === 0 ? "rgba(22,163,74,0.2)" : "rgba(22,163,74,0.08)" }}>
+                      <Icon size={20} style={{ color: "#16a34a" }} />
                     </div>
-                    <h3 className="font-bold text-sm mb-1.5" style={{ color: i === 0 ? "#fff" : "#1a1a1a" }}>
-                      {f.title}
-                    </h3>
-                    <p className="text-xs leading-relaxed" style={{ color: i === 0 ? "rgba(255,255,255,0.5)" : "#6b7280" }}>
-                      {f.desc}
-                    </p>
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full"
+                      style={i === 0
+                        ? { background: "rgba(74,222,128,0.15)", color: "#4ade80" }
+                        : { background: "#f0fdf4", color: "#16a34a" }}>
+                      {f.badge}
+                    </span>
                   </div>
-                );
-              })}
-            </div>
-
+                  <h3 className="font-bold text-base mb-2" style={{ color: i === 0 ? "#fff" : "#1a1a1a" }}>
+                    {f.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed" style={{ color: i === 0 ? "rgba(255,255,255,0.5)" : "#6b7280" }}>
+                    {f.desc}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -343,190 +356,189 @@ export default function PersonalLoanPage() {
       </section>
 
       {/* ══════════════════════════════════════════════
-          LOAN PURPOSES
+          MULTIPURPOSE — Auto-sliding carousel
       ══════════════════════════════════════════════ */}
-      <section className="py-20 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <span className="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-4"
-              style={{ background: "rgba(22,163,74,0.1)", color: "#16a34a" }}>
-              Multipurpose
-            </span>
-            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4" style={{ color: "#1a1a1a" }}>
-              What Can You{" "}
-              <span style={{ color: "#16a34a" }}>Use It For?</span>
-            </h2>
-            <p className="text-base" style={{ color: "#6b7280" }}>
-              Personal loans are flexible — use them for any legitimate financial need.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-            {purposes.map(p => {
-              const Icon = p.icon;
-              return (
-                <div key={p.label}
-                  className="group rounded-2xl overflow-hidden cursor-default transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
-                  style={{ background: "#fff", border: "1px solid #f0f0f0", boxShadow: "0 1px 4px rgba(0,0,0,0.05)" }}>
-
-                  {p.image ? (
-                    <div className="relative overflow-hidden rounded-t-2xl" style={{ height: "190px" }}>
-                      <Image
-                        src={p.image}
-                        alt={`Personal loan for ${p.label}`}
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                        loading="lazy"
-                        sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                      />
-                      <div className="absolute inset-x-0 bottom-0 h-16"
-                        style={{ background: "linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 100%)" }} />
-                      <p className="absolute bottom-3 left-4 text-sm font-bold text-white drop-shadow">{p.label}</p>
-                    </div>
-                  ) : (
-                    <div className="flex flex-col items-center justify-center rounded-t-2xl"
-                      style={{ height: "190px", background: `${p.color}0f` }}>
-                      <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-3"
-                        style={{ background: `${p.color}18` }}>
-                        <Icon size={26} style={{ color: p.color }} />
-                      </div>
-                      <p className="text-sm font-bold" style={{ color: "#374151" }}>{p.label}</p>
-                    </div>
-                  )}
-
-                  {p.image && (
-                    <div className="flex items-center gap-2 px-4 py-3">
-                      <div className="w-6 h-6 rounded-lg flex items-center justify-center flex-shrink-0"
-                        style={{ background: `${p.color}15` }}>
-                        <Icon size={12} style={{ color: p.color }} />
-                      </div>
-                      <p className="text-xs font-semibold" style={{ color: "#374151" }}>{p.label}</p>
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      <PurposeCarousel />
 
       {/* ══════════════════════════════════════════════
-          ELIGIBILITY & DOCUMENTS
+          ELIGIBILITY & DOCUMENTS — Premium Redesign
       ══════════════════════════════════════════════ */}
-      <section className="py-20 md:py-28" style={{ background: "#f9fafb" }} id="eligibility">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
+      <section className="py-20 md:py-28 relative overflow-hidden" style={{ background: "#f9fafb" }} id="eligibility">
+
+        {/* Background accent */}
+        <div className="absolute -top-40 right-0 w-[500px] h-[500px] rounded-full pointer-events-none"
+          style={{ background: "radial-gradient(circle, rgba(22,163,74,0.06) 0%, transparent 70%)" }} />
+        <div className="absolute -bottom-40 -left-20 w-[400px] h-[400px] rounded-full pointer-events-none"
+          style={{ background: "radial-gradient(circle, rgba(59,130,246,0.04) 0%, transparent 70%)" }} />
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          {/* Section header — left aligned */}
+          <div className="mb-14">
+            <span className="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-5"
+              style={{ background: "rgba(22,163,74,0.1)", color: "#16a34a" }}>
+              Quick Check
+            </span>
             <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4" style={{ color: "#1a1a1a" }}>
               Are You{" "}
               <span style={{ color: "#16a34a" }}>Eligible?</span>
             </h2>
-            <p className="text-base" style={{ color: "#6b7280" }}>Check the basic criteria and documents needed to apply.</p>
+            <p className="text-base max-w-xl" style={{ color: "#6b7280" }}>
+              Check if you meet the basic criteria. Most applicants with a stable income and decent credit score qualify.
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {/* Eligibility */}
-            <div className="bg-white rounded-3xl p-8"
-              style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.06), 0 0 0 1px rgba(0,0,0,0.04)" }}>
-              <div className="flex items-center gap-3 mb-7">
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: "#f0fdf4" }}>
-                  <Star size={18} style={{ color: "#16a34a" }} />
+          <div className="grid lg:grid-cols-5 gap-6">
+
+            {/* ── LEFT: Eligibility (3 cols) ── */}
+            <div className="lg:col-span-3 rounded-3xl overflow-hidden"
+              style={{ background: "#111111", boxShadow: "0 20px 60px rgba(0,0,0,0.15)" }}>
+
+              {/* Header bar */}
+              <div className="px-8 pt-8 pb-2">
+                <div className="flex items-center gap-3 mb-1">
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center"
+                    style={{ background: "rgba(22,163,74,0.15)" }}>
+                    <Star size={18} style={{ color: "#4ade80" }} />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-lg text-white">Eligibility Criteria</h3>
+                    <p className="text-xs" style={{ color: "rgba(255,255,255,0.35)" }}>Minimum requirements to apply</p>
+                  </div>
                 </div>
-                <h3 className="font-bold text-lg" style={{ color: "#1a1a1a" }}>Eligibility Criteria</h3>
               </div>
-              <div className="space-y-0">
+
+              {/* Criteria rows */}
+              <div className="px-8 pb-3">
                 {eligibility.map((item, i) => (
-                  <div key={item.label} className="flex items-center justify-between py-3.5"
-                    style={{ borderBottom: i < eligibility.length - 1 ? "1px solid #f5f5f5" : "none" }}>
-                    <span className="text-sm" style={{ color: "#6b7280" }}>{item.label}</span>
-                    <span className="text-sm font-semibold text-right" style={{ color: "#1a1a1a" }}>{item.value}</span>
+                  <div key={item.label}
+                    className="flex items-center justify-between py-4 transition-colors"
+                    style={{ borderBottom: i < eligibility.length - 1 ? "1px solid rgba(255,255,255,0.06)" : "none" }}>
+                    <div className="flex items-center gap-3">
+                      <div className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0"
+                        style={{ background: "rgba(22,163,74,0.12)" }}>
+                        <CheckCircle2 size={13} style={{ color: "#4ade80" }} />
+                      </div>
+                      <span className="text-sm" style={{ color: "rgba(255,255,255,0.5)" }}>{item.label}</span>
+                    </div>
+                    <span className="text-sm font-semibold text-right" style={{ color: "#fff" }}>{item.value}</span>
                   </div>
                 ))}
               </div>
-              <div className="mt-6 rounded-xl p-4" style={{ background: "#f0fdf4", border: "1px solid rgba(22,163,74,0.15)" }}>
-                <p className="text-xs leading-relaxed" style={{ color: "#6b7280" }}>
-                  <strong style={{ color: "#1a1a1a" }}>Note:</strong> Exact eligibility depends on the specific lender&apos;s credit assessment. Subject to credit approval and lender terms.
+
+              {/* CIBIL visual bar */}
+              <div className="mx-8 mb-6 rounded-2xl p-5"
+                style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.06)" }}>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-bold uppercase tracking-wider" style={{ color: "rgba(255,255,255,0.4)" }}>Credit Score Meter</span>
+                  <span className="text-xs font-bold px-2.5 py-1 rounded-full"
+                    style={{ background: "rgba(74,222,128,0.15)", color: "#4ade80" }}>650+ Needed</span>
+                </div>
+                <div className="w-full h-2.5 rounded-full overflow-hidden" style={{ background: "rgba(255,255,255,0.08)" }}>
+                  <div className="h-full rounded-full"
+                    style={{
+                      width: "72%",
+                      background: "linear-gradient(90deg, #ef4444 0%, #f97316 25%, #eab308 50%, #22c55e 75%, #16a34a 100%)",
+                    }} />
+                </div>
+                <div className="flex justify-between mt-2">
+                  <span className="text-[10px]" style={{ color: "rgba(255,255,255,0.2)" }}>300</span>
+                  <span className="text-[10px] font-bold" style={{ color: "#4ade80" }}>650</span>
+                  <span className="text-[10px]" style={{ color: "rgba(255,255,255,0.2)" }}>900</span>
+                </div>
+              </div>
+
+              {/* Tip banner */}
+              <div className="mx-8 mb-8 rounded-xl px-5 py-3.5 flex items-start gap-3"
+                style={{ background: "rgba(22,163,74,0.08)", border: "1px solid rgba(22,163,74,0.15)" }}>
+                <Zap size={14} style={{ color: "#4ade80", flexShrink: 0, marginTop: "2px" }} />
+                <p className="text-xs leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>
+                  <strong style={{ color: "#4ade80" }}>Pro tip:</strong> A CIBIL score of 750+ gets you the best rates. Even 650+ qualifies you with many of our 60+ partner lenders.
                 </p>
               </div>
             </div>
 
-            {/* Documents */}
-            <div className="bg-white rounded-3xl p-8"
-              style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.06), 0 0 0 1px rgba(0,0,0,0.04)" }}>
-              <div className="flex items-center gap-3 mb-7">
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: "#f0fdf4" }}>
-                  <Shield size={18} style={{ color: "#16a34a" }} />
+            {/* ── RIGHT: Documents (2 cols) ── */}
+            <div className="lg:col-span-2 flex flex-col gap-6">
+
+              {/* Documents card */}
+              <div className="bg-white rounded-3xl p-8 flex-1 relative overflow-hidden"
+                style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.06)", border: "1px solid #f0f0f0" }}>
+
+                {/* Green accent top bar */}
+                <div className="absolute top-0 left-0 right-0 h-1"
+                  style={{ background: "linear-gradient(90deg, #16a34a, #22c55e)" }} />
+
+                <div className="flex items-center gap-3 mb-7">
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center"
+                    style={{ background: "#f0fdf4" }}>
+                    <Shield size={18} style={{ color: "#16a34a" }} />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-lg" style={{ color: "#1a1a1a" }}>Documents Required</h3>
+                    <p className="text-xs" style={{ color: "#9ca3af" }}>Keep these ready before applying</p>
+                  </div>
                 </div>
-                <h3 className="font-bold text-lg" style={{ color: "#1a1a1a" }}>Documents Required</h3>
+
+                <ul className="space-y-4 mb-6">
+                  {documents.map((doc, i) => (
+                    <li key={doc} className="flex items-center gap-3">
+                      <div className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0"
+                        style={{ background: "#f0fdf4" }}>
+                        <CheckCircle2 size={13} style={{ color: "#16a34a" }} />
+                      </div>
+                      <span className="text-sm" style={{ color: "#374151" }}>{doc}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="rounded-xl p-4 flex items-start gap-3"
+                  style={{ background: "#f9fafb", border: "1px solid #f0f0f0" }}>
+                  <Clock size={14} style={{ color: "#16a34a", flexShrink: 0, marginTop: "1px" }} />
+                  <p className="text-xs leading-relaxed" style={{ color: "#6b7280" }}>
+                    Upload digitally — no physical submission. Max 5MB per file (PDF, JPG, PNG).
+                  </p>
+                </div>
               </div>
-              <ul className="space-y-3 mb-6">
-                {documents.map(doc => (
-                  <li key={doc} className="flex items-center gap-3 text-sm" style={{ color: "#374151" }}>
-                    <CheckCircle2 size={16} style={{ color: "#16a34a", flexShrink: 0 }} />
-                    {doc}
-                  </li>
-                ))}
-              </ul>
-              <div className="rounded-xl p-4 mb-6 flex items-start gap-3" style={{ background: "#f9fafb", border: "1px solid #f0f0f0" }}>
-                <Clock size={14} style={{ color: "#16a34a", flexShrink: 0, marginTop: "1px" }} />
-                <p className="text-xs" style={{ color: "#6b7280" }}>
-                  Upload all documents digitally — no physical submission. Max 5MB per file (PDF, JPG, PNG).
+
+              {/* CTA card */}
+              <div className="rounded-3xl p-7 relative overflow-hidden"
+                style={{ background: "linear-gradient(135deg, #15803d 0%, #16a34a 50%, #22c55e 100%)", boxShadow: "0 12px 40px rgba(22,163,74,0.3)" }}>
+
+                {/* Decorative circles */}
+                <div className="absolute -right-6 -top-6 w-28 h-28 rounded-full" style={{ background: "rgba(255,255,255,0.07)" }} />
+                <div className="absolute right-8 bottom-2 w-16 h-16 rounded-full" style={{ background: "rgba(255,255,255,0.05)" }} />
+
+                <p className="text-white/70 text-xs font-semibold uppercase tracking-wider mb-2">Ready to Apply?</p>
+                <p className="text-white font-bold text-lg mb-5 leading-snug">
+                  Get up to 10 loan offers<br />in just 5 minutes
                 </p>
+                <Link href="/register">
+                  <span className="flex items-center justify-center gap-2 w-full py-3.5 rounded-2xl text-sm font-bold cursor-pointer transition-all hover:-translate-y-0.5 hover:shadow-xl"
+                    style={{ background: "#fff", color: "#15803d", boxShadow: "0 4px 16px rgba(0,0,0,0.1)" }}>
+                    Start Application — Free
+                    <ArrowRight size={16} />
+                  </span>
+                </Link>
               </div>
-              <Link href="/register">
-                <span className="flex items-center justify-center gap-2 w-full py-3.5 rounded-2xl text-sm font-bold text-white cursor-pointer bg-green-600 hover:bg-green-700 transition-colors">
-                  Start Application
-                  <ArrowRight size={16} />
-                </span>
-              </Link>
+
             </div>
+
           </div>
         </div>
       </section>
 
       {/* ══════════════════════════════════════════════
-          PARTNER BANKS
+          PARTNER BANKS — Auto-sliding logos
       ══════════════════════════════════════════════ */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <p className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: "#9ca3af" }}>
-              Trusted by Bangalore&apos;s top lenders
-            </p>
-            <h2 className="text-2xl font-extrabold" style={{ color: "#1a1a1a" }}>
-              60+ Partner Banks & NBFCs
-            </h2>
-          </div>
-          <div className="flex flex-wrap justify-center gap-3">
-            {partners.map(p => (
-              <div key={p} className="px-5 py-2.5 rounded-xl text-sm font-semibold transition-all hover:shadow-sm"
-                style={{ background: "#f9fafb", border: "1px solid #f0f0f0", color: "#374151" }}>
-                {p}
-              </div>
-            ))}
-            <div className="px-5 py-2.5 rounded-xl text-sm font-semibold"
-              style={{ background: "#f0fdf4", border: "1px solid rgba(22,163,74,0.2)", color: "#16a34a" }}>
-              + 46 more
-            </div>
-          </div>
-        </div>
-      </section>
+      <PartnerMarquee />
 
       {/* ══════════════════════════════════════════════
           TESTIMONIALS
       ══════════════════════════════════════════════ */}
       <section className="py-20 md:py-28 relative overflow-hidden" style={{ background: "#0d0d0d" }}>
 
-        {/* Background photo */}
-        <div className="absolute inset-0">
-          <Image
-            src="/images/testimonials-bangalore-team.jpg"
-            alt="Happy OpenCredit customers in Bangalore"
-            fill
-            className="object-cover object-center"
-            loading="lazy"
-          />
-          <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.78)" }} />
-        </div>
+
 
         <div className="absolute inset-0 pointer-events-none"
           style={{ backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px)", backgroundSize: "32px 32px" }} />

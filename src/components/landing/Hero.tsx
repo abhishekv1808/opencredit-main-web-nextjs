@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Shield, Star, ChevronRight, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { formatCurrency } from "@/lib/utils/format";
@@ -65,7 +66,7 @@ const stats = [
   { label: "Loans Sanctioned", value: 4200, suffix: "+", prefix: "" },
   { label: "Crore Disbursed", value: 280, suffix: " Cr+", prefix: "₹" },
   { label: "Happy Customers", value: 98, suffix: "%", prefix: "" },
-  { label: "Partner Banks", value: 25, suffix: "+", prefix: "" },
+  { label: "Partner Banks", value: 60, suffix: "+", prefix: "" },
 ];
 
 export default function Hero() {
@@ -106,7 +107,7 @@ export default function Hero() {
             <div className="inline-flex items-center gap-2 bg-brand-green-light border border-brand-green/10 rounded-full px-4 py-2 mb-8 animate-fade-up">
               <Shield size={14} className="text-brand-blue" />
               <span className="text-xs text-heading font-medium">
-                RBI Compliant · 25+ Partner Banks
+                RBI Compliant · 60+ Partner Banks
               </span>
               <div className="w-1.5 h-1.5 rounded-full bg-brand-green animate-pulse" />
             </div>
@@ -116,7 +117,7 @@ export default function Hero() {
               Personal Loans{" "}
               <span className="text-accent-gradient">Made Simple.</span>
               <br />
-              <span className="text-gray-400">In Bangalore.</span>
+              <span className="text-gray-400">Across India.</span>
             </h1>
 
             {/* Subheadline */}
@@ -124,7 +125,7 @@ export default function Hero() {
               Get approved for ₹50,000 – ₹40 Lakh in 24 hours.
               Interest rates starting at{" "}
               <strong className="text-heading font-semibold">10.25% p.a.</strong>{" "}
-              Expert CIBIL correction services included.
+              Compare 60+ lenders. 100% online. No branch visit needed.
             </p>
 
             {/* CTA Buttons */}
@@ -157,12 +158,23 @@ export default function Hero() {
             {/* Trust Row */}
             <div className="flex items-center gap-5 mt-10 animate-fade-up animation-delay-400">
               <div className="flex -space-x-2">
-                {[1, 2, 3, 4].map((i) => (
+                {[
+                  { src: "/images/user-images/Happyuser-1.png", alt: "Happy customer 1" },
+                  { src: "/images/user-images/happyuser-2.png", alt: "Happy customer 2" },
+                  { src: "/images/user-images/Happyuser-3.png", alt: "Happy customer 3" },
+                  { src: "/images/user-images/Happyuser-4.png", alt: "Happy customer 4" },
+                ].map((user, i) => (
                   <div
                     key={i}
-                    className="w-8 h-8 rounded-full bg-gradient-to-br from-brand-green to-brand-green-dark flex items-center justify-center text-xs font-bold text-white border-2 border-white"
+                    className="w-9 h-9 rounded-full border-2 border-white overflow-hidden flex-shrink-0 shadow-sm"
                   >
-                    {String.fromCharCode(64 + i)}
+                    <Image
+                      src={user.src}
+                      alt={user.alt}
+                      width={36}
+                      height={36}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                 ))}
               </div>

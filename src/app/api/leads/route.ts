@@ -13,7 +13,7 @@ export async function POST(req: Request) {
 
   const { data, error } = await supabase
     .from("leads")
-    .insert({ name, phone, email, source, loan_amount })
+    .insert({ name, phone, email, source, loan_amount, message })
     .select()
     .single();
 

@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import EMICalculator from "@/components/calculator/EMICalculator";
 import { generatePageMetadata } from "@/lib/seo/metadata";
+import { breadcrumbSchema } from "@/lib/seo/jsonld";
 import Link from "next/link";
 import { ArrowRight, Info, Calculator } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -22,6 +23,35 @@ export const metadata: Metadata = generatePageMetadata({
 export default function EMICalculatorPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema([
+          { name: "Home", url: "https://opencredit.money" },
+          { name: "EMI Calculator", url: "https://opencredit.money/emi-calculator" },
+        ])) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          name: "EMI Calculator — OpenCredit.Money",
+          url: "https://opencredit.money/emi-calculator",
+          applicationCategory: "FinanceApplication",
+          operatingSystem: "All",
+          offers: {
+            "@type": "Offer",
+            price: "0",
+            priceCurrency: "INR",
+          },
+          description: "Free online EMI calculator. Calculate monthly installment, total interest, and amortization schedule for personal, home, and business loans.",
+          provider: {
+            "@type": "FinancialService",
+            name: "OpenCredit.Money",
+            "@id": "https://opencredit.money/#organization",
+          },
+        }) }}
+      />
       {/* Hero — Light */}
       <section className="relative pt-32 pb-16 md:pt-40 md:pb-20 hero-bg-light overflow-hidden">
         <div className="absolute top-20 right-[20%] w-[400px] h-[400px] rounded-full bg-brand-green/[0.04] blur-[100px] pointer-events-none" />

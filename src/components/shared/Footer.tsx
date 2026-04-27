@@ -182,7 +182,7 @@ export default function Footer() {
               </Link>
               <p className="text-white/35 text-sm leading-[1.8] mb-7 max-w-xs">
                 Bangalore&apos;s trusted loan marketplace. We connect you with
-                the best personal loan offers from 25+ RBI-registered partner
+                the best personal loan offers from 60+ RBI-registered partner
                 banks and NBFCs.
               </p>
 

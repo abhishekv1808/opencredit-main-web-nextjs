@@ -32,30 +32,33 @@ export default function PersonalLoanHeroForm() {
       {/* Hero phone form */}
       <div className="mb-6">
         {!heroSubmitted ? (
-          <form onSubmit={handleHeroSubmit} className="flex gap-2 max-w-sm">
+          <form onSubmit={handleHeroSubmit} className="flex gap-2 max-w-md">
             <input
               type="tel"
               required
               placeholder="Enter mobile number"
               value={heroPhone}
               onChange={e => setHeroPhone(e.target.value)}
-              className="flex-1 min-w-0 px-4 py-3.5 rounded-xl text-sm outline-none"
+              className="flex-1 min-w-0 px-5 py-3.5 rounded-xl text-sm outline-none transition-all"
               style={{
-                border: "1.5px solid #d1d5db",
-                background: "#fff",
-                color: "#1a1a1a",
-                boxShadow: "0 1px 4px rgba(0,0,0,0.06)",
+                border: "1.5px solid rgba(255,255,255,0.1)",
+                background: "rgba(255,255,255,0.06)",
+                color: "#fff",
+                boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
+                backdropFilter: "blur(8px)",
               }}
-              onFocus={e => (e.currentTarget.style.borderColor = "#16a34a")}
-              onBlur={e => (e.currentTarget.style.borderColor = "#d1d5db")}
+              onFocus={e => { e.currentTarget.style.borderColor = "#22c55e"; e.currentTarget.style.background = "rgba(255,255,255,0.08)"; }}
+              onBlur={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)"; e.currentTarget.style.background = "rgba(255,255,255,0.06)"; }}
             />
             <button
               type="submit"
               disabled={heroSubmitting}
-              className="flex-shrink-0 flex items-center gap-1.5 px-5 py-3.5 rounded-xl text-sm font-bold text-white transition-colors"
+              className="flex-shrink-0 flex items-center gap-1.5 px-6 py-3.5 rounded-xl text-sm font-bold text-white transition-all hover:scale-[1.02]"
               style={{
-                background: heroSubmitting ? "#15803d" : "#16a34a",
-                boxShadow: "0 4px 16px rgba(22,163,74,0.32)",
+                background: heroSubmitting
+                  ? "#15803d"
+                  : "linear-gradient(135deg, #16a34a 0%, #22c55e 100%)",
+                boxShadow: "0 4px 20px rgba(22,163,74,0.4)",
                 whiteSpace: "nowrap",
               }}
             >
@@ -65,16 +68,16 @@ export default function PersonalLoanHeroForm() {
         ) : (
           <div
             className="inline-flex items-center gap-2 px-4 py-3 rounded-xl"
-            style={{ background: "#f0fdf4", border: "1px solid rgba(22,163,74,0.25)" }}
+            style={{ background: "rgba(22,163,74,0.15)", border: "1px solid rgba(22,163,74,0.3)" }}
           >
-            <CheckCircle2 size={15} style={{ color: "#16a34a" }} />
-            <span className="text-sm font-semibold" style={{ color: "#15803d" }}>
+            <CheckCircle2 size={15} style={{ color: "#4ade80" }} />
+            <span className="text-sm font-semibold" style={{ color: "#4ade80" }}>
               Got it! An advisor will call you shortly.
             </span>
           </div>
         )}
         {!heroSubmitted && (
-          <p className="text-xs mt-2" style={{ color: "#9ca3af" }}>
+          <p className="text-xs mt-2.5" style={{ color: "rgba(255,255,255,0.3)" }}>
             Free · No credit impact · Advisor calls within 15 min
           </p>
         )}
@@ -83,15 +86,25 @@ export default function PersonalLoanHeroForm() {
       {/* Secondary CTAs */}
       <div className="flex flex-col sm:flex-row gap-3 mb-10">
         <Link href="/register">
-          <span className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl text-sm font-bold text-white transition-colors cursor-pointer bg-gray-900 hover:bg-gray-700">
+          <span className="inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl text-sm font-bold transition-all cursor-pointer hover:scale-[1.02]"
+            style={{
+              background: "#fff",
+              color: "#0f1a0f",
+              boxShadow: "0 4px 20px rgba(0,0,0,0.15)",
+            }}>
             Apply Now — It&apos;s Free
             <ArrowRight size={15} />
           </span>
         </Link>
         <Link href="/emi-calculator">
           <span
-            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl text-sm font-bold transition-all cursor-pointer hover:border-green-600 hover:text-green-700"
-            style={{ background: "#fff", border: "1.5px solid #d1d5db", color: "#374151", boxShadow: "0 2px 8px rgba(0,0,0,0.06)" }}
+            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl text-sm font-bold transition-all cursor-pointer hover:border-green-400"
+            style={{
+              background: "rgba(255,255,255,0.04)",
+              border: "1.5px solid rgba(255,255,255,0.12)",
+              color: "rgba(255,255,255,0.7)",
+              backdropFilter: "blur(8px)",
+            }}
           >
             <Zap size={15} />
             Calculate EMI
@@ -109,7 +122,11 @@ export default function PersonalLoanHeroForm() {
           <span
             key={item.text}
             className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold"
-            style={{ background: "#fff", border: "1px solid #e5e7eb", color: "#374151", boxShadow: "0 1px 3px rgba(0,0,0,0.06)" }}
+            style={{
+              background: "rgba(255,255,255,0.04)",
+              border: "1px solid rgba(255,255,255,0.08)",
+              color: "rgba(255,255,255,0.45)",
+            }}
           >
             <span>{item.emoji}</span>
             {item.text}

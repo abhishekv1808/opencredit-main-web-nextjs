@@ -242,195 +242,252 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="section-padding bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
-            {/* Contact Info */}
-            <div>
-              <h2 className="font-display text-3xl font-extrabold text-heading mb-8">
-                Get in Touch
-              </h2>
-              <div className="space-y-5 mb-10">
-                {contactInfo.map((item) => {
-                  const Icon = item.icon;
-                  return (
-                    <div key={item.label} className="flex items-start gap-4 group">
-                      <div className="w-12 h-12 bg-brand-green/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-brand-green transition-colors duration-300">
-                        <Icon size={20} className="text-brand-green group-hover:text-white transition-colors" />
+      {/* ── Contact Section ── */}
+      <section className="py-20 md:py-28 relative overflow-hidden" style={{ background: "#F7F9FC" }}>
+        {/* Subtle background pattern */}
+        <div className="absolute inset-0 pointer-events-none" aria-hidden>
+          <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, #d1d5db 0.8px, transparent 0.8px)", backgroundSize: "32px 32px", opacity: 0.2 }} />
+        </div>
+
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          {/* Section heading */}
+          <div className="text-center mb-14">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-5"
+              style={{ background: "rgba(91,200,63,0.08)", border: "1px solid rgba(91,200,63,0.18)" }}>
+              <Mail size={13} style={{ color: "#3DA52A" }} />
+              <span className="text-[11px] font-bold uppercase tracking-widest" style={{ color: "#3DA52A" }}>Get In Touch</span>
+            </div>
+            <h2 className="font-display text-3xl md:text-4xl font-extrabold text-heading" style={{ letterSpacing: "-0.025em" }}>
+              We&apos;d love to{" "}
+              <span className="text-accent-gradient">hear from you</span>
+            </h2>
+            <p className="text-gray-400 mt-3 max-w-md mx-auto text-[15px]">
+              Whether you need help with a loan or have a question — reach out anytime.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-5 gap-8 items-start">
+            {/* ── Left Column: Contact Info ── */}
+            <div className="lg:col-span-2 space-y-5">
+
+              {/* Contact cards */}
+              {contactInfo.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <div key={item.label} className="group relative">
+                    {item.href ? (
+                      <a href={item.href} target={item.href?.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer"
+                        className="flex items-center gap-4 p-4 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-brand-green/30 transition-all duration-300">
+                        <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:scale-110"
+                          style={{ background: "linear-gradient(135deg, rgba(91,200,63,0.1), rgba(91,200,63,0.05))", border: "1px solid rgba(91,200,63,0.15)" }}>
+                          <Icon size={20} style={{ color: "#3DA52A" }} />
+                        </div>
+                        <div className="min-w-0">
+                          <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-0.5">{item.label}</p>
+                          <p className="font-bold text-heading text-[15px] group-hover:text-brand-green transition-colors truncate">{item.value}</p>
+                          <p className="text-gray-400 text-xs mt-0.5">{item.sub}</p>
+                        </div>
+                      </a>
+                    ) : (
+                      <div className="flex items-center gap-4 p-4 rounded-2xl bg-white border border-gray-100 shadow-sm">
+                        <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
+                          style={{ background: "linear-gradient(135deg, rgba(91,200,63,0.1), rgba(91,200,63,0.05))", border: "1px solid rgba(91,200,63,0.15)" }}>
+                          <Icon size={20} style={{ color: "#3DA52A" }} />
+                        </div>
+                        <div className="min-w-0">
+                          <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-0.5">{item.label}</p>
+                          <p className="font-bold text-heading text-[15px]">{item.value}</p>
+                          <p className="text-gray-400 text-xs mt-0.5">{item.sub}</p>
+                        </div>
                       </div>
-                      <div>
-                        <p className="text-xs text-gray-400 mb-1 uppercase tracking-wide font-medium">
-                          {item.label}
-                        </p>
-                        {item.href ? (
-                          <a
-                            href={item.href}
-                            className="font-semibold text-heading hover:text-brand-green transition-colors"
-                          >
-                            {item.value}
-                          </a>
-                        ) : (
-                          <p className="font-semibold text-heading">
-                            {item.value}
-                          </p>
-                        )}
-                        <p className="text-gray-400 text-sm">{item.sub}</p>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
+                    )}
+                  </div>
+                );
+              })}
 
               {/* WhatsApp CTA */}
-              <div className="bg-brand-green/5 border border-brand-green/20 rounded-2xl p-5">
-                <div className="flex items-center gap-3 mb-3">
-                  <MessageCircle size={20} className="text-brand-green" />
-                  <p className="font-display font-bold text-gray-800">
-                    Chat on WhatsApp
-                  </p>
+              <div className="relative rounded-2xl overflow-hidden" style={{ background: "linear-gradient(135deg, #0F2347, #162D55)" }}>
+                <div className="absolute inset-0 pointer-events-none" aria-hidden>
+                  <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full" style={{ background: "radial-gradient(circle, rgba(91,200,63,0.15), transparent 70%)" }} />
+                  <div className="absolute -bottom-8 -left-8 w-32 h-32 rounded-full" style={{ background: "radial-gradient(circle, rgba(66,168,229,0.1), transparent 70%)" }} />
                 </div>
-                <p className="text-gray-500 text-sm mb-4">
-                  Fastest response — typically within 30 minutes during
-                  business hours.
-                </p>
-                <a
-                  href="https://wa.me/919900077949?text=Hi%2C%20I%20need%20help%20with%20a%20personal%20loan"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Button
-                    className="bg-brand-green hover:bg-emerald-600 text-white"
-                    size="sm"
+                <div className="relative p-5">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: "rgba(37,211,102,0.15)", border: "1px solid rgba(37,211,102,0.25)" }}>
+                      <MessageCircle size={18} style={{ color: "#25d366" }} />
+                    </div>
+                    <div>
+                      <p className="font-display font-bold text-white text-[15px]">Chat on WhatsApp</p>
+                      <p className="text-[11px]" style={{ color: "rgba(255,255,255,0.5)" }}>Fastest way to reach us</p>
+                    </div>
+                  </div>
+                  <p className="text-[13px] mb-4 leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>
+                    Get a response within <span className="font-semibold text-white">30 minutes</span> during business hours.
+                  </p>
+                  <a
+                    href="https://wa.me/919900077949?text=Hi%2C%20I%20need%20help%20with%20a%20personal%20loan"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold text-white transition-all hover:scale-[1.03] active:scale-[0.98]"
+                    style={{ background: "#25d366", boxShadow: "0 4px 16px rgba(37,211,102,0.3)" }}
                   >
                     <MessageCircle size={16} />
                     Open WhatsApp
-                  </Button>
-                </a>
+                  </a>
+                </div>
+              </div>
+
+              {/* Trust indicators */}
+              <div className="flex items-center gap-3 px-2 pt-2">
+                {["SSL Secured", "RBI Compliant", "DPDP Act"].map((badge) => (
+                  <div key={badge} className="flex items-center gap-1.5">
+                    <div className="w-1.5 h-1.5 rounded-full bg-brand-green" />
+                    <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">{badge}</span>
+                  </div>
+                ))}
               </div>
             </div>
 
-            {/* Contact Form */}
-            <div className="card-modern p-8">
-              <h2 className="font-display text-2xl font-bold text-heading mb-6">
-                Send a Message
-              </h2>
-
-              {submitted ? (
-                <div className="text-center py-12">
-                  <div className="w-16 h-16 bg-brand-green/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Send size={28} className="text-brand-green" />
+            {/* ── Right Column: Form ── */}
+            <div className="lg:col-span-3">
+              <div className="bg-white rounded-3xl border border-gray-100 shadow-lg shadow-gray-100/50 overflow-hidden">
+                {/* Form header */}
+                <div className="px-8 pt-8 pb-5 border-b border-gray-50">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-10 h-10 rounded-xl flex items-center justify-center"
+                      style={{ background: "linear-gradient(135deg, #5BC83F, #3DA52A)" }}>
+                      <Send size={16} className="text-white" />
+                    </div>
+                    <div>
+                      <h2 className="font-display text-xl font-extrabold text-heading">Send a Message</h2>
+                      <p className="text-xs text-gray-400">We typically respond within 24 hours</p>
+                    </div>
                   </div>
-                  <h3 className="font-display text-xl font-bold text-heading mb-2">
-                    Message Sent!
-                  </h3>
-                  <p className="text-gray-400 text-sm">
-                    We&apos;ll get back to you within 24 hours.
-                  </p>
                 </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <Label className="mb-1.5 block text-gray-600">Full Name *</Label>
-                      <Input
-                        required
-                        placeholder="Your name"
-                        value={form.name}
-                        onChange={(e) =>
-                          setForm({ ...form, name: e.target.value })
-                        }
-                        className="rounded-xl border-gray-200 focus-visible:ring-brand-green"
-                      />
+
+                <div className="px-8 py-7">
+                  {submitted ? (
+                    <div className="text-center py-14">
+                      <div className="relative w-20 h-20 mx-auto mb-5">
+                        <div className="absolute inset-0 rounded-full animate-ping" style={{ background: "rgba(91,200,63,0.1)" }} />
+                        <div className="relative w-full h-full rounded-full flex items-center justify-center"
+                          style={{ background: "linear-gradient(135deg, rgba(91,200,63,0.12), rgba(91,200,63,0.06))", border: "2px solid rgba(91,200,63,0.2)" }}>
+                          <Send size={30} style={{ color: "#3DA52A" }} />
+                        </div>
+                      </div>
+                      <h3 className="font-display text-2xl font-extrabold text-heading mb-2">
+                        Message Sent!
+                      </h3>
+                      <p className="text-gray-400 text-sm max-w-xs mx-auto">
+                        Thank you for reaching out. Our team will get back to you within 24 hours.
+                      </p>
+                      <button
+                        onClick={() => { setSubmitted(false); setForm({ name: "", phone: "", email: "", subject: "Personal Loan Inquiry", message: "" }); }}
+                        className="mt-6 text-sm font-semibold text-brand-green hover:underline"
+                      >
+                        Send another message →
+                      </button>
                     </div>
-                    <div>
-                      <Label className="mb-1.5 block text-gray-600">Phone *</Label>
-                      <Input
-                        required
-                        type="tel"
-                        placeholder="+91 XXXXX XXXXX"
-                        value={form.phone}
-                        onChange={(e) =>
-                          setForm({ ...form, phone: e.target.value })
-                        }
-                        className="rounded-xl border-gray-200 focus-visible:ring-brand-green"
-                      />
-                    </div>
-                  </div>
+                  ) : (
+                    <form onSubmit={handleSubmit} className="space-y-5">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div className="space-y-1.5">
+                          <Label className="text-xs font-bold text-gray-500 uppercase tracking-wider">Full Name <span className="text-red-400">*</span></Label>
+                          <Input
+                            required
+                            placeholder="Enter your full name"
+                            value={form.name}
+                            onChange={(e) => setForm({ ...form, name: e.target.value })}
+                            className="h-12 rounded-xl border-gray-200 bg-gray-50/50 focus-visible:ring-brand-green focus-visible:bg-white transition-colors text-[14px]"
+                          />
+                        </div>
+                        <div className="space-y-1.5">
+                          <Label className="text-xs font-bold text-gray-500 uppercase tracking-wider">Phone <span className="text-red-400">*</span></Label>
+                          <Input
+                            required
+                            type="tel"
+                            placeholder="+91 XXXXX XXXXX"
+                            value={form.phone}
+                            onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                            className="h-12 rounded-xl border-gray-200 bg-gray-50/50 focus-visible:ring-brand-green focus-visible:bg-white transition-colors text-[14px]"
+                          />
+                        </div>
+                      </div>
 
-                  <div>
-                    <Label className="mb-1.5 block text-gray-600">Email</Label>
-                    <Input
-                      type="email"
-                      placeholder="your@email.com"
-                      value={form.email}
-                      onChange={(e) =>
-                        setForm({ ...form, email: e.target.value })
-                      }
-                      className="rounded-xl border-gray-200 focus-visible:ring-brand-green"
-                    />
-                  </div>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div className="space-y-1.5">
+                          <Label className="text-xs font-bold text-gray-500 uppercase tracking-wider">Email</Label>
+                          <Input
+                            type="email"
+                            placeholder="your@email.com"
+                            value={form.email}
+                            onChange={(e) => setForm({ ...form, email: e.target.value })}
+                            className="h-12 rounded-xl border-gray-200 bg-gray-50/50 focus-visible:ring-brand-green focus-visible:bg-white transition-colors text-[14px]"
+                          />
+                        </div>
+                        <div className="space-y-1.5">
+                          <Label className="text-xs font-bold text-gray-500 uppercase tracking-wider">Subject</Label>
+                          <select
+                            className="flex h-12 w-full rounded-xl border border-gray-200 bg-gray-50/50 px-4 py-2 text-[14px] text-heading focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green focus:bg-white transition-colors cursor-pointer appearance-none"
+                            style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")`, backgroundRepeat: "no-repeat", backgroundPosition: "right 14px center" }}
+                            value={form.subject}
+                            onChange={(e) => setForm({ ...form, subject: e.target.value })}
+                          >
+                            <option>Personal Loan Inquiry</option>
+                            <option>Home Loan Inquiry</option>
+                            <option>CIBIL Correction</option>
+                            <option>Application Status</option>
+                            <option>EMI / Repayment Query</option>
+                            <option>Other</option>
+                          </select>
+                        </div>
+                      </div>
 
-                  <div>
-                    <Label className="mb-1.5 block text-gray-600">Subject</Label>
-                    <select
-                      className="flex h-11 w-full rounded-xl border border-gray-200 bg-white px-4 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green"
-                      value={form.subject}
-                      onChange={(e) =>
-                        setForm({ ...form, subject: e.target.value })
-                      }
-                    >
-                      <option>Personal Loan Inquiry</option>
-                      <option>CIBIL Correction</option>
-                      <option>Application Status</option>
-                      <option>EMI / Repayment Query</option>
-                      <option>Other</option>
-                    </select>
-                  </div>
+                      <div className="space-y-1.5">
+                        <Label className="text-xs font-bold text-gray-500 uppercase tracking-wider">Message <span className="text-red-400">*</span></Label>
+                        <textarea
+                          required
+                          rows={4}
+                          placeholder="Describe your query in detail — include any loan amounts, timelines, or specific questions..."
+                          className="flex w-full rounded-xl border border-gray-200 bg-gray-50/50 px-4 py-3 text-[14px] text-heading placeholder:text-gray-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green focus:bg-white resize-none transition-colors"
+                          value={form.message}
+                          onChange={(e) => setForm({ ...form, message: e.target.value })}
+                        />
+                      </div>
 
-                  <div>
-                    <Label className="mb-1.5 block text-gray-600">Message *</Label>
-                    <textarea
-                      required
-                      rows={4}
-                      placeholder="Describe your query in detail..."
-                      className="flex w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green resize-none"
-                      value={form.message}
-                      onChange={(e) =>
-                        setForm({ ...form, message: e.target.value })
-                      }
-                    />
-                  </div>
+                      {/* Consent */}
+                      <div className="flex items-start gap-2.5 px-1">
+                        <div className="w-1.5 h-1.5 rounded-full bg-gray-300 mt-1.5 flex-shrink-0" />
+                        <p className="text-[11px] text-gray-400 leading-relaxed">
+                          By submitting, you consent to being contacted by OpenCredit
+                          team regarding your query. See our{" "}
+                          <a href="/privacy-policy" className="text-brand-green hover:underline font-medium">
+                            Privacy Policy
+                          </a>.
+                        </p>
+                      </div>
 
-                  <div className="text-xs text-gray-400">
-                    By submitting, you consent to being contacted by OpenCredit
-                    team regarding your query. See our{" "}
-                    <a
-                      href="/privacy-policy"
-                      className="text-brand-green underline"
-                    >
-                      Privacy Policy
-                    </a>
-                    .
-                  </div>
+                      {formError && (
+                        <div className="flex items-center gap-3 text-sm text-red-600 bg-red-50 border border-red-200 rounded-xl px-4 py-3">
+                          <div className="w-2 h-2 rounded-full bg-red-500 flex-shrink-0" />
+                          {formError}
+                        </div>
+                      )}
 
-                  {formError && (
-                    <p className="text-sm text-red-500 bg-red-50 border border-red-200 rounded-xl px-4 py-3">
-                      {formError}
-                    </p>
+                      <Button
+                        type="submit"
+                        size="lg"
+                        className="w-full h-13 text-[15px] font-bold rounded-xl group transition-all duration-300 hover:scale-[1.01] active:scale-[0.99]"
+                        style={{ background: "linear-gradient(135deg, #5BC83F, #3DA52A)", boxShadow: "0 6px 24px rgba(91,200,63,0.25)" }}
+                        disabled={submitting}
+                      >
+                        <Send size={18} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                        {submitting ? "Sending your message…" : "Send Message"}
+                      </Button>
+                    </form>
                   )}
-
-                  <Button
-                    type="submit"
-                    variant="accent"
-                    size="lg"
-                    className="w-full group"
-                    disabled={submitting}
-                  >
-                    <Send size={18} />
-                    {submitting ? "Sending…" : "Send Message"}
-                  </Button>
-                </form>
-              )}
+                </div>
+              </div>
             </div>
           </div>
         </div>

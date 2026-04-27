@@ -127,12 +127,12 @@ export default function Navbar() {
               <span className="text-[10.5px] font-medium text-emerald-400/90 tracking-wide">RBI Compliant</span>
             </div>
             <span className="w-px h-3 bg-white/10" />
-            <span className="text-[10.5px] text-white/50 tracking-wide">25+ Partner Banks & NBFCs</span>
+            <span className="text-[10.5px] text-white/50 tracking-wide">60+ Partner Banks & NBFCs</span>
           </div>
           <div className="flex items-center gap-4">
-            <a href="tel:+919876543210" className="flex items-center gap-1.5 text-[10.5px] text-white/50 hover:text-white/80 transition-colors">
+            <a href="tel:+919900077949" className="flex items-center gap-1.5 text-[10.5px] text-white/50 hover:text-white/80 transition-colors">
               <Phone size={9} />
-              <span>+91 98765 43210</span>
+              <span>+91 99000 77949</span>
             </a>
             <span className="w-px h-3 bg-white/10" />
             <span className="text-[10.5px] text-white/50 tracking-wide">Mon–Sat 9AM–6PM</span>

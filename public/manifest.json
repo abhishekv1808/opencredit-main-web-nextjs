@@ -4,8 +4,8 @@
   "description": "Personal Loans & CIBIL Correction in Bangalore",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#1B3A6B",
-  "theme_color": "#1B3A6B",
+  "background_color": "#ffffff",
+  "theme_color": "#16a34a",
   "icons": [
     {
       "src": "/icon-192.png",

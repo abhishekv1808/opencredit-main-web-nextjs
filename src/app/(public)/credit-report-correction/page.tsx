@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import {
   TrendingUp,
   CheckCircle2,
@@ -11,7 +12,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { generatePageMetadata } from "@/lib/seo/metadata";
-import { loanProductSchema } from "@/lib/seo/jsonld";
+import { loanProductSchema, breadcrumbSchema } from "@/lib/seo/jsonld";
 
 export const metadata: Metadata = generatePageMetadata({
   title: "CIBIL Score Correction",
@@ -90,6 +91,15 @@ export default function CreditReportCorrectionPage() {
           __html: JSON.stringify(loanProductSchema("credit")),
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema([
+            { name: "Home", url: "https://opencredit.money" },
+            { name: "CIBIL Score Correction", url: "https://opencredit.money/credit-report-correction" },
+          ])),
+        }}
+      />
 
       {/* Hero — Light with green accent */}
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 hero-bg-light overflow-hidden">
@@ -139,64 +149,38 @@ export default function CreditReportCorrectionPage() {
               </div>
             </div>
 
-            {/* Score Display Card */}
-            <div className="card-modern p-8 text-center relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-green via-emerald-400 to-brand-blue-accent" />
-              <p className="text-gray-400 text-sm mb-4">
-                Average score improvement
-              </p>
-              <div className="relative w-48 h-48 mx-auto mb-6">
-                <svg
-                  className="w-full h-full -rotate-90"
-                  viewBox="0 0 100 100"
-                >
-                  <circle
-                    cx="50"
-                    cy="50"
-                    r="45"
-                    fill="none"
-                    stroke="#f3f4f6"
-                    strokeWidth="8"
-                  />
-                  <circle
-                    cx="50"
-                    cy="50"
-                    r="45"
-                    fill="none"
-                    stroke="#10B981"
-                    strokeWidth="8"
-                    strokeDasharray="211"
-                    strokeDashoffset="70"
-                    strokeLinecap="round"
-                  />
-                </svg>
-                <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  <span className="font-mono text-4xl font-bold text-heading">
-                    +73
-                  </span>
-                  <span className="text-brand-green text-sm font-medium">
-                    avg. points
-                  </span>
-                </div>
-              </div>
+            {/* Hero Image */}
+            <div className="relative flex items-center justify-center">
+              {/* Decorative glow behind image */}
+              <div className="absolute w-[80%] h-[80%] rounded-full blur-[60px] pointer-events-none" style={{ background: "radial-gradient(circle, rgba(91,200,63,0.12) 0%, transparent 70%)" }} />
 
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-red-50 rounded-xl p-3 text-center">
-                  <p className="text-gray-400 text-xs mb-1">Before</p>
-                  <p className="font-mono text-2xl font-bold text-red-500">
-                    668
-                  </p>
+              <div className="relative">
+                <Image
+                  src="/images/cibil-hero-image.png"
+                  alt="Person celebrating improved CIBIL score of 780"
+                  width={480}
+                  height={480}
+                  className="w-full max-w-[420px] mx-auto drop-shadow-2xl"
+                  priority
+                />
+
+                {/* Floating stats cards */}
+                <div className="absolute -bottom-2 -left-4 md:left-0 bg-white rounded-2xl shadow-xl border border-gray-100 px-4 py-3 animate-float" style={{ animationDuration: "3.5s" }}>
+                  <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1">Avg. Improvement</p>
+                  <div className="flex items-baseline gap-1.5">
+                    <span className="font-mono text-2xl font-extrabold text-brand-green">+73</span>
+                    <span className="text-xs font-semibold text-gray-400">points</span>
+                  </div>
                 </div>
-                <div className="bg-brand-green/10 rounded-xl p-3 text-center">
-                  <p className="text-gray-400 text-xs mb-1">After</p>
-                  <p className="font-mono text-2xl font-bold text-brand-green">
-                    741
-                  </p>
+
+                <div className="absolute -top-2 -right-4 md:right-0 bg-white rounded-2xl shadow-xl border border-gray-100 px-4 py-3 animate-float" style={{ animationDuration: "4.1s", animationDelay: "0.8s" }}>
+                  <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1">Success Rate</p>
+                  <div className="flex items-baseline gap-1.5">
+                    <span className="font-mono text-2xl font-extrabold text-brand-green">92%</span>
+                    <span className="text-xs font-semibold text-gray-400">cases</span>
+                  </div>
                 </div>
               </div>
-              <p className="text-gray-400 text-xs mt-3">
-                Illustrative. Individual results vary.
-              </p>
             </div>
           </div>
         </div>
@@ -205,7 +189,7 @@ export default function CreditReportCorrectionPage() {
       {/* Common Issues */}
       <section className="section-padding bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-start">
+          <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
               <div className="inline-flex items-center gap-2 bg-red-50 border border-red-100 rounded-full px-4 py-2 mb-6">
                 <AlertCircle size={14} className="text-red-500" />
@@ -217,6 +201,19 @@ export default function CreditReportCorrectionPage() {
                 Is Your Credit Report{" "}
                 <span className="text-accent-gradient">Holding You Back?</span>
               </h2>
+
+              {/* Feature image */}
+              <div className="relative mb-8 flex justify-center">
+                <div className="absolute inset-0 rounded-3xl blur-[40px] pointer-events-none" style={{ background: "radial-gradient(circle, rgba(91,200,63,0.08) 0%, transparent 70%)" }} />
+                <Image
+                  src="/images/cibil-feature-image.png"
+                  alt="Credit score analysis with sentiment indicators"
+                  width={400}
+                  height={400}
+                  className="relative w-full max-w-[340px] mx-auto"
+                />
+              </div>
+
               <ul className="space-y-3">
                 {commonIssues.map((issue) => (
                   <li

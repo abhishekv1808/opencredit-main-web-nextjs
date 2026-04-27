@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Shield, Users, Award, Target, ArrowRight, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { generatePageMetadata } from "@/lib/seo/metadata";
+import { breadcrumbSchema } from "@/lib/seo/jsonld";
 
 export const metadata: Metadata = generatePageMetadata({
   title: "About Us",
@@ -65,6 +66,13 @@ const team = [
 export default function AboutPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema([
+          { name: "Home", url: "https://opencredit.money" },
+          { name: "About Us", url: "https://opencredit.money/about" },
+        ])) }}
+      />
       {/* Hero — Light */}
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 hero-bg-light overflow-hidden">
         <div className="absolute top-20 right-[20%] w-[400px] h-[400px] rounded-full bg-brand-green/[0.04] blur-[100px] pointer-events-none" />

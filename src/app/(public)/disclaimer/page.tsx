@@ -74,10 +74,32 @@ export default function DisclaimerPage() {
       <section className="section-padding bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* RBI Notice */}
-          <div className="dark-section-bg rounded-2xl p-6 mb-10">
+          <div className="dark-section-bg rounded-2xl p-6 mb-6">
             <p className="text-white/80 text-sm leading-relaxed">
               <strong className="text-brand-green">RBI Disclaimer:</strong> OpenCredit.Money is a loan marketplace/Direct Selling Agent (DSA). All loans are disbursed by partner banks/NBFCs registered with the Reserve Bank of India. OpenCredit does not provide loans directly. Loan disbursement is subject to lender eligibility criteria and credit assessment.
             </p>
+          </div>
+
+          {/* How We Operate */}
+          <div className="rounded-2xl border border-brand-blue/15 bg-brand-blue-light/40 p-6 mb-10">
+            <h2 className="font-display font-bold text-heading text-base mb-4 flex items-center gap-2">
+              <Shield size={16} className="text-brand-blue" />
+              How OpenCredit.Money Operates
+            </h2>
+            <ul className="space-y-2.5">
+              {[
+                "Connects borrowers with eligible partner lenders",
+                "Facilitates loan applications on behalf of partner banks / NBFCs",
+                "Provides CIBIL credit report correction advisory services",
+                "Does NOT directly lend money or guarantee loan approval",
+                "Is NOT responsible for individual lender credit decisions",
+              ].map((point) => (
+                <li key={point} className="flex items-start gap-3 text-sm text-gray-600">
+                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-brand-blue flex-shrink-0" />
+                  {point}
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div className="space-y-5">
@@ -106,8 +128,8 @@ export default function DisclaimerPage() {
           <div className="mt-10 bg-gray-50 rounded-2xl p-6 text-xs text-gray-400 leading-relaxed border border-gray-100">
             <p>
               For any queries regarding this disclaimer, please contact us at{" "}
-              <a href="mailto:legal@opencredit.money" className="text-brand-green underline">
-                legal@opencredit.money
+              <a href="mailto:contact@opencredit.money" className="text-brand-green underline">
+                contact@opencredit.money
               </a>
               . This disclaimer is subject to change without notice. The most current version is always available on this page.
             </p>

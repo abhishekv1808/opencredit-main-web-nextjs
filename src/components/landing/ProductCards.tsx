@@ -92,7 +92,9 @@ export default function ProductCards() {
                 className="group card-modern overflow-hidden"
               >
                 {/* Accent top border */}
-                <div className={`h-1 bg-gradient-to-r ${product.accentColor}`} />
+                <div
+                  className={`h-1 bg-gradient-to-r ${product.accentColor}`}
+                />
 
                 {/* Card Content */}
                 <div className="p-8">
@@ -198,8 +200,9 @@ export default function ProductCards() {
           <div className="inline-flex items-center gap-2 bg-gray-50 border border-gray-100 rounded-xl px-5 py-3">
             <Shield size={14} className="text-heading" />
             <p className="text-xs text-gray-500">
-              <strong className="text-heading">RBI Compliant:</strong> All loans disbursed by partner
-              banks/NBFCs registered with the Reserve Bank of India
+              <strong className="text-heading">RBI Compliant:</strong> All loans
+              disbursed by partner banks/NBFCs registered with the Reserve Bank
+              of India
             </p>
           </div>
         </div>

@@ -1,7 +1,29 @@
 import type { Metadata } from "next";
+import { Urbanist, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import AnalyticsScripts from "@/components/shared/AnalyticsScripts";
+
+const urbanist = Urbanist({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-display",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-body",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500"],
+  variable: "--font-mono",
+});
 
 const siteSchema = {
   "@context": "https://schema.org",
@@ -22,7 +44,7 @@ const siteSchema = {
       url: "https://opencredit.money",
       logo: {
         "@type": "ImageObject",
-        url: "https://opencredit.money/images/logo.png",
+        url: "https://opencredit.money/images/OpenCredit-logo.png",
       },
       foundingDate: "2020",
       areaServed: [
@@ -65,19 +87,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en-IN" className={`${urbanist.variable} ${inter.variable} ${jetbrainsMono.variable}`} suppressHydrationWarning>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
-          rel="stylesheet"
-        />
         <link rel="icon" href="/images/logo-favi-icon.ico" sizes="any" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#16a34a" />
       </head>

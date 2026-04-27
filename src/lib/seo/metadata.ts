@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 const SITE_URL = "https://opencredit.money";
-const DEFAULT_OG = `${SITE_URL}/og-image.png`;
+const DEFAULT_OG = `${SITE_URL}/images/og-image.png`;
 
 export function generatePageMetadata({
   title,
