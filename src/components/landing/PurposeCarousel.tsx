@@ -102,7 +102,6 @@ export default function PurposeCarousel() {
     }
     return cards;
   };
-
   const visible = getVisible();
 
   return (

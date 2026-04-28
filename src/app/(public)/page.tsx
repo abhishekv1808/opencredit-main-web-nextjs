@@ -6,7 +6,7 @@ import CreditProducts from "@/components/landing/CreditProducts";
 import ProductSlider from "@/components/landing/ProductSlider";
 import HowItWorks from "@/components/landing/HowItWorks";
 import FeatureSections from "@/components/landing/FeatureSections";
-import Testimonials from "@/components/landing/Testimonials";
+import GoogleReviews from "@/components/landing/GoogleReviews";
 import TrustBadges from "@/components/landing/TrustBadges";
 import FAQ from "@/components/landing/FAQ";
 import { localBusinessSchema } from "@/lib/seo/jsonld";
@@ -40,7 +40,7 @@ export default function HomePage() {
       <ProductSlider />
       <FeatureSections />
       <HowItWorks />
-      <Testimonials />
+      <GoogleReviews />
       <FAQ />
       <TrustBadges />
     </>

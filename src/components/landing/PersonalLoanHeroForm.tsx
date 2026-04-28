@@ -39,28 +39,27 @@ export default function PersonalLoanHeroForm() {
               placeholder="Enter mobile number"
               value={heroPhone}
               onChange={e => setHeroPhone(e.target.value)}
-              className="flex-1 min-w-0 px-5 py-3.5 rounded-xl text-sm outline-none transition-all"
+              className="flex-1 min-w-0 px-5 py-3.5 rounded-xl text-sm outline-none transition-all placeholder-gray-400"
               style={{
-                border: "1.5px solid rgba(255,255,255,0.1)",
-                background: "rgba(255,255,255,0.06)",
-                color: "#fff",
-                boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
-                backdropFilter: "blur(8px)",
+                border: "1.5px solid #d1d5db",
+                background: "#fff",
+                color: "#111827",
+                boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
               }}
-              onFocus={e => { e.currentTarget.style.borderColor = "#22c55e"; e.currentTarget.style.background = "rgba(255,255,255,0.08)"; }}
-              onBlur={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)"; e.currentTarget.style.background = "rgba(255,255,255,0.06)"; }}
+              onFocus={e => { e.currentTarget.style.borderColor = "#16a34a"; e.currentTarget.style.boxShadow = "0 0 0 4px rgba(22,163,74,0.1)"; }}
+              onBlur={e => { e.currentTarget.style.borderColor = "#d1d5db"; e.currentTarget.style.boxShadow = "0 2px 8px rgba(0,0,0,0.06)"; }}
             />
             <button
               type="submit"
               disabled={heroSubmitting}
-              className="flex-shrink-0 flex items-center gap-1.5 px-6 py-3.5 rounded-xl text-sm font-bold text-white transition-all hover:scale-[1.02]"
+              className="flex-shrink-0 flex items-center gap-1.5 px-6 py-3.5 rounded-xl text-sm font-bold text-white transition-all hover:-translate-y-0.5"
               style={{
-                background: heroSubmitting
-                  ? "#15803d"
-                  : "linear-gradient(135deg, #16a34a 0%, #22c55e 100%)",
-                boxShadow: "0 4px 20px rgba(22,163,74,0.4)",
+                background: heroSubmitting ? "#15803d" : "#16a34a",
+                boxShadow: "0 8px 24px rgba(22,163,74,0.28)",
                 whiteSpace: "nowrap",
               }}
+              onMouseEnter={e => { if(!heroSubmitting) { (e.currentTarget as HTMLElement).style.background = "#15803d"; (e.currentTarget as HTMLElement).style.boxShadow = "0 12px 32px rgba(22,163,74,0.38)"; } }}
+              onMouseLeave={e => { if(!heroSubmitting) { (e.currentTarget as HTMLElement).style.background = "#16a34a"; (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 24px rgba(22,163,74,0.28)"; } }}
             >
               {heroSubmitting ? "…" : <><span>Get Rate</span> <ArrowRight size={14} /></>}
             </button>
@@ -68,16 +67,16 @@ export default function PersonalLoanHeroForm() {
         ) : (
           <div
             className="inline-flex items-center gap-2 px-4 py-3 rounded-xl"
-            style={{ background: "rgba(22,163,74,0.15)", border: "1px solid rgba(22,163,74,0.3)" }}
+            style={{ background: "#f0fdf4", border: "1px solid #bbf7d0" }}
           >
-            <CheckCircle2 size={15} style={{ color: "#4ade80" }} />
-            <span className="text-sm font-semibold" style={{ color: "#4ade80" }}>
+            <CheckCircle2 size={15} style={{ color: "#16a34a" }} />
+            <span className="text-sm font-semibold" style={{ color: "#15803d" }}>
               Got it! An advisor will call you shortly.
             </span>
           </div>
         )}
         {!heroSubmitted && (
-          <p className="text-xs mt-2.5" style={{ color: "rgba(255,255,255,0.3)" }}>
+          <p className="text-xs mt-2.5 font-medium" style={{ color: "#6b7280" }}>
             Free · No credit impact · Advisor calls within 15 min
           </p>
         )}
@@ -86,25 +85,29 @@ export default function PersonalLoanHeroForm() {
       {/* Secondary CTAs */}
       <div className="flex flex-col sm:flex-row gap-3 mb-10">
         <Link href="/register">
-          <span className="inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl text-sm font-bold transition-all cursor-pointer hover:scale-[1.02]"
+          <span className="inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl text-sm font-bold transition-all cursor-pointer text-white"
             style={{
-              background: "#fff",
-              color: "#0f1a0f",
-              boxShadow: "0 4px 20px rgba(0,0,0,0.15)",
-            }}>
+              background: "#16a34a",
+              boxShadow: "0 8px 24px rgba(22,163,74,0.28)",
+            }}
+            onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "#15803d"; (e.currentTarget as HTMLElement).style.boxShadow = "0 12px 32px rgba(22,163,74,0.38)"; }}
+            onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "#16a34a"; (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 24px rgba(22,163,74,0.28)"; }}
+            >
             Apply Now — It&apos;s Free
             <ArrowRight size={15} />
           </span>
         </Link>
         <Link href="/emi-calculator">
           <span
-            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl text-sm font-bold transition-all cursor-pointer hover:border-green-400"
+            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl text-sm font-bold transition-all cursor-pointer"
             style={{
-              background: "rgba(255,255,255,0.04)",
-              border: "1.5px solid rgba(255,255,255,0.12)",
-              color: "rgba(255,255,255,0.7)",
-              backdropFilter: "blur(8px)",
+              background: "#fff",
+              border: "1.5px solid #d1d5db",
+              color: "#374151",
+              boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
             }}
+            onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = "#16a34a"; (e.currentTarget as HTMLElement).style.color = "#16a34a"; }}
+            onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = "#d1d5db"; (e.currentTarget as HTMLElement).style.color = "#374151"; }}
           >
             <Zap size={15} />
             Calculate EMI
@@ -123,9 +126,10 @@ export default function PersonalLoanHeroForm() {
             key={item.text}
             className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold"
             style={{
-              background: "rgba(255,255,255,0.04)",
-              border: "1px solid rgba(255,255,255,0.08)",
-              color: "rgba(255,255,255,0.45)",
+              background: "#fff",
+              border: "1px solid #e5e7eb",
+              color: "#374151",
+              boxShadow: "0 1px 3px rgba(0,0,0,0.06)",
             }}
           >
             <span>{item.emoji}</span>
