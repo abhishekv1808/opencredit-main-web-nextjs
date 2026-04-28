@@ -97,7 +97,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
     <div className="rounded-2xl overflow-hidden transition-all"
       style={{ border: open ? "1px solid rgba(22,163,74,0.3)" : "1px solid #f0f0f0", background: "#fff" }}>
       <button onClick={() => setOpen(!open)} className="w-full flex items-center justify-between px-6 py-5 text-left">
-        <span className="text-sm font-semibold pr-4" style={{ color: "#1a1a1a" }}>{q}</span>
+        <span className="text-xs lg:text-sm font-semibold pr-4" style={{ color: "#1a1a1a" }}>{q}</span>
         <div className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 transition-colors"
           style={{ background: open ? "#16a34a" : "#f4f5f7" }}>
           <ChevronDown size={14} style={{ color: open ? "#fff" : "#6b7280", transform: open ? "rotate(180deg)" : "none", transition: "transform 0.2s" }} />
@@ -105,7 +105,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
       </button>
       {open && (
         <div className="px-6 pb-5">
-          <p className="text-sm leading-relaxed" style={{ color: "#6b7280" }}>{a}</p>
+          <p className="text-[10px] lg:text-xs leading-relaxed" style={{ color: "#6b7280" }}>{a}</p>
         </div>
       )}
     </div>
@@ -151,7 +151,7 @@ export default function HomeLoanPage() {
                 </span>
               </div>
 
-              <h1 className="font-extrabold leading-[1.08] tracking-tight mb-6" style={{ fontSize: "clamp(38px,5.5vw,64px)", color: "#0f1a0f" }}>
+              <h1 className="font-extrabold leading-[1.08] tracking-tight mb-6" style={{ fontSize: "clamp(34px,5.5vw,64px)", color: "#0f1a0f" }}>
                 Your Dream Home,{" "}
                 <span style={{ color: "#16a34a" }}>Financed</span>
                 <br />
@@ -164,14 +164,14 @@ export default function HomeLoanPage() {
                 {" "}Now
               </h1>
 
-              <p className="text-lg mb-3 max-w-lg leading-relaxed" style={{ color: "#4b5563" }}>
+              <p className="text-base lg:text-lg mb-3 max-w-lg leading-relaxed" style={{ color: "#4b5563" }}>
                 Home loans starting at{" "}
                 <span className="font-bold" style={{ color: "#16a34a" }}>8.40% p.a.</span>{" "}
                 from 60+ banks & NBFCs. Up to ₹10 Crore. 30-year tenure. Claim up to{" "}
                 <span className="font-bold" style={{ color: "#16a34a" }}>₹3.5 Lakh</span>{" "}
                 in annual tax benefits.
               </p>
-              <p className="text-xs mb-10" style={{ color: "#9ca3af" }}>
+              <p className="text-[10px] lg:text-xs mb-10" style={{ color: "#9ca3af" }}>
                 *Rates indicative and subject to lender credit assessment · LTV up to 90% · Tenure up to 30 years
               </p>
 
@@ -297,15 +297,15 @@ export default function HomeLoanPage() {
       <section className="py-20 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-4"
+            <span className="inline-block text-[10px] lg:text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-4"
               style={{ background: "rgba(22,163,74,0.1)", color: "#16a34a" }}>
               Live Rates
             </span>
-            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-3" style={{ color: "#1a1a1a" }}>
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-3" style={{ color: "#1a1a1a" }}>
               Current Home Loan{" "}
               <span style={{ color: "#16a34a" }}>Interest Rates</span>
             </h2>
-            <p className="text-sm max-w-lg mx-auto" style={{ color: "#6b7280" }}>
+            <p className="text-sm lg:text-base max-w-lg mx-auto" style={{ color: "#6b7280" }}>
               Indicative rates from major Indian lenders. Your actual rate depends on credit profile and property type.
             </p>
           </div>
@@ -335,7 +335,7 @@ export default function HomeLoanPage() {
                 </div>
               ))}
             </div>
-            <p className="text-xs text-center mt-4" style={{ color: "#9ca3af" }}>
+            <p className="text-[10px] lg:text-xs text-center mt-4" style={{ color: "#9ca3af" }}>
               *Rates updated periodically. Actual rate offered may vary based on CIBIL score, income, and property. Subject to lender terms.
             </p>
           </div>
@@ -348,15 +348,15 @@ export default function HomeLoanPage() {
       <section className="py-20 md:py-24" style={{ background: "#f9fafb" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-4"
+            <span className="inline-block text-[10px] lg:text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-4"
               style={{ background: "rgba(22,163,74,0.1)", color: "#16a34a" }}>
               Loan Types
             </span>
-            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-3" style={{ color: "#1a1a1a" }}>
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-3" style={{ color: "#1a1a1a" }}>
               Which Home Loan{" "}
               <span style={{ color: "#16a34a" }}>Suits You?</span>
             </h2>
-            <p className="text-base" style={{ color: "#6b7280" }}>
+            <p className="text-sm lg:text-base" style={{ color: "#6b7280" }}>
               From ready-to-move to under-construction — we have a loan type for every property scenario.
             </p>
           </div>
@@ -371,8 +371,8 @@ export default function HomeLoanPage() {
                     style={{ background: `${t.color}15` }}>
                     <Icon size={20} style={{ color: t.color }} />
                   </div>
-                  <h3 className="font-bold text-base mb-2" style={{ color: "#1a1a1a" }}>{t.title}</h3>
-                  <p className="text-sm leading-relaxed" style={{ color: "#6b7280" }}>{t.desc}</p>
+                  <h3 className="font-bold text-sm lg:text-base mb-2" style={{ color: "#1a1a1a" }}>{t.title}</h3>
+                  <p className="text-xs lg:text-sm leading-relaxed" style={{ color: "#6b7280" }}>{t.desc}</p>
                 </div>
               );
             })}
@@ -386,15 +386,15 @@ export default function HomeLoanPage() {
       <section className="py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <span className="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-4"
+            <span className="inline-block text-[10px] lg:text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-4"
               style={{ background: "rgba(22,163,74,0.1)", color: "#16a34a" }}>
               Why OpenCredit
             </span>
-            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-3" style={{ color: "#1a1a1a" }}>
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-3" style={{ color: "#1a1a1a" }}>
               The Smarter Way to{" "}
               <span style={{ color: "#16a34a" }}>Finance Your Home</span>
             </h2>
-            <p className="text-base max-w-2xl mx-auto" style={{ color: "#6b7280" }}>
+            <p className="text-sm lg:text-base max-w-2xl mx-auto" style={{ color: "#6b7280" }}>
               We compare 60+ lenders to find you the best rate — and guide you through every step of the home loan process.
             </p>
           </div>
@@ -419,8 +419,8 @@ export default function HomeLoanPage() {
                       {f.badge}
                     </span>
                   </div>
-                  <h3 className="font-bold text-base mb-2" style={{ color: i === 0 ? "#fff" : "#1a1a1a" }}>{f.title}</h3>
-                  <p className="text-sm leading-relaxed" style={{ color: i === 0 ? "rgba(255,255,255,0.5)" : "#6b7280" }}>{f.desc}</p>
+                  <h3 className="font-bold text-sm lg:text-base mb-2" style={{ color: i === 0 ? "#fff" : "#1a1a1a" }}>{f.title}</h3>
+                  <p className="text-xs lg:text-sm leading-relaxed" style={{ color: i === 0 ? "rgba(255,255,255,0.5)" : "#6b7280" }}>{f.desc}</p>
                 </div>
               );
             })}
@@ -435,16 +435,16 @@ export default function HomeLoanPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <span className="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-5"
+              <span className="inline-block text-[10px] lg:text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-5"
                 style={{ background: "rgba(22,163,74,0.1)", color: "#16a34a" }}>
                 Tax Benefits
               </span>
-              <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-5" style={{ color: "#1a1a1a" }}>
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-5" style={{ color: "#1a1a1a" }}>
                 Save Up to{" "}
                 <span style={{ color: "#16a34a" }}>₹3.5 Lakh</span>
                 <br />on Tax Every Year
               </h2>
-              <p className="text-base leading-relaxed mb-8" style={{ color: "#6b7280" }}>
+              <p className="text-sm lg:text-base leading-relaxed mb-8" style={{ color: "#6b7280" }}>
                 A home loan is one of the biggest tax-saving instruments available to Indian taxpayers. Under the old tax regime, you can claim deductions on both principal and interest payments.
               </p>
               <Link href="/register">
@@ -469,12 +469,12 @@ export default function HomeLoanPage() {
                   <div className="flex-1">
                     <div className="flex items-start justify-between gap-3 mb-1">
                       <div>
-                        <span className="text-[11px] font-bold uppercase tracking-wider" style={{ color: "#16a34a" }}>{tb.section}</span>
-                        <p className="text-sm font-bold mt-0.5" style={{ color: "#1a1a1a" }}>{tb.benefit}</p>
+                        <span className="text-[10px] lg:text-[11px] font-bold uppercase tracking-wider" style={{ color: "#16a34a" }}>{tb.section}</span>
+                        <p className="text-xs lg:text-sm font-bold mt-0.5" style={{ color: "#1a1a1a" }}>{tb.benefit}</p>
                       </div>
-                      <span className="text-base font-extrabold font-mono flex-shrink-0" style={{ color: "#16a34a" }}>{tb.limit}</span>
+                      <span className="text-sm lg:text-base font-extrabold font-mono flex-shrink-0" style={{ color: "#16a34a" }}>{tb.limit}</span>
                     </div>
-                    <p className="text-xs" style={{ color: "#9ca3af" }}>{tb.note}</p>
+                    <p className="text-[10px] lg:text-xs" style={{ color: "#9ca3af" }}>{tb.note}</p>
                   </div>
                 </div>
               ))}
@@ -495,15 +495,15 @@ export default function HomeLoanPage() {
       <section className="py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <span className="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-4"
+            <span className="inline-block text-[10px] lg:text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-4"
               style={{ background: "rgba(22,163,74,0.1)", color: "#16a34a" }}>
               Simple Process
             </span>
-            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4" style={{ color: "#1a1a1a" }}>
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-4" style={{ color: "#1a1a1a" }}>
               Get Your Home Loan in{" "}
               <span style={{ color: "#16a34a" }}>5 Steps</span>
             </h2>
-            <p className="text-base" style={{ color: "#6b7280" }}>From eligibility check to disbursement — completely digital and assisted.</p>
+            <p className="text-sm lg:text-base" style={{ color: "#6b7280" }}>From eligibility check to disbursement — completely digital and assisted.</p>
           </div>
 
           <div className="relative">
@@ -512,13 +512,13 @@ export default function HomeLoanPage() {
             <div className="grid md:grid-cols-5 gap-6">
               {steps.map((step, i) => (
                 <div key={step.num} className="relative text-center">
-                  <div className="w-20 h-20 rounded-2xl flex flex-col items-center justify-center mx-auto mb-5 relative z-10"
+                  <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-2xl flex flex-col items-center justify-center mx-auto mb-5 relative z-10"
                     style={{ background: i === 0 ? "#16a34a" : "#fff", border: i === 0 ? "none" : "2px solid #e5e7eb", boxShadow: i === 0 ? "0 10px 40px rgba(22,163,74,0.3)" : "0 2px 8px rgba(0,0,0,0.06)" }}>
-                    <span className="text-xs font-bold uppercase tracking-wider" style={{ color: i === 0 ? "rgba(255,255,255,0.6)" : "#9ca3af" }}>{step.num}</span>
+                    <span className="text-[10px] lg:text-xs font-bold uppercase tracking-wider" style={{ color: i === 0 ? "rgba(255,255,255,0.6)" : "#9ca3af" }}>{step.num}</span>
                     <ChevronRight size={16} style={{ color: i === 0 ? "#fff" : "#16a34a", marginTop: "2px" }} />
                   </div>
-                  <h3 className="font-bold text-sm mb-2" style={{ color: "#1a1a1a" }}>{step.title}</h3>
-                  <p className="text-xs leading-relaxed" style={{ color: "#9ca3af" }}>{step.desc}</p>
+                  <h3 className="font-bold text-xs lg:text-sm mb-2" style={{ color: "#1a1a1a" }}>{step.title}</h3>
+                  <p className="text-[10px] lg:text-xs leading-relaxed" style={{ color: "#9ca3af" }}>{step.desc}</p>
                 </div>
               ))}
             </div>
@@ -544,11 +544,11 @@ export default function HomeLoanPage() {
       <section className="py-20 md:py-28" style={{ background: "#f9fafb" }} id="eligibility">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-3" style={{ color: "#1a1a1a" }}>
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-3" style={{ color: "#1a1a1a" }}>
               Eligibility &{" "}
               <span style={{ color: "#16a34a" }}>Documents</span>
             </h2>
-            <p className="text-base" style={{ color: "#6b7280" }}>Check the basic requirements before applying.</p>
+            <p className="text-sm lg:text-base" style={{ color: "#6b7280" }}>Check the basic requirements before applying.</p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-6">
@@ -559,17 +559,17 @@ export default function HomeLoanPage() {
                 <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: "#f0fdf4" }}>
                   <Star size={18} style={{ color: "#16a34a" }} />
                 </div>
-                <h3 className="font-bold text-lg" style={{ color: "#1a1a1a" }}>Eligibility Criteria</h3>
+                <h3 className="font-bold text-base lg:text-lg" style={{ color: "#1a1a1a" }}>Eligibility Criteria</h3>
               </div>
               {eligibility.map((item, i) => (
                 <div key={item.label} className="flex items-center justify-between py-3"
                   style={{ borderBottom: i < eligibility.length - 1 ? "1px solid #f5f5f5" : "none" }}>
-                  <span className="text-sm" style={{ color: "#6b7280" }}>{item.label}</span>
-                  <span className="text-sm font-semibold text-right max-w-[55%]" style={{ color: "#1a1a1a" }}>{item.value}</span>
+                  <span className="text-xs lg:text-sm" style={{ color: "#6b7280" }}>{item.label}</span>
+                  <span className="text-xs lg:text-sm font-semibold text-right max-w-[55%]" style={{ color: "#1a1a1a" }}>{item.value}</span>
                 </div>
               ))}
               <div className="mt-5 rounded-xl p-4" style={{ background: "#f0fdf4", border: "1px solid rgba(22,163,74,0.15)" }}>
-                <p className="text-xs leading-relaxed" style={{ color: "#6b7280" }}>
+                <p className="text-[10px] lg:text-xs leading-relaxed" style={{ color: "#6b7280" }}>
                   <strong style={{ color: "#1a1a1a" }}>Tip:</strong> Adding a co-applicant (spouse or parent) significantly boosts your eligible loan amount and may improve your interest rate.
                 </p>
               </div>
@@ -582,15 +582,15 @@ export default function HomeLoanPage() {
                 <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: "#f0fdf4" }}>
                   <Shield size={18} style={{ color: "#16a34a" }} />
                 </div>
-                <h3 className="font-bold text-lg" style={{ color: "#1a1a1a" }}>Documents Required</h3>
+                <h3 className="font-bold text-base lg:text-lg" style={{ color: "#1a1a1a" }}>Documents Required</h3>
               </div>
               <div className="space-y-5 mb-6">
                 {documents.map(group => (
                   <div key={group.category}>
-                    <p className="text-[11px] font-bold uppercase tracking-wider mb-2" style={{ color: "#16a34a" }}>{group.category}</p>
+                    <p className="text-[10px] lg:text-[11px] font-bold uppercase tracking-wider mb-2" style={{ color: "#16a34a" }}>{group.category}</p>
                     <ul className="space-y-1.5">
                       {group.items.map(doc => (
-                        <li key={doc} className="flex items-center gap-2.5 text-sm" style={{ color: "#374151" }}>
+                        <li key={doc} className="flex items-center gap-2.5 text-xs lg:text-sm" style={{ color: "#374151" }}>
                           <CheckCircle2 size={14} style={{ color: "#16a34a", flexShrink: 0 }} />
                           {doc}
                         </li>
@@ -625,11 +625,11 @@ export default function HomeLoanPage() {
       <section className="py-20 md:py-28 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <span className="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-4"
+            <span className="inline-block text-[10px] lg:text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-4"
               style={{ background: "rgba(22,163,74,0.1)", color: "#16a34a" }}>
               FAQ
             </span>
-            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight" style={{ color: "#1a1a1a" }}>
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-extrabold tracking-tight" style={{ color: "#1a1a1a" }}>
               Home Loan{" "}
               <span style={{ color: "#16a34a" }}>Questions</span>
             </h2>
@@ -643,7 +643,7 @@ export default function HomeLoanPage() {
       {/* ══════════════════════════════════════════════
           FINAL CTA
       ══════════════════════════════════════════════ */}
-      <section className="py-24 relative overflow-hidden" style={{ background: "#0a0a0a" }}>
+      <section className="py-14 md:py-24 relative overflow-hidden" style={{ background: "#0a0a0a" }}>
         <div className="absolute inset-0 pointer-events-none"
           style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] rounded-full pointer-events-none"
@@ -653,22 +653,22 @@ export default function HomeLoanPage() {
           <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6" style={{ background: "rgba(22,163,74,0.15)" }}>
             <Home size={28} style={{ color: "#4ade80" }} />
           </div>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-extrabold text-white mb-4 tracking-tight">
             Ready to Own Your{" "}
             <span style={{ color: "#4ade80" }}>Dream Home?</span>
           </h2>
-          <p className="text-base mb-3" style={{ color: "rgba(255,255,255,0.45)" }}>
+          <p className="text-sm lg:text-base mb-3" style={{ color: "rgba(255,255,255,0.45)" }}>
             Check eligibility in 2 minutes. Compare 60+ lenders. Get the lowest rate for your profile.
           </p>
 
-          <div className="rounded-2xl p-4 mb-10 text-xs text-center"
+          <div className="rounded-2xl p-4 mb-10 text-[10px] lg:text-xs text-center"
             style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)", color: "rgba(255,255,255,0.3)" }}>
             Interest rates from 8.40% p.a. &nbsp;·&nbsp; Loan up to ₹10 Crore &nbsp;·&nbsp; Tenure up to 30 years
             <br />Subject to credit approval · LTV up to 90% of property value
           </div>
 
           <Link href="/register">
-            <span className="inline-flex items-center gap-2 px-10 py-4 rounded-2xl text-base font-bold text-white cursor-pointer transition-all"
+            <span className="inline-flex items-center gap-2 px-7 py-3 sm:px-10 sm:py-4 rounded-xl sm:rounded-2xl text-sm lg:text-base font-bold text-white cursor-pointer transition-all"
               style={{ background: "#16a34a" }}
               onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = "#15803d"}
               onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = "#16a34a"}>
@@ -677,7 +677,7 @@ export default function HomeLoanPage() {
             </span>
           </Link>
 
-          <p className="text-xs mt-6" style={{ color: "rgba(255,255,255,0.2)" }}>
+          <p className="text-[10px] lg:text-xs mt-6" style={{ color: "rgba(255,255,255,0.2)" }}>
             OpenCredit is a loan marketplace/DSA. Loans disbursed by RBI-registered partner banks/NBFCs. Not a bank or NBFC.
           </p>
         </div>

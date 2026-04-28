@@ -88,21 +88,22 @@ export default function CreateApplicationModal() {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button className="gap-2">
-          <Plus size={16} />
-          New Application
+        <Button className="gap-1 lg:gap-2 text-[10px] lg:text-sm h-8 lg:h-9 px-2 lg:px-4">
+          <Plus className="w-3.5 h-3.5 lg:w-4 lg:h-4" />
+          <span className="hidden xs:inline">New Application</span>
+          <span className="xs:hidden">New App</span>
         </Button>
       </DialogTrigger>
       <DialogContent className="max-w-2xl max-h-[85vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="text-xl">Create New Application</DialogTitle>
-          <DialogDescription className="text-text-muted">
+          <DialogTitle className="text-lg lg:text-xl">Create New Application</DialogTitle>
+          <DialogDescription className="text-[10px] lg:text-sm text-text-muted">
             Manually create a personal loan application
           </DialogDescription>
         </DialogHeader>
 
         {/* Step Indicator */}
-        <div className="flex items-center gap-2 mb-4">
+        <div className="flex items-center gap-1 lg:gap-2 mb-4">
           {[
             { n: 1, label: "Personal", icon: User },
             { n: 2, label: "Employment", icon: Briefcase },
@@ -113,13 +114,13 @@ export default function CreateApplicationModal() {
               <button
                 key={s.n}
                 onClick={() => setStep(s.n)}
-                className={`flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-medium transition-all flex-1 justify-center ${
+                className={`flex items-center gap-1.5 lg:gap-2 px-2 lg:px-3 py-1.5 lg:py-2 rounded-lg text-[9px] lg:text-xs font-medium transition-all flex-1 justify-center ${
                   step === s.n
                     ? "bg-brand-green text-white"
                     : "bg-gray-100 text-text-muted hover:bg-gray-200"
                 }`}
               >
-                <Icon size={14} />
+                <Icon className="w-3 h-3 lg:w-3.5 lg:h-3.5" />
                 {s.label}
               </button>
             );

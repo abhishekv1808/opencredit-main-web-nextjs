@@ -272,7 +272,7 @@ export default function PersonalLoanPage() {
 
               {/* Subheading */}
               <p
-                className="text-lg mb-3 max-w-lg leading-relaxed"
+                className="text-base lg:text-lg mb-3 max-w-lg leading-relaxed"
                 style={{ color: "#4b5563" }}
               >
                 Minimal documentation. Completely digital. Lowest rate of
@@ -282,7 +282,7 @@ export default function PersonalLoanPage() {
                 </span>{" "}
                 with disbursement in just 24 hours.
               </p>
-              <p className="text-xs mb-10" style={{ color: "#9ca3af" }}>
+              <p className="text-[10px] lg:text-xs mb-10" style={{ color: "#9ca3af" }}>
                 Subject to credit assessment · Rates 10.25%–36% p.a. · Tenure
                 12–60 months
               </p>
@@ -333,20 +333,20 @@ export default function PersonalLoanPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <span
-              className="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-4"
+              className="inline-block text-[10px] lg:text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-4"
               style={{ background: "rgba(22,163,74,0.1)", color: "#16a34a" }}
             >
               Why OpenCredit
             </span>
             <h2
-              className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4"
+              className="text-2xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-4"
               style={{ color: "#1a1a1a" }}
             >
               The Smarter Way to{" "}
               <span style={{ color: "#16a34a" }}>Borrow</span>
             </h2>
             <p
-              className="text-base max-w-2xl mx-auto"
+              className="text-sm lg:text-base max-w-2xl mx-auto"
               style={{ color: "#6b7280" }}
             >
               We have more than 60 partner financial institutions registered.
@@ -397,13 +397,13 @@ export default function PersonalLoanPage() {
                     </span>
                   </div>
                   <h3
-                    className="font-bold text-base mb-2"
+                    className="font-bold text-sm lg:text-base mb-2"
                     style={{ color: i === 0 ? "#fff" : "#1a1a1a" }}
                   >
                     {f.title}
                   </h3>
                   <p
-                    className="text-sm leading-relaxed"
+                    className="text-xs lg:text-sm leading-relaxed"
                     style={{
                       color: i === 0 ? "rgba(255,255,255,0.5)" : "#6b7280",
                     }}
@@ -435,19 +435,19 @@ export default function PersonalLoanPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span
-              className="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-4"
+              className="inline-block text-[10px] lg:text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-4"
               style={{ background: "rgba(22,163,74,0.1)", color: "#16a34a" }}
             >
               Simple Process
             </span>
             <h2
-              className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4"
+              className="text-2xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-4"
               style={{ color: "#1a1a1a" }}
             >
               Get Your Loan in{" "}
               <span style={{ color: "#16a34a" }}>5 Easy Steps</span>
             </h2>
-            <p className="text-base" style={{ color: "#6b7280" }}>
+            <p className="text-sm lg:text-base" style={{ color: "#6b7280" }}>
               From application to disbursement — the entire journey is digital
               and takes under 10 minutes.
             </p>
@@ -477,7 +477,7 @@ export default function PersonalLoanPage() {
                     }}
                   >
                     <span
-                      className="text-xs font-bold uppercase tracking-wider"
+                      className="text-[10px] lg:text-xs font-bold uppercase tracking-wider"
                       style={{
                         color: i === 0 ? "rgba(255,255,255,0.6)" : "#9ca3af",
                       }}
@@ -493,13 +493,13 @@ export default function PersonalLoanPage() {
                     />
                   </div>
                   <h3
-                    className="font-bold text-sm mb-2"
+                    className="font-bold text-xs lg:text-sm mb-2"
                     style={{ color: "#1a1a1a" }}
                   >
                     {step.title}
                   </h3>
                   <p
-                    className="text-xs leading-relaxed"
+                    className="text-[10px] lg:text-xs leading-relaxed"
                     style={{ color: "#9ca3af" }}
                   >
                     {step.desc}
@@ -553,18 +553,18 @@ export default function PersonalLoanPage() {
           {/* Section header — left aligned */}
           <div className="mb-14">
             <span
-              className="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-5"
+              className="inline-block text-[10px] lg:text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-5"
               style={{ background: "rgba(22,163,74,0.1)", color: "#16a34a" }}
             >
               Quick Check
             </span>
             <h2
-              className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4"
+              className="text-2xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-4"
               style={{ color: "#1a1a1a" }}
             >
               Are You <span style={{ color: "#16a34a" }}>Eligible?</span>
             </h2>
-            <p className="text-base max-w-xl" style={{ color: "#6b7280" }}>
+            <p className="text-sm lg:text-base max-w-xl" style={{ color: "#6b7280" }}>
               Check if you meet the basic criteria. Most applicants with a
               stable income and decent credit score qualify.
             </p>
@@ -589,11 +589,11 @@ export default function PersonalLoanPage() {
                     <Star size={18} style={{ color: "#4ade80" }} />
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg text-white">
+                    <h3 className="font-bold text-base lg:text-lg text-white">
                       Eligibility Criteria
                     </h3>
                     <p
-                      className="text-xs"
+                      className="text-[10px] lg:text-xs"
                       style={{ color: "rgba(255,255,255,0.35)" }}
                     >
                       Minimum requirements to apply
@@ -623,14 +623,14 @@ export default function PersonalLoanPage() {
                         <CheckCircle2 size={13} style={{ color: "#4ade80" }} />
                       </div>
                       <span
-                        className="text-sm"
+                        className="text-xs lg:text-sm"
                         style={{ color: "rgba(255,255,255,0.5)" }}
                       >
                         {item.label}
                       </span>
                     </div>
                     <span
-                      className="text-sm font-semibold text-right"
+                      className="text-xs lg:text-sm font-semibold text-right"
                       style={{ color: "#fff" }}
                     >
                       {item.value}
@@ -749,12 +749,12 @@ export default function PersonalLoanPage() {
                   </div>
                   <div>
                     <h3
-                      className="font-bold text-lg"
+                      className="font-bold text-base lg:text-lg"
                       style={{ color: "#1a1a1a" }}
                     >
                       Documents Required
                     </h3>
-                    <p className="text-xs" style={{ color: "#9ca3af" }}>
+                    <p className="text-[10px] lg:text-xs" style={{ color: "#9ca3af" }}>
                       Keep these ready before applying
                     </p>
                   </div>
@@ -769,7 +769,7 @@ export default function PersonalLoanPage() {
                       >
                         <CheckCircle2 size={13} style={{ color: "#16a34a" }} />
                       </div>
-                      <span className="text-sm" style={{ color: "#374151" }}>
+                      <span className="text-xs lg:text-sm" style={{ color: "#374151" }}>
                         {doc}
                       </span>
                     </li>
@@ -789,7 +789,7 @@ export default function PersonalLoanPage() {
                     }}
                   />
                   <p
-                    className="text-xs leading-relaxed"
+                    className="text-[10px] lg:text-xs leading-relaxed"
                     style={{ color: "#6b7280" }}
                   >
                     Upload digitally — no physical submission. Max 5MB per file
@@ -856,7 +856,7 @@ export default function PersonalLoanPage() {
           FINAL CTA
       ══════════════════════════════════════════════ */}
       <section
-        className="py-24 relative overflow-hidden"
+        className="py-14 md:py-24 relative overflow-hidden"
         style={{ background: "#0a0a0a" }}
       >
         <div
@@ -877,16 +877,16 @@ export default function PersonalLoanPage() {
 
         <div className="relative max-w-3xl mx-auto px-4 text-center">
           <span
-            className="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-6"
+            className="inline-block text-[10px] lg:text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-6"
             style={{ background: "rgba(22,163,74,0.15)", color: "#4ade80" }}
           >
             Apply Today
           </span>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-extrabold text-white mb-4 tracking-tight">
             Ready to Get Your <span style={{ color: "#4ade80" }}>Loan?</span>
           </h2>
           <p
-            className="text-base mb-3"
+            className="text-sm lg:text-base mb-3"
             style={{ color: "rgba(255,255,255,0.45)" }}
           >
             It takes just 10 minutes. No branch visit. No collateral.
@@ -907,7 +907,7 @@ export default function PersonalLoanPage() {
           </div>
 
           <Link href="/register">
-            <span className="inline-flex items-center gap-2 px-10 py-4 rounded-2xl text-base font-bold text-white cursor-pointer bg-green-600 hover:bg-green-700 transition-colors">
+            <span className="inline-flex items-center gap-2 px-7 py-3 sm:px-10 sm:py-4 rounded-xl sm:rounded-2xl text-sm sm:text-base font-bold text-white cursor-pointer bg-green-600 hover:bg-green-700 transition-colors">
               Apply for Personal Loan — Free
               <ArrowRight size={18} />
             </span>

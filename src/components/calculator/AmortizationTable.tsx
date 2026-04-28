@@ -8,8 +8,8 @@ interface AmortizationTableProps {
 export default function AmortizationTable({ schedule }: AmortizationTableProps) {
   return (
     <div className="bg-white rounded-2xl shadow-card overflow-hidden">
-      <div className="px-6 py-4 border-b border-gray-100">
-        <h3 className="font-display text-xl font-bold text-heading">
+      <div className="px-4 sm:px-6 py-3 sm:py-4 border-b border-gray-100">
+        <h3 className="font-display text-base sm:text-xl font-bold text-heading">
           Amortization Schedule
         </h3>
         <p className="text-xs text-text-muted mt-1">
@@ -20,19 +20,19 @@ export default function AmortizationTable({ schedule }: AmortizationTableProps) 
         <table className="w-full text-sm">
           <thead>
             <tr className="bg-brand-blue text-white">
-              <th className="px-4 py-3 text-left font-semibold text-xs">
+              <th className="px-2 sm:px-4 py-2 sm:py-3 text-left font-semibold text-[10px] sm:text-xs">
                 Month
               </th>
-              <th className="px-4 py-3 text-right font-semibold text-xs">
+              <th className="px-2 sm:px-4 py-2 sm:py-3 text-right font-semibold text-[10px] sm:text-xs">
                 EMI (₹)
               </th>
-              <th className="px-4 py-3 text-right font-semibold text-xs">
+              <th className="px-2 sm:px-4 py-2 sm:py-3 text-right font-semibold text-[10px] sm:text-xs">
                 Principal (₹)
               </th>
-              <th className="px-4 py-3 text-right font-semibold text-xs">
+              <th className="px-2 sm:px-4 py-2 sm:py-3 text-right font-semibold text-[10px] sm:text-xs">
                 Interest (₹)
               </th>
-              <th className="px-4 py-3 text-right font-semibold text-xs">
+              <th className="px-2 sm:px-4 py-2 sm:py-3 text-right font-semibold text-[10px] sm:text-xs">
                 Balance (₹)
               </th>
             </tr>
@@ -43,19 +43,19 @@ export default function AmortizationTable({ schedule }: AmortizationTableProps) 
                 key={row.month}
                 className="border-b border-gray-50 hover:bg-brand-blue-light/50 transition-colors"
               >
-                <td className="px-4 py-3 text-text-muted font-mono text-xs">
+                <td className="px-2 sm:px-4 py-2 sm:py-3 text-text-muted font-mono text-[10px] sm:text-xs">
                   {row.month}
                 </td>
-                <td className="px-4 py-3 text-right font-mono text-xs font-semibold text-heading">
+                <td className="px-2 sm:px-4 py-2 sm:py-3 text-right font-mono text-[10px] sm:text-xs font-semibold text-heading">
                   {row.emi.toLocaleString("en-IN")}
                 </td>
-                <td className="px-4 py-3 text-right font-mono text-xs text-green-700">
+                <td className="px-2 sm:px-4 py-2 sm:py-3 text-right font-mono text-[10px] sm:text-xs text-green-700">
                   {row.principal.toLocaleString("en-IN")}
                 </td>
-                <td className="px-4 py-3 text-right font-mono text-xs text-brand-teal">
+                <td className="px-2 sm:px-4 py-2 sm:py-3 text-right font-mono text-[10px] sm:text-xs text-brand-teal">
                   {row.interest.toLocaleString("en-IN")}
                 </td>
-                <td className="px-4 py-3 text-right font-mono text-xs text-text-primary font-medium">
+                <td className="px-2 sm:px-4 py-2 sm:py-3 text-right font-mono text-[10px] sm:text-xs text-text-primary font-medium">
                   {row.balance.toLocaleString("en-IN")}
                 </td>
               </tr>
@@ -63,23 +63,23 @@ export default function AmortizationTable({ schedule }: AmortizationTableProps) 
           </tbody>
           <tfoot>
             <tr className="bg-gray-50 font-bold">
-              <td className="px-4 py-3 text-text-primary text-xs">Total</td>
-              <td className="px-4 py-3 text-right font-mono text-xs text-heading">
+              <td className="px-2 sm:px-4 py-2 sm:py-3 text-text-primary text-[10px] sm:text-xs">Total</td>
+              <td className="px-2 sm:px-4 py-2 sm:py-3 text-right font-mono text-[10px] sm:text-xs text-heading">
                 {schedule
                   .reduce((sum, r) => sum + r.emi, 0)
                   .toLocaleString("en-IN")}
               </td>
-              <td className="px-4 py-3 text-right font-mono text-xs text-green-700">
+              <td className="px-2 sm:px-4 py-2 sm:py-3 text-right font-mono text-[10px] sm:text-xs text-green-700">
                 {schedule
                   .reduce((sum, r) => sum + r.principal, 0)
                   .toLocaleString("en-IN")}
               </td>
-              <td className="px-4 py-3 text-right font-mono text-xs text-brand-teal">
+              <td className="px-2 sm:px-4 py-2 sm:py-3 text-right font-mono text-[10px] sm:text-xs text-brand-teal">
                 {schedule
                   .reduce((sum, r) => sum + r.interest, 0)
                   .toLocaleString("en-IN")}
               </td>
-              <td className="px-4 py-3 text-right text-xs text-green-600">
+              <td className="px-2 sm:px-4 py-2 sm:py-3 text-right text-[10px] sm:text-xs text-green-600">
                 ✓ Paid Off
               </td>
             </tr>

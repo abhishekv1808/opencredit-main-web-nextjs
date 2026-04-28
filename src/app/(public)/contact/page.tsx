@@ -257,7 +257,7 @@ export default function ContactPage() {
               <Mail size={13} style={{ color: "#3DA52A" }} />
               <span className="text-[11px] font-bold uppercase tracking-widest" style={{ color: "#3DA52A" }}>Get In Touch</span>
             </div>
-            <h2 className="font-display text-3xl md:text-4xl font-extrabold text-heading" style={{ letterSpacing: "-0.025em" }}>
+            <h2 className="font-display text-2xl md:text-4xl font-extrabold text-heading" style={{ letterSpacing: "-0.025em" }}>
               We&apos;d love to{" "}
               <span className="text-accent-gradient">hear from you</span>
             </h2>

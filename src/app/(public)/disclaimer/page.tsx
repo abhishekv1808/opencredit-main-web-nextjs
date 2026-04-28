@@ -64,7 +64,7 @@ export default function DisclaimerPage() {
               Important Disclosures
             </span>
           </div>
-          <h1 className="font-display text-5xl md:text-6xl font-extrabold text-heading mb-3">
+          <h1 className="font-display text-3xl md:text-6xl font-extrabold text-heading mb-3">
             Disclaimer
           </h1>
           <p className="text-gray-400">Last updated: April 2026</p>

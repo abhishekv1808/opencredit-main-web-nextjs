@@ -108,16 +108,16 @@ export default function CreditProducts() {
         {/* Header */}
         <div className="mb-12">
           <div className="flex items-center gap-3 mb-2">
-            <h2 className="text-xs font-extrabold uppercase tracking-[0.2em]" style={{ color: "#16a34a" }}>
+            <h2 className="text-[10px] lg:text-xs font-extrabold uppercase tracking-[0.2em]" style={{ color: "#16a34a" }}>
               Credit Products
             </h2>
             <div className="flex-1 h-0.5 max-w-[60px]" style={{ background: "#16a34a" }} />
           </div>
-          <p className="text-3xl md:text-4xl font-extrabold tracking-tight" style={{ color: "#1a1a1a" }}>
+          <p className="text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight" style={{ color: "#1a1a1a" }}>
             Everything You Need,{" "}
             <span style={{ color: "#16a34a" }}>One Platform</span>
           </p>
-          <p className="text-sm mt-2 max-w-xl" style={{ color: "#6b7280" }}>
+          <p className="text-xs lg:text-sm mt-2 max-w-xl" style={{ color: "#6b7280" }}>
             Compare offers from 60+ banks & NBFCs across all major credit products — and get the best deal for your profile.
           </p>
         </div>
@@ -138,7 +138,7 @@ export default function CreditProducts() {
               >
                 {/* Popular badge */}
                 {p.badge && (
-                  <span className="absolute top-4 right-4 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full"
+                  <span className="absolute top-4 right-4 text-[9px] lg:text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full"
                     style={{ background: "#f0fdf4", color: "#16a34a" }}>
                     {p.badge}
                   </span>
@@ -147,11 +147,11 @@ export default function CreditProducts() {
                 {/* Icon + title row */}
                 <div className="flex items-start justify-between mb-4">
                   <div>
-                    <h3 className="font-bold text-[15px] mb-0.5" style={{ color: "#1a1a1a" }}>
+                    <h3 className="font-bold text-sm lg:text-[15px] mb-0.5" style={{ color: "#1a1a1a" }}>
                       {p.title}
                     </h3>
                     {p.highlight && (
-                      <span className="text-[11px] font-semibold" style={{ color: p.highlightColor ?? "#16a34a" }}>
+                      <span className="text-[10px] lg:text-[11px] font-semibold" style={{ color: p.highlightColor ?? "#16a34a" }}>
                         {p.highlight}
                       </span>
                     )}
@@ -163,13 +163,13 @@ export default function CreditProducts() {
                 </div>
 
                 {/* Description */}
-                <p className="text-xs leading-relaxed flex-1 mb-5" style={{ color: "#6b7280" }}>
+                <p className="text-[10px] lg:text-xs leading-relaxed flex-1 mb-5" style={{ color: "#6b7280" }}>
                   {p.desc}
                 </p>
 
                 {/* CTA */}
                 <Link href={p.href}
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold transition-all group-hover:gap-2.5"
+                  className="inline-flex items-center gap-1.5 text-[10px] lg:text-xs font-semibold transition-all group-hover:gap-2.5"
                   style={{ color: "#16a34a" }}>
                   {p.cta}
                   <ArrowRight size={13} />
@@ -180,7 +180,7 @@ export default function CreditProducts() {
         </div>
 
         {/* Bottom note */}
-        <p className="text-[11px] text-center mt-8" style={{ color: "#c4c4c4" }}>
+        <p className="text-[10px] lg:text-[11px] text-center mt-8" style={{ color: "#c4c4c4" }}>
           All loans subject to credit approval · Rates vary by lender · OpenCredit is a loan marketplace/DSA registered with RBI partner banks/NBFCs
         </p>
       </div>

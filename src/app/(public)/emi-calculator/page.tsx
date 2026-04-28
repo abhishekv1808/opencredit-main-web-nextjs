@@ -53,7 +53,7 @@ export default function EMICalculatorPage() {
         }) }}
       />
       {/* Hero — Light */}
-      <section className="relative pt-32 pb-16 md:pt-40 md:pb-20 hero-bg-light overflow-hidden">
+      <section className="relative pt-24 pb-10 md:pt-40 md:pb-20 hero-bg-light overflow-hidden">
         <div className="absolute top-20 right-[20%] w-[400px] h-[400px] rounded-full bg-brand-green/[0.04] blur-[100px] pointer-events-none" />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
           <div className="inline-flex items-center gap-2 bg-brand-green/10 border border-brand-green/20 rounded-full px-4 py-2 mb-6">
@@ -62,10 +62,10 @@ export default function EMICalculatorPage() {
               Free Tool
             </span>
           </div>
-          <h1 className="font-display text-5xl md:text-6xl font-extrabold text-heading mb-4">
+          <h1 className="font-display text-3xl md:text-6xl font-extrabold text-heading mb-3 md:mb-4">
             EMI <span className="text-accent-gradient">Calculator</span>
           </h1>
-          <p className="text-gray-500 text-lg mb-2">
+          <p className="text-gray-500 text-base md:text-lg mb-2">
             Calculate your monthly installment, total interest & repayment
             schedule instantly.
           </p>
@@ -77,7 +77,7 @@ export default function EMICalculatorPage() {
       </section>
 
       {/* Calculator */}
-      <section className="py-12 md:py-16 bg-white">
+      <section className="py-6 md:py-16 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <EMICalculator />
         </div>
@@ -86,13 +86,13 @@ export default function EMICalculatorPage() {
       {/* Info Section */}
       <section className="section-padding bg-gray-50/50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="card-modern p-8">
+          <div className="card-modern p-5 sm:p-8">
             <div className="flex items-start gap-4 mb-6">
               <div className="w-10 h-10 bg-brand-green/10 rounded-xl flex items-center justify-center flex-shrink-0">
                 <Info size={18} className="text-brand-green" />
               </div>
               <div>
-                <h2 className="font-display text-2xl font-bold text-heading mb-2">
+                <h2 className="font-display text-xl sm:text-2xl font-bold text-heading mb-2">
                   How EMI is Calculated
                 </h2>
                 <p className="text-gray-500 text-sm">

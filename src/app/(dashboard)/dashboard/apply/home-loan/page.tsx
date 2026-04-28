@@ -14,7 +14,7 @@ export default function ApplyHomeLoanPage() {
       <div className="mb-8">
         <Link
           href="/dashboard"
-          className="inline-flex items-center gap-2 text-sm font-medium mb-5"
+          className="inline-flex items-center gap-2 text-xs lg:text-sm font-medium mb-5"
           style={{ color: "#6b7280" }}
         >
           <ArrowLeft size={15} /> Back to Dashboard
@@ -28,10 +28,10 @@ export default function ApplyHomeLoanPage() {
             <Home size={26} style={{ color: "#1B3A6B" }} />
           </div>
           <div>
-            <h1 className="text-2xl font-bold tracking-tight" style={{ color: "#1a1a1a" }}>
+            <h1 className="text-xl lg:text-2xl font-bold tracking-tight" style={{ color: "#1a1a1a" }}>
               Home Loan Application
             </h1>
-            <p className="text-sm mt-1" style={{ color: "#6b7280" }}>
+            <p className="text-[10px] lg:text-sm mt-1" style={{ color: "#6b7280" }}>
               Finance your dream home from 8.40% p.a. · Up to ₹10 Crore · 30-year tenure
             </p>
           </div>
@@ -50,8 +50,8 @@ export default function ApplyHomeLoanPage() {
               style={{ background: "#f8fafc", border: "1px solid #e5e7eb" }}
             >
               <Icon size={16} style={{ color: "#1B3A6B" }} />
-              <p className="text-[10px] font-medium" style={{ color: "#9ca3af" }}>{label}</p>
-              <p className="text-sm font-bold" style={{ color: "#1a1a1a" }}>{value}</p>
+              <p className="text-[9px] lg:text-[10px] font-medium" style={{ color: "#9ca3af" }}>{label}</p>
+              <p className="text-[11px] lg:text-sm font-bold" style={{ color: "#1a1a1a" }}>{value}</p>
             </div>
           ))}
         </div>
@@ -61,7 +61,7 @@ export default function ApplyHomeLoanPage() {
       <HomeLoanApplicationForm />
 
       {/* Compliance footer */}
-      <p className="text-[11px] text-center mt-6" style={{ color: "#c4c4c4" }}>
+      <p className="text-[9px] lg:text-[11px] text-center mt-6" style={{ color: "#c4c4c4" }}>
         Home loan rates 8.40%–9.50% p.a. · Subject to credit approval & property valuation ·
         OpenCredit is a loan marketplace/DSA registered with RBI partner banks/NBFCs
       </p>

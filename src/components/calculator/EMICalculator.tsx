@@ -78,11 +78,11 @@ export default function EMICalculator() {
       <div className="grid lg:grid-cols-2 gap-8">
 
         {/* ── Input Panel ── */}
-        <div className="bg-white rounded-3xl p-8"
+        <div className="order-last lg:order-first bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8"
           style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.06), 0 0 0 1px rgba(0,0,0,0.04)" }}>
 
           {/* Header */}
-          <div className="flex items-center gap-3 mb-8">
+          <div className="flex items-center gap-3 mb-5 sm:mb-8">
             <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
               style={{ background: "#f0fdf4" }}>
               <Calculator size={20} style={{ color: "#16a34a" }} />
@@ -93,12 +93,12 @@ export default function EMICalculator() {
             </div>
           </div>
 
-          <div className="space-y-7">
+          <div className="space-y-5 sm:space-y-7">
             {/* Loan Amount */}
             <div>
               <div className="flex items-center justify-between mb-2">
                 <label className="text-sm font-semibold" style={{ color: "#374151" }}>Loan Amount</label>
-                <span className="font-mono font-bold text-lg" style={{ color: "#1a1a1a" }}>
+                <span className="font-mono font-bold text-base sm:text-lg" style={{ color: "#1a1a1a" }}>
                   {formatCurrency(principal)}
                 </span>
               </div>
@@ -126,7 +126,7 @@ export default function EMICalculator() {
             <div>
               <div className="flex items-center justify-between mb-2">
                 <label className="text-sm font-semibold" style={{ color: "#374151" }}>Interest Rate (p.a.)</label>
-                <span className="font-mono font-bold text-lg" style={{ color: "#1a1a1a" }}>{rate}%</span>
+                <span className="font-mono font-bold text-base sm:text-lg" style={{ color: "#1a1a1a" }}>{rate}%</span>
               </div>
               <input type="range" min={8} max={36} step={0.25} value={rate}
                 onChange={e => setRate(Number(e.target.value))}
@@ -149,7 +149,7 @@ export default function EMICalculator() {
             <div>
               <div className="flex items-center justify-between mb-2">
                 <label className="text-sm font-semibold" style={{ color: "#374151" }}>Loan Tenure</label>
-                <span className="font-mono font-bold text-lg" style={{ color: "#1a1a1a" }}>{tenure} months</span>
+                <span className="font-mono font-bold text-base sm:text-lg" style={{ color: "#1a1a1a" }}>{tenure} months</span>
               </div>
               <input type="range" min={12} max={60} step={6} value={tenure}
                 onChange={e => setTenure(Number(e.target.value))}
@@ -186,22 +186,22 @@ export default function EMICalculator() {
         </div>
 
         {/* ── Results Panel ── */}
-        <div className="space-y-5">
+        <div className="order-first lg:order-last space-y-5">
 
           {/* EMI result card — dark charcoal */}
-          <div className="rounded-3xl p-8" style={{ background: "#1a1a1a" }}>
+          <div className="rounded-2xl sm:rounded-3xl p-5 sm:p-8" style={{ background: "#1a1a1a" }}>
             <p className="text-xs font-semibold uppercase tracking-wider mb-1"
               style={{ color: "rgba(255,255,255,0.45)" }}>
               Monthly EMI
             </p>
-            <p className="font-mono font-extrabold text-5xl mb-6" style={{ color: "#4ade80" }}>
+            <p className="font-mono font-extrabold text-3xl sm:text-5xl mb-4 sm:mb-6" style={{ color: "#4ade80" }}>
               {formatCurrency(Math.round(emi))}
             </p>
 
             <div className="grid grid-cols-2 gap-3">
               <div className="rounded-2xl p-4" style={{ background: "rgba(255,255,255,0.06)" }}>
                 <p className="text-xs mb-1" style={{ color: "rgba(255,255,255,0.45)" }}>Principal Amount</p>
-                <p className="font-mono font-bold text-base text-white">{formatCurrency(principal)}</p>
+                <p className="font-mono font-bold text-sm sm:text-base text-white">{formatCurrency(principal)}</p>
               </div>
               <div className="rounded-2xl p-4" style={{ background: "rgba(255,255,255,0.06)" }}>
                 <p className="text-xs mb-1" style={{ color: "rgba(255,255,255,0.45)" }}>Total Interest</p>
@@ -211,7 +211,7 @@ export default function EMICalculator() {
               </div>
               <div className="rounded-2xl p-4 col-span-2" style={{ background: "rgba(22,163,74,0.15)", border: "1px solid rgba(22,163,74,0.25)" }}>
                 <p className="text-xs mb-1" style={{ color: "rgba(255,255,255,0.5)" }}>Total Repayment</p>
-                <p className="font-mono font-bold text-2xl text-white">
+                <p className="font-mono font-bold text-lg sm:text-2xl text-white">
                   {formatCurrency(Math.round(totalAmount))}
                 </p>
               </div>
@@ -219,13 +219,13 @@ export default function EMICalculator() {
           </div>
 
           {/* Pie Chart */}
-          <div className="bg-white rounded-3xl p-6"
+          <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6"
             style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.06), 0 0 0 1px rgba(0,0,0,0.04)" }}>
             <h3 className="font-bold text-base mb-4" style={{ color: "#1a1a1a" }}>Payment Breakdown</h3>
-            <ResponsiveContainer width="100%" height={200}>
+            <ResponsiveContainer width="100%" height={170}>
               <PieChart>
                 <Pie data={pieData} cx="50%" cy="50%"
-                  innerRadius={55} outerRadius={85} paddingAngle={3} dataKey="value">
+                  innerRadius={45} outerRadius={72} paddingAngle={3} dataKey="value">
                   {pieData.map((_, index) => (
                     <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                   ))}
@@ -260,9 +260,9 @@ export default function EMICalculator() {
           </div>
 
           {/* Action Buttons */}
-          <div className="flex gap-3">
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
             <button onClick={handleDownload}
-              className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-semibold transition-all"
+              className="flex-1 flex items-center justify-center gap-2 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-semibold transition-all"
               style={{ border: "1px solid #e5e7eb", color: "#374151", background: "#fff" }}
               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = "#16a34a"; (e.currentTarget as HTMLElement).style.color = "#16a34a"; }}
               onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = "#e5e7eb"; (e.currentTarget as HTMLElement).style.color = "#374151"; }}>
@@ -270,7 +270,7 @@ export default function EMICalculator() {
               Download Schedule
             </button>
             <button onClick={() => setShowTable(!showTable)}
-              className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-semibold transition-all text-white"
+              className="flex-1 flex items-center justify-center gap-2 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-semibold transition-all text-white"
               style={{ background: showTable ? "#15803d" : "#16a34a" }}
               onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = "#15803d"}
               onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = showTable ? "#15803d" : "#16a34a"}>
@@ -280,15 +280,16 @@ export default function EMICalculator() {
           </div>
 
           {/* ── Lead Capture Card ── */}
+          <div className="hidden lg:block">
           {!submitted ? (
             <form
               onSubmit={handleLeadSubmit}
               className="rounded-3xl overflow-hidden"
               style={{ background: "linear-gradient(135deg, #15803d 0%, #16a34a 60%, #059669 100%)" }}
             >
-              <div className="p-6">
+              <div className="p-4 sm:p-6">
                 {/* Hook line */}
-                <div className="flex items-start gap-3 mb-5">
+                <div className="flex items-start gap-2.5 sm:gap-3 mb-4 sm:mb-5">
                   <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
                     style={{ background: "rgba(255,255,255,0.15)" }}>
                     <Phone size={18} style={{ color: "#fff" }} />
@@ -304,7 +305,7 @@ export default function EMICalculator() {
                 </div>
 
                 {/* Inputs */}
-                <div className="space-y-2.5 mb-3">
+                <div className="space-y-2 sm:space-y-2.5 mb-3">
                   <input
                     type="text"
                     placeholder="Your name (optional)"
@@ -384,12 +385,20 @@ export default function EMICalculator() {
               </p>
             </div>
           )}
+          </div>
+
+          {/* Amortization Table — mobile only (inside results panel so it appears above inputs) */}
+          {showTable && (
+            <div className="lg:hidden">
+              <AmortizationTable schedule={schedule} />
+            </div>
+          )}
         </div>
       </div>
 
-      {/* Amortization Table */}
+      {/* Amortization Table — desktop only (below the grid) */}
       {showTable && (
-        <div className="mt-8">
+        <div className="mt-8 hidden lg:block">
           <AmortizationTable schedule={schedule} />
         </div>
       )}

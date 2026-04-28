@@ -107,21 +107,24 @@ export default function DocumentViewer({ document, onUpdate, trigger }: Document
         )}
       </DialogTrigger>
       <DialogContent className="max-w-4xl h-[90vh] flex flex-col p-0 overflow-hidden bg-[#F8F9FB]">
-        <DialogHeader className="p-4 bg-white border-b border-gray-100 flex-row items-center justify-between space-y-0">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-brand-blue/10 flex items-center justify-center">
-              <FileText size={18} className="text-brand-blue" />
+        <DialogHeader className="p-3 lg:p-4 bg-white border-b border-gray-100 space-y-2 sm:space-y-0">
+          {/* Top row: Title */}
+          <div className="flex items-center gap-2 lg:gap-3">
+            <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-xl bg-brand-blue/10 flex items-center justify-center flex-shrink-0">
+              <FileText size={16} className="text-brand-blue lg:hidden" />
+              <FileText size={18} className="text-brand-blue hidden lg:block" />
             </div>
-            <div>
-              <DialogTitle className="text-sm font-bold text-heading">
+            <div className="min-w-0 flex-1">
+              <DialogTitle className="text-xs lg:text-sm font-bold text-heading truncate">
                 {document.document_type.replace(/_/g, " ").toUpperCase()}
               </DialogTitle>
-              <p className="text-[10px] text-text-muted font-mono">{document.file_name}</p>
+              <p className="text-[9px] lg:text-[10px] text-text-muted font-mono truncate">{document.file_name}</p>
             </div>
           </div>
-          <div className="flex items-center gap-2 mr-6">
-            <Badge variant={isVerified ? "success" : "warning"} className="text-[10px] font-bold h-6">
-              {isVerified ? "VERIFIED" : "PENDING VERIFICATION"}
+          {/* Actions row */}
+          <div className="flex items-center gap-1.5 lg:gap-2 flex-wrap">
+            <Badge variant={isVerified ? "success" : "warning"} className="text-[8px] lg:text-[10px] font-bold h-5 lg:h-6">
+              {isVerified ? "VERIFIED" : "PENDING"}
             </Badge>
             <Button
               size="sm"
@@ -129,30 +132,30 @@ export default function DocumentViewer({ document, onUpdate, trigger }: Document
               onClick={toggleVerified}
               disabled={updating}
               className={cn(
-                "h-8 gap-1.5 text-[10px] font-bold",
+                "h-7 lg:h-8 gap-1 lg:gap-1.5 text-[9px] lg:text-[10px] font-bold px-2 lg:px-3",
                 !isVerified && "bg-brand-green hover:bg-brand-green/90"
               )}
             >
               {updating ? (
                 <Loader2 size={12} className="animate-spin" />
               ) : isVerified ? (
-                <XCircle size={14} />
+                <XCircle size={12} />
               ) : (
-                <ShieldCheck size={14} />
+                <ShieldCheck size={12} />
               )}
-              {isVerified ? "Unverify" : "Verify Doc"}
+              {isVerified ? "Unverify" : "Verify"}
             </Button>
             {signedUrl && (
-              <Button asChild size="sm" variant="outline" className="h-8 gap-1.5 text-[10px] font-bold">
+              <Button asChild size="sm" variant="outline" className="h-7 lg:h-8 gap-1 lg:gap-1.5 text-[9px] lg:text-[10px] font-bold px-2 lg:px-3">
                 <a href={signedUrl} download={document.file_name}>
-                  <Download size={14} /> Download
+                  <Download size={12} /> Download
                 </a>
               </Button>
             )}
           </div>
         </DialogHeader>
 
-        <div className="flex-1 bg-gray-900/5 relative overflow-auto flex items-center justify-center p-4">
+        <div className="flex-1 bg-gray-900/5 relative overflow-auto flex items-center justify-center p-2 lg:p-4">
           {loading ? (
             <div className="flex flex-col items-center gap-3 text-text-muted">
               <Loader2 size={32} className="animate-spin text-brand-blue" />
@@ -175,13 +178,13 @@ export default function DocumentViewer({ document, onUpdate, trigger }: Document
                 />
               )}
               {!isImage && !isPdf && (
-                <div className="bg-white p-12 rounded-3xl border border-gray-100 flex flex-col items-center gap-6 text-center max-w-sm">
-                  <div className="w-20 h-20 bg-brand-blue/5 rounded-full flex items-center justify-center">
-                    <FileText size={40} className="text-brand-blue" />
+                <div className="bg-white p-8 lg:p-12 rounded-3xl border border-gray-100 flex flex-col items-center gap-4 lg:gap-6 text-center max-w-sm mx-4">
+                  <div className="w-16 h-16 lg:w-20 lg:h-20 bg-brand-blue/5 rounded-full flex items-center justify-center">
+                    <FileText size={32} className="text-brand-blue" />
                   </div>
                   <div>
-                    <h3 className="font-display text-lg font-bold text-heading mb-2">No Preview Available</h3>
-                    <p className="text-sm text-text-muted font-medium">
+                    <h3 className="font-display text-base lg:text-lg font-bold text-heading mb-2">No Preview Available</h3>
+                    <p className="text-xs lg:text-sm text-text-muted font-medium">
                       This file format ({document.mime_type}) cannot be previewed directly in the browser.
                     </p>
                   </div>

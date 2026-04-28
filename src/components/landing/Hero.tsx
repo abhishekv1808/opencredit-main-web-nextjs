@@ -122,7 +122,7 @@ export default function Hero() {
             </div>
 
             {/* Headline */}
-            <h1 className="font-display text-5xl md:text-6xl lg:text-[68px] font-extrabold text-heading leading-[1.05] mb-6 animate-fade-up animation-delay-100">
+            <h1 className="font-display text-4xl md:text-5xl lg:text-[68px] font-extrabold text-heading leading-[1.05] mb-6 animate-fade-up animation-delay-100">
               Personal Loans{" "}
               <span className="text-accent-gradient">Made Simple.</span>
               <br />
@@ -130,7 +130,7 @@ export default function Hero() {
             </h1>
 
             {/* Subheadline */}
-            <p className="text-lg text-gray-500 leading-relaxed mb-8 max-w-lg animate-fade-up animation-delay-200">
+            <p className="text-sm lg:text-lg text-gray-500 leading-relaxed mb-8 max-w-lg animate-fade-up animation-delay-200">
               Get approved for ₹50,000 – ₹40 Lakh in 24 hours.
               Interest rates starting at{" "}
               <strong className="text-heading font-semibold">10.25% p.a.</strong>{" "}
@@ -143,7 +143,7 @@ export default function Hero() {
                 <Button
                   variant="accent"
                   size="lg"
-                  className="group w-full sm:w-auto text-base"
+                  className="group w-full sm:w-auto text-sm lg:text-base"
                 >
                   Apply Now — Free
                   <ArrowRight
@@ -156,7 +156,7 @@ export default function Hero() {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="w-full sm:w-auto text-base"
+                  className="w-full sm:w-auto text-sm lg:text-base"
                 >
                   <Zap size={18} />
                   Calculate EMI
@@ -196,9 +196,9 @@ export default function Hero() {
                       className="fill-brand-green text-brand-green"
                     />
                   ))}
-                  <span className="text-sm text-gray-500 ml-1 font-medium">4.8</span>
+                  <span className="text-xs lg:text-sm text-gray-500 ml-1 font-medium">4.8</span>
                 </div>
-                <p className="text-gray-400 text-xs">
+                <p className="text-gray-400 text-[10px] lg:text-xs">
                   from 2,400+ verified reviews
                 </p>
               </div>
@@ -211,19 +211,19 @@ export default function Hero() {
               {/* Card accent line */}
               <div className="absolute top-0 left-0 right-0 h-1 bg-brand-green" />
 
-              <h3 className="font-display text-xl font-bold text-heading mb-1">
+              <h3 className="font-display text-lg lg:text-xl font-bold text-heading mb-1">
                 Quick Loan Estimate
               </h3>
-              <p className="text-sm text-gray-400 mb-6">
+              <p className="text-xs lg:text-sm text-gray-400 mb-6">
                 Slide to see your monthly EMI
               </p>
 
               {/* Amount Display */}
               <div className="flex items-end justify-between mb-4">
-                <span className="text-sm text-gray-500 font-medium">
+                <span className="text-[10px] lg:text-sm text-gray-500 font-medium">
                   Loan Amount
                 </span>
-                <span className="font-mono text-brand-green font-bold text-2xl">
+                <span className="font-mono text-brand-green font-bold text-xl lg:text-2xl">
                   {formatCurrency(loanAmount)}
                 </span>
               </div>
@@ -251,18 +251,18 @@ export default function Hero() {
               {/* Metrics Grid */}
               <div className="grid grid-cols-3 gap-3">
                 <div className="bg-gray-50 rounded-xl p-4 text-center">
-                  <p className="text-[11px] text-gray-400 uppercase tracking-wider mb-1 font-medium">
+                  <p className="text-[10px] lg:text-[11px] text-gray-400 uppercase tracking-wider mb-1 font-medium">
                     Min Rate
                   </p>
-                  <p className="text-brand-green font-mono text-lg font-bold">
+                  <p className="text-brand-green font-mono text-base lg:text-lg font-bold">
                     10.25%
                   </p>
                 </div>
                 <div className="bg-gray-50 rounded-xl p-4 text-center">
-                  <p className="text-[11px] text-gray-400 uppercase tracking-wider mb-1 font-medium">
+                  <p className="text-[10px] lg:text-[11px] text-gray-400 uppercase tracking-wider mb-1 font-medium">
                     Est. EMI
                   </p>
-                  <p className="text-heading font-mono text-lg font-bold">
+                  <p className="text-heading font-mono text-base lg:text-lg font-bold">
                     {formatCurrency(
                       Math.round(
                         (loanAmount *
@@ -276,10 +276,10 @@ export default function Hero() {
                   </p>
                 </div>
                 <div className="bg-gray-50 rounded-xl p-4 text-center">
-                  <p className="text-[11px] text-gray-400 uppercase tracking-wider mb-1 font-medium">
+                  <p className="text-[10px] lg:text-[11px] text-gray-400 uppercase tracking-wider mb-1 font-medium">
                     Tenure
                   </p>
-                  <p className="text-heading font-mono text-lg font-bold">
+                  <p className="text-heading font-mono text-base lg:text-lg font-bold">
                     60 mo
                   </p>
                 </div>
@@ -310,14 +310,14 @@ export default function Hero() {
               key={stat.label}
               className="text-center md:text-left"
             >
-              <div className="text-3xl md:text-4xl font-display font-extrabold text-heading mb-1">
+              <div className="text-2xl md:text-3xl lg:text-4xl font-display font-extrabold text-heading mb-1">
                 <CountUp
                   end={stat.value}
                   prefix={stat.prefix}
                   suffix={stat.suffix}
                 />
               </div>
-              <p className="text-gray-400 text-sm font-medium">{stat.label}</p>
+              <p className="text-gray-400 text-xs lg:text-sm font-medium">{stat.label}</p>
             </div>
           ))}
         </div>

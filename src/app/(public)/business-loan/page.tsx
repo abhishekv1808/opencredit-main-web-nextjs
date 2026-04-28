@@ -271,7 +271,7 @@ export default function BusinessLoanPage() {
               style={{ background: "rgba(22,163,74,0.1)", color: "#16a34a" }}>
               Products
             </span>
-            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4" style={{ color: "#1a1a1a" }}>
+            <h2 className="text-2xl md:text-5xl font-extrabold tracking-tight mb-4" style={{ color: "#1a1a1a" }}>
               Choose the Right{" "}
               <span style={{ color: "#16a34a" }}>Business Loan</span>
             </h2>
@@ -338,7 +338,7 @@ export default function BusinessLoanPage() {
               style={{ background: "rgba(22,163,74,0.1)", color: "#16a34a" }}>
               Why OpenCredit
             </span>
-            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4" style={{ color: "#1a1a1a" }}>
+            <h2 className="text-2xl md:text-5xl font-extrabold tracking-tight mb-4" style={{ color: "#1a1a1a" }}>
               The Smarter Way to{" "}
               <span style={{ color: "#16a34a" }}>Fund Your Business</span>
             </h2>
@@ -381,7 +381,7 @@ export default function BusinessLoanPage() {
               style={{ background: "rgba(22,163,74,0.1)", color: "#16a34a" }}>
               Simple Process
             </span>
-            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4" style={{ color: "#1a1a1a" }}>
+            <h2 className="text-2xl md:text-5xl font-extrabold tracking-tight mb-4" style={{ color: "#1a1a1a" }}>
               Get Your Business Loan in{" "}
               <span style={{ color: "#16a34a" }}>5 Steps</span>
             </h2>
@@ -430,7 +430,7 @@ export default function BusinessLoanPage() {
       <section className="py-20 md:py-28" style={{ background: "#f9fafb" }} id="eligibility">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4" style={{ color: "#1a1a1a" }}>
+            <h2 className="text-2xl md:text-5xl font-extrabold tracking-tight mb-4" style={{ color: "#1a1a1a" }}>
               Does Your Business{" "}
               <span style={{ color: "#16a34a" }}>Qualify?</span>
             </h2>
@@ -540,7 +540,7 @@ export default function BusinessLoanPage() {
               style={{ background: "rgba(22,163,74,0.15)", color: "#4ade80" }}>
               Customer Stories
             </span>
-            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-3">
+            <h2 className="text-2xl md:text-5xl font-extrabold tracking-tight text-white mb-3">
               Businesses That{" "}
               <span style={{ color: "#4ade80" }}>Grew With Us.</span>
             </h2>
@@ -612,7 +612,7 @@ export default function BusinessLoanPage() {
             style={{ background: "rgba(22,163,74,0.15)", color: "#4ade80" }}>
             Get Started Today
           </span>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">
+          <h2 className="text-2xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">
             Ready to Fuel Your{" "}
             <span style={{ color: "#4ade80" }}>Business Growth?</span>
           </h2>

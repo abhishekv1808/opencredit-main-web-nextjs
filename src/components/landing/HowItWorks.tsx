@@ -77,7 +77,7 @@ export default function HowItWorks() {
         {/* ── Header ── */}
         <div className="text-center mb-16 md:mb-24 step-animate">
           <div
-            className="inline-flex items-center px-4 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-[0.16em] mb-5"
+            className="inline-flex items-center px-4 py-1.5 rounded-full text-[9px] lg:text-[11px] font-bold uppercase tracking-[0.16em] mb-5"
             style={{
               background: "#fff",
               color: "#3DA52A",
@@ -88,7 +88,7 @@ export default function HowItWorks() {
             How to get started
           </div>
           <h2
-            className="font-display text-4xl md:text-5xl lg:text-[54px] font-extrabold mb-5 leading-[1.08]"
+            className="font-display text-3xl md:text-4xl lg:text-[54px] font-extrabold mb-5 leading-[1.08]"
             style={{ color: "#1A1A1A" }}
           >
             Get Started in Three
@@ -96,7 +96,7 @@ export default function HowItWorks() {
             <span style={{ color: "#3DA52A" }}>Simple Steps</span>
           </h2>
           <p
-            className="text-base md:text-lg max-w-xl mx-auto leading-relaxed"
+            className="text-sm md:text-base lg:text-lg max-w-xl mx-auto leading-relaxed"
             style={{ color: "#6B7A8D" }}
           >
             No setup headaches. OpenCredit makes it easy to apply, track and
@@ -151,7 +151,7 @@ export default function HowItWorks() {
                   >
                     {/* Step badge */}
                     <div
-                      className={`inline-flex items-center px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-[0.1em] mb-4 ${
+                      className={`inline-flex items-center px-3 py-1 rounded-full text-[9px] lg:text-[11px] font-bold uppercase tracking-[0.1em] mb-4 ${
                         isEven ? "" : "lg:ml-auto"
                       }`}
                       style={{
@@ -169,7 +169,7 @@ export default function HowItWorks() {
 
                     {/* Title */}
                     <h3
-                      className="font-display text-2xl md:text-[28px] lg:text-[32px] font-extrabold leading-[1.15] mb-3"
+                      className="font-display text-xl md:text-2xl lg:text-[32px] font-extrabold leading-[1.15] mb-3"
                       style={{ color: "#1A1A1A", whiteSpace: "pre-line" }}
                     >
                       {step.title}
@@ -177,7 +177,7 @@ export default function HowItWorks() {
 
                     {/* Description */}
                     <p
-                      className="text-[15px] md:text-base leading-relaxed max-w-md"
+                      className="text-xs md:text-sm lg:text-base leading-relaxed max-w-md"
                       style={{
                         color: "#6B7A8D",
                         marginLeft: isEven ? "0" : undefined,
@@ -236,7 +236,7 @@ export default function HowItWorks() {
           <Link href="/register">
             <Button
               size="lg"
-              className="group text-base font-bold px-8 py-6 rounded-2xl text-white"
+              className="group text-sm lg:text-base font-bold px-8 py-6 rounded-2xl text-white"
               style={{
                 background: "linear-gradient(135deg, #5BC83F 0%, #3DA52A 100%)",
                 boxShadow: "0 4px 20px rgba(91,200,63,0.30)",
@@ -249,7 +249,7 @@ export default function HowItWorks() {
               />
             </Button>
           </Link>
-          <p className="text-sm mt-4" style={{ color: "#8B9AAB" }}>
+          <p className="text-[10px] lg:text-sm mt-4" style={{ color: "#8B9AAB" }}>
             Free to apply · No hidden fees · Subject to credit approval
           </p>
         </div>

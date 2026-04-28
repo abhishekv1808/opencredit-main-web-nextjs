@@ -112,13 +112,13 @@ export default function FeatureSections() {
             {/* ── Text Column ── */}
             <div className="w-full md:flex-1">
               {/* Section number */}
-              <p className="text-xs font-bold uppercase tracking-[0.2em] mb-4"
+              <p className="text-[10px] lg:text-xs font-bold uppercase tracking-[0.2em] mb-4"
                 style={{ color: "#16a34a" }}>
                 0{idx + 1} — Why OpenCredit
               </p>
 
               {/* Heading */}
-              <h2 className="text-3xl md:text-4xl lg:text-[42px] font-extrabold leading-tight tracking-tight mb-5"
+              <h2 className="text-2xl md:text-3xl lg:text-[42px] font-extrabold leading-tight tracking-tight mb-5"
                 style={{ color: "#1a1a1a" }}>
                 {section.heading.map((part, i) => (
                   i === section.headingHighlight
@@ -128,7 +128,7 @@ export default function FeatureSections() {
               </h2>
 
               {/* Body */}
-              <p className="text-base leading-relaxed mb-8 max-w-lg"
+              <p className="text-sm lg:text-base leading-relaxed mb-8 max-w-lg"
                 style={{ color: "#6b7280" }}>
                 {section.body}
               </p>
@@ -140,15 +140,15 @@ export default function FeatureSections() {
                 ))}
                 <div className="h-8 w-px" style={{ background: "#e5e7eb" }} />
                 <div>
-                  <p className="text-sm font-bold" style={{ color: "#1a1a1a" }}>4.8 / 5</p>
-                  <p className="text-xs" style={{ color: "#9ca3af" }}>Avg. rating</p>
+                  <p className="text-xs lg:text-sm font-bold" style={{ color: "#1a1a1a" }}>4.8 / 5</p>
+                  <p className="text-[10px] lg:text-xs" style={{ color: "#9ca3af" }}>Avg. rating</p>
                 </div>
               </div>
 
               {/* CTA */}
               <Link href={section.cta.href}>
                 <span
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-white transition-all duration-200 cursor-pointer group"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs lg:text-sm font-semibold text-white transition-all duration-200 cursor-pointer group"
                   style={{ background: "#16a34a" }}
                   onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = "#15803d"}
                   onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = "#16a34a"}

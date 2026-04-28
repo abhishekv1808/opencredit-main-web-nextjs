@@ -83,7 +83,7 @@ export default function FAQ() {
               <span className="text-brand-green">Questions</span>
             </h2>
 
-            <p className="text-[15px] text-body leading-relaxed mb-8 max-w-sm">
+            <p className="text-sm lg:text-[15px] text-body leading-relaxed mb-8 max-w-sm">
               Everything you need to know about personal loans, CIBIL
               correction, and using OpenCredit.
             </p>
@@ -151,7 +151,7 @@ export default function FAQ() {
                       {/* Question */}
                       <span
                         className={cn(
-                          "flex-1 text-[15px] font-semibold transition-colors duration-200 pr-4",
+                          "flex-1 text-[13px] lg:text-[15px] font-semibold transition-colors duration-200 pr-4",
                           isOpen ? "text-heading" : "text-gray-600"
                         )}
                       >
@@ -192,7 +192,7 @@ export default function FAQ() {
                               "linear-gradient(90deg, #5BC83F, transparent)",
                           }}
                         />
-                        <p className="text-[14px] text-body leading-[1.8]">
+                        <p className="text-[11px] lg:text-[14px] text-body leading-[1.8]">
                           {faq.answer}
                         </p>
                       </div>

@@ -75,7 +75,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           <div className="mt-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md"
             style={{ background: "rgba(22,163,74,0.12)", border: "1px solid rgba(22,163,74,0.2)" }}>
             <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-            <span className="text-[9px] font-bold uppercase tracking-[0.18em]" style={{ color: "#4ade80" }}>
+            <span className="text-[7px] lg:text-[9px] font-bold uppercase tracking-[0.18em]" style={{ color: "#4ade80" }}>
               Admin Portal
             </span>
           </div>
@@ -83,7 +83,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
         {/* Main Nav */}
         <nav className="flex-1 px-3 py-5 overflow-y-auto space-y-0.5">
-          <p className="text-[9.5px] font-bold uppercase tracking-[0.2em] px-3 pb-3"
+          <p className="text-[7px] lg:text-[9.5px] font-bold uppercase tracking-[0.2em] px-3 pb-3"
             style={{ color: "rgba(255,255,255,0.2)" }}>
             Main Menu
           </p>
@@ -97,7 +97,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 key={item.href}
                 href={item.href}
                 onClick={() => setSidebarOpen(false)}
-                className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-[13px] font-medium transition-all duration-200 group relative"
+                className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-[11px] lg:text-[13px] font-medium transition-all duration-200 group relative"
                 style={isActive
                   ? { background: "rgba(22,163,74,0.18)", color: "#4ade80" }
                   : { color: "rgba(255,255,255,0.45)" }
@@ -125,7 +125,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
           {/* System section */}
           <div className="pt-5">
-            <p className="text-[9.5px] font-bold uppercase tracking-[0.2em] px-3 pb-3"
+            <p className="text-[7px] lg:text-[9.5px] font-bold uppercase tracking-[0.2em] px-3 pb-3"
               style={{ color: "rgba(255,255,255,0.2)" }}>
               System
             </p>
@@ -137,7 +137,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                   key={item.href}
                   href={item.href}
                   onClick={() => setSidebarOpen(false)}
-                  className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-[13px] font-medium transition-all duration-200"
+                  className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-[11px] lg:text-[13px] font-medium transition-all duration-200"
                   style={isActive
                     ? { background: "rgba(22,163,74,0.18)", color: "#4ade80" }
                     : { color: "rgba(255,255,255,0.45)" }
@@ -167,8 +167,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             <Zap size={14} style={{ color: "#4ade80" }} />
           </div>
           <div className="min-w-0">
-            <p className="text-[11px] font-bold" style={{ color: "#4ade80" }}>System Online</p>
-            <p className="text-[10px]" style={{ color: "rgba(255,255,255,0.28)" }}>All services active</p>
+            <p className="text-[9px] lg:text-[11px] font-bold" style={{ color: "#4ade80" }}>System Online</p>
+            <p className="text-[8px] lg:text-[10px]" style={{ color: "rgba(255,255,255,0.28)" }}>All services active</p>
           </div>
         </div>
 
@@ -182,17 +182,17 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               {initials}
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-xs font-bold truncate" style={{ color: "rgba(255,255,255,0.85)" }}>
-                admin@opencredit.money
+              <p className="text-[10px] lg:text-xs font-bold truncate" style={{ color: "rgba(255,255,255,0.85)" }}>
+                {adminEmail || "Admin"}
               </p>
-              <p className="text-[10px] font-medium" style={{ color: "rgba(255,255,255,0.28)" }}>
+              <p className="text-[8px] lg:text-[10px] font-medium" style={{ color: "rgba(255,255,255,0.28)" }}>
                 Administrator
               </p>
             </div>
           </div>
           <button
             onClick={handleLogout}
-            className="flex items-center gap-2.5 w-full px-3 py-2 rounded-xl text-[12px] font-semibold transition-all"
+            className="flex items-center gap-2.5 w-full px-3 py-2 rounded-xl text-[10px] lg:text-[12px] font-semibold transition-all"
             style={{ color: "rgba(255,255,255,0.35)" }}
             onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "rgba(239,68,68,0.10)"; (e.currentTarget as HTMLElement).style.color = "#f87171"; }}
             onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "transparent"; (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.35)"; }}
@@ -220,11 +220,11 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               style={{ color: "#374151" }}>
               <Menu size={18} />
             </button>
-            <div className="hidden sm:flex items-center gap-2">
-              <BarChart3 size={13} style={{ color: "#16a34a" }} />
-              <span className="text-xs" style={{ color: "#9ca3af" }}>Admin</span>
-              <ChevronRight size={11} style={{ color: "#d1d5db" }} />
-              <span className="text-xs font-bold" style={{ color: "#111827" }}>{getPageTitle()}</span>
+            <div className="flex items-center gap-2">
+              <BarChart3 size={13} className="hidden sm:block" style={{ color: "#16a34a" }} />
+              <span className="hidden sm:inline text-[10px] lg:text-xs" style={{ color: "#9ca3af" }}>Admin</span>
+              <ChevronRight size={11} className="hidden sm:block" style={{ color: "#d1d5db" }} />
+              <span className="text-[11px] lg:text-xs font-bold" style={{ color: "#111827" }}>{getPageTitle()}</span>
             </div>
           </div>
 
@@ -238,7 +238,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             <div className="w-px h-4 mx-1" style={{ background: "#e5e7eb" }} />
 
             <Link href="/" target="_blank"
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[11px] font-bold transition-all"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[9px] lg:text-[11px] font-bold transition-all"
               style={{ color: "#1B3A6B", background: "rgba(27,58,107,0.06)" }}
               onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = "rgba(27,58,107,0.12)"}
               onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = "rgba(27,58,107,0.06)"}>

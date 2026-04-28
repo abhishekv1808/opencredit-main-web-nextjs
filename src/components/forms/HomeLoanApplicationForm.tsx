@@ -220,13 +220,13 @@ export default function HomeLoanApplicationForm() {
         <div className="w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-4" style={{ background: "#EBF0FA" }}>
           <Home size={22} style={{ color: "#1B3A6B" }} />
         </div>
-        <h2 className="font-display text-3xl font-bold text-heading mb-3">
+        <h2 className="font-display text-2xl lg:text-3xl font-bold text-heading mb-3">
           Home Loan Application Submitted!
         </h2>
-        <p className="text-text-muted mb-2">
+        <p className="text-[11px] lg:text-base text-text-muted mb-2">
           Your application number: <strong className="text-heading font-mono">{applicationNumber}</strong>
         </p>
-        <p className="text-text-muted text-sm mb-8">
+        <p className="text-[10px] lg:text-sm text-text-muted mb-8">
           Our home loan specialist will review your application and reach out within 24–72 hours.
           You can track your application status in the dashboard.
         </p>
@@ -253,7 +253,7 @@ export default function HomeLoanApplicationForm() {
             <div key={step.id} className="flex flex-col items-center z-10 relative">
               <div
                 className={cn(
-                  "w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold border-2 transition-all duration-300",
+                  "w-8 lg:w-10 h-8 lg:h-10 rounded-full flex items-center justify-center text-xs lg:text-sm font-bold border-2 transition-all duration-300",
                   step.id < currentStep
                     ? "bg-brand-green border-brand-green text-heading"
                     : step.id === currentStep
@@ -264,7 +264,7 @@ export default function HomeLoanApplicationForm() {
                 {step.id < currentStep ? <CheckCircle2 size={18} /> : step.id}
               </div>
               <span className={cn(
-                "text-xs mt-2 font-medium hidden sm:block",
+                "text-[9px] lg:text-xs mt-2 font-medium hidden sm:block",
                 step.id === currentStep ? "text-heading"
                   : step.id < currentStep ? "text-brand-green"
                   : "text-gray-400"
@@ -279,7 +279,7 @@ export default function HomeLoanApplicationForm() {
       {/* Step Content */}
       <div className="bg-white rounded-3xl shadow-card p-6 md:p-8">
         <div className="mb-6">
-          <h2 className="font-display text-2xl font-bold text-heading">
+          <h2 className="font-display text-xl lg:text-2xl font-bold text-heading">
             Step {currentStep}: {steps[currentStep - 1].label}
           </h2>
           <div className="flex items-center gap-2 mt-1">
@@ -293,7 +293,7 @@ export default function HomeLoanApplicationForm() {
           </div>
         </div>
 
-        <div className="bg-amber-50 border border-amber-200 rounded-xl p-3 mb-6 text-xs text-amber-800">
+        <div className="bg-amber-50 border border-amber-200 rounded-xl p-3 mb-6 text-[10px] lg:text-xs text-amber-800">
           Your data is shared with partner lenders for loan processing. Home loan rates 8.40%–9.50% p.a. Subject to credit approval and property valuation.
         </div>
 
@@ -306,22 +306,22 @@ export default function HomeLoanApplicationForm() {
 
         {/* Navigation */}
         <div className="flex items-center justify-between mt-8 pt-6 border-t border-gray-100">
-          <Button variant="outline" onClick={handlePrev} disabled={currentStep === 1}>
-            <ArrowLeft size={16} /> Previous
+          <Button variant="outline" onClick={handlePrev} disabled={currentStep === 1} className="text-[10px] lg:text-sm h-8 lg:h-10 px-2 lg:px-4">
+            <ArrowLeft size={16} /> <span className="hidden lg:inline">Previous</span>
           </Button>
 
-          <Button variant="ghost" size="sm" onClick={saveProgress} className="text-text-muted">
-            <Save size={14} /> Save Draft
+          <Button variant="ghost" size="sm" onClick={saveProgress} className="text-text-muted text-[10px] lg:text-sm h-8 lg:h-10 px-2 lg:px-4">
+            <Save size={14} /> <span className="hidden lg:inline">Save Draft</span>
           </Button>
 
           {currentStep < 6 ? (
-            <Button variant="default" onClick={handleNext} className="group">
-              Save & Next
+            <Button variant="default" onClick={handleNext} className="group text-[10px] lg:text-sm h-8 lg:h-10 px-2 lg:px-4">
+              <span className="hidden lg:inline">Save & </span>Next
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </Button>
           ) : (
-            <Button variant="default" onClick={handleSubmit} disabled={submitting} className="group">
-              {submitting ? "Submitting…" : "Submit Application"}
+            <Button variant="default" onClick={handleSubmit} disabled={submitting} className="group text-[10px] lg:text-sm h-8 lg:h-10 px-2 lg:px-4">
+              {submitting ? "Submitting…" : "Submit"}
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </Button>
           )}

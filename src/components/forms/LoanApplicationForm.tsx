@@ -213,14 +213,14 @@ export default function LoanApplicationForm() {
         <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
           <CheckCircle2 size={36} className="text-green-600" />
         </div>
-        <h2 className="font-display text-3xl font-bold text-heading mb-3">
+        <h2 className="font-display text-2xl lg:text-3xl font-bold text-heading mb-3">
           Application Submitted!
         </h2>
-        <p className="text-text-muted mb-2">
+        <p className="text-[11px] lg:text-base text-text-muted mb-2">
           Your application number:{" "}
           <strong className="text-heading">{applicationId}</strong>
         </p>
-        <p className="text-text-muted text-sm mb-8">
+        <p className="text-[10px] lg:text-sm text-text-muted mb-8">
           Our team will review your application and reach out within 24–72
           hours. You can track status in your dashboard.
         </p>
@@ -257,7 +257,7 @@ export default function LoanApplicationForm() {
             >
               <div
                 className={cn(
-                  "w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold border-2 transition-all duration-300",
+                  "w-8 lg:w-10 h-8 lg:h-10 rounded-full flex items-center justify-center text-xs lg:text-sm font-bold border-2 transition-all duration-300",
                   step.id < currentStep
                     ? "bg-brand-green border-brand-green text-heading"
                     : step.id === currentStep
@@ -269,7 +269,7 @@ export default function LoanApplicationForm() {
               </div>
               <span
                 className={cn(
-                  "text-xs mt-2 font-medium hidden sm:block",
+                  "text-[9px] lg:text-xs mt-2 font-medium hidden sm:block",
                   step.id === currentStep
                     ? "text-heading"
                     : step.id < currentStep
@@ -287,7 +287,7 @@ export default function LoanApplicationForm() {
       {/* Step Content */}
       <div className="bg-white rounded-3xl shadow-card p-6 md:p-8">
         <div className="mb-6">
-          <h2 className="font-display text-2xl font-bold text-heading">
+          <h2 className="font-display text-xl lg:text-2xl font-bold text-heading">
             Step {currentStep}: {steps[currentStep - 1].label}
           </h2>
           <div className="flex items-center gap-2 mt-1">
@@ -304,7 +304,7 @@ export default function LoanApplicationForm() {
         </div>
 
         {/* Compliance notice */}
-        <div className="bg-amber-50 border border-amber-200 rounded-xl p-3 mb-6 text-xs text-amber-800">
+        <div className="bg-amber-50 border border-amber-200 rounded-xl p-3 mb-6 text-[10px] lg:text-xs text-amber-800">
           Your data is shared with partner lenders for loan processing. Rates
           10.25%–36% p.a. Subject to credit approval.
         </div>
@@ -330,24 +330,25 @@ export default function LoanApplicationForm() {
             variant="outline"
             onClick={handlePrev}
             disabled={currentStep === 1}
+            className="text-[10px] lg:text-sm h-8 lg:h-10 px-2 lg:px-4"
           >
             <ArrowLeft size={16} />
-            Previous
+            <span className="hidden lg:inline">Previous</span>
           </Button>
 
           <Button
             variant="ghost"
             size="sm"
             onClick={saveProgress}
-            className="text-text-muted"
+            className="text-text-muted text-[10px] lg:text-sm h-8 lg:h-10 px-2 lg:px-4"
           >
             <Save size={14} />
-            Save Draft
+            <span className="hidden lg:inline">Save Draft</span>
           </Button>
 
           {currentStep < 5 ? (
-            <Button variant="default" onClick={handleNext} className="group">
-              Save & Next
+            <Button variant="default" onClick={handleNext} className="group text-[10px] lg:text-sm h-8 lg:h-10 px-2 lg:px-4">
+              <span className="hidden lg:inline">Save & </span>Next
               <ArrowRight
                 size={16}
                 className="group-hover:translate-x-1 transition-transform"
@@ -358,9 +359,9 @@ export default function LoanApplicationForm() {
               variant="default"
               onClick={handleSubmit}
               disabled={submitting}
-              className="group"
+              className="group text-[10px] lg:text-sm h-8 lg:h-10 px-2 lg:px-4"
             >
-              {submitting ? "Submitting..." : "Submit Application"}
+              {submitting ? "Submitting..." : "Submit"}
               <ArrowRight
                 size={16}
                 className="group-hover:translate-x-1 transition-transform"

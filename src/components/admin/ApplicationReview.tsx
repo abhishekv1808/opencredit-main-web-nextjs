@@ -22,15 +22,19 @@ interface Props {
 
 export default function AdminApplicationActions({ application }: Props) {
   const [adminNotes, setAdminNotes] = useState(application.admin_notes || "");
-  const [approvedAmount, setApprovedAmount] = useState(application.approved_amount?.toString() || "");
-  const [approvedRate, setApprovedRate] = useState(application.approved_rate?.toString() || "");
+  const [approvedAmount, setApprovedAmount] = useState(
+    application.approved_amount?.toString() || "",
+  );
+  const [approvedRate, setApprovedRate] = useState(
+    application.approved_rate?.toString() || "",
+  );
   const [rejectionReason, setRejectionReason] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
   const updateStatus = async (
     status: string,
-    extra: Record<string, unknown> = {}
+    extra: Record<string, unknown> = {},
   ) => {
     setLoading(true);
     const res = await fetch(`/api/admin/applications/${application.id}`, {
@@ -40,10 +44,17 @@ export default function AdminApplicationActions({ application }: Props) {
     });
 
     if (res.ok) {
-      toast({ title: "Application Updated", description: `Status set to ${status}` });
+      toast({
+        title: "Application Updated",
+        description: `Status set to ${status}`,
+      });
       router.refresh();
     } else {
-      toast({ title: "Error", description: "Failed to update application", variant: "destructive" });
+      toast({
+        title: "Error",
+        description: "Failed to update application",
+        variant: "destructive",
+      });
     }
     setLoading(false);
   };
@@ -63,7 +74,9 @@ export default function AdminApplicationActions({ application }: Props) {
       variant: "default" as const,
       show: ["submitted", "under_review"].includes(application.status),
       extra: {
-        approved_amount: approvedAmount ? Number(approvedAmount) : application.loan_amount_requested,
+        approved_amount: approvedAmount
+          ? Number(approvedAmount)
+          : application.loan_amount_requested,
         approved_rate: approvedRate ? Number(approvedRate) : null,
       },
     },
@@ -79,9 +92,9 @@ export default function AdminApplicationActions({ application }: Props) {
   return (
     <div className="space-y-4">
       {/* Status Badge */}
-      <div className="bg-white rounded-2xl shadow-card p-5">
-        <h2 className="font-semibold text-heading mb-3 text-sm flex items-center gap-2">
-          <AlertCircle size={15} />
+      <div className="bg-white rounded-2xl shadow-card p-4 lg:p-5">
+        <h2 className="font-semibold text-heading mb-2 lg:mb-3 text-[11px] lg:text-sm flex items-center gap-1.5 lg:gap-2">
+          <AlertCircle className="w-3.5 h-3.5 lg:w-[15px] lg:h-[15px]" />
           Admin Actions
         </h2>
 
@@ -89,17 +102,21 @@ export default function AdminApplicationActions({ application }: Props) {
         {["submitted", "under_review"].includes(application.status) && (
           <div className="space-y-3 mb-4">
             <div>
-              <Label className="text-xs mb-1 block">Approved Amount (₹)</Label>
+              <Label className="text-[10px] lg:text-xs mb-1 block">
+                Approved Amount (₹)
+              </Label>
               <Input
                 type="number"
                 placeholder={application.loan_amount_requested?.toString()}
                 value={approvedAmount}
                 onChange={(e) => setApprovedAmount(e.target.value)}
-                className="text-sm font-mono"
+                className="text-[11px] lg:text-sm h-8 lg:h-10 font-mono"
               />
             </div>
             <div>
-              <Label className="text-xs mb-1 block">Approved Rate (% p.a.)</Label>
+              <Label className="text-[10px] lg:text-xs mb-1 block">
+                Approved Rate (% p.a.)
+              </Label>
               <Input
                 type="number"
                 step="0.25"
@@ -108,9 +125,11 @@ export default function AdminApplicationActions({ application }: Props) {
                 placeholder="12.50"
                 value={approvedRate}
                 onChange={(e) => setApprovedRate(e.target.value)}
-                className="text-sm font-mono"
+                className="text-[11px] lg:text-sm h-8 lg:h-10 font-mono"
               />
-              <p className="text-[10px] text-text-muted mt-1">Range: 10.25% – 36% p.a.</p>
+              <p className="text-[9px] lg:text-[10px] text-text-muted mt-1">
+                Range: 10.25% – 36% p.a.
+              </p>
             </div>
           </div>
         )}
@@ -126,11 +145,11 @@ export default function AdminApplicationActions({ application }: Props) {
                   key={action.status}
                   variant={action.variant}
                   size="sm"
-                  className="w-full gap-2"
+                  className="w-full gap-1.5 lg:gap-2 text-[10px] lg:text-xs h-8 lg:h-9"
                   disabled={loading}
                   onClick={() => updateStatus(action.status, action.extra)}
                 >
-                  <Icon size={14} />
+                  <Icon className="w-3.5 h-3.5" />
                   {action.label}
                 </Button>
               );
@@ -139,10 +158,12 @@ export default function AdminApplicationActions({ application }: Props) {
           {/* Reject */}
           {["submitted", "under_review"].includes(application.status) && (
             <div className="pt-2 border-t border-gray-100 space-y-2">
-              <Label className="text-xs block">Rejection Reason</Label>
+              <Label className="text-[10px] lg:text-xs block">
+                Rejection Reason
+              </Label>
               <textarea
                 rows={2}
-                className="w-full text-xs rounded-lg border border-input p-2 resize-none focus:ring-2 focus:ring-brand-blue focus:outline-none"
+                className="w-full text-[10px] lg:text-xs rounded-lg border border-input p-2 lg:p-2.5 resize-none focus:ring-2 focus:ring-brand-blue focus:outline-none"
                 placeholder="Low CIBIL score, insufficient income..."
                 value={rejectionReason}
                 onChange={(e) => setRejectionReason(e.target.value)}
@@ -150,11 +171,15 @@ export default function AdminApplicationActions({ application }: Props) {
               <Button
                 variant="destructive"
                 size="sm"
-                className="w-full gap-2"
+                className="w-full gap-1.5 lg:gap-2 text-[10px] lg:text-xs h-8 lg:h-9"
                 disabled={loading || !rejectionReason}
-                onClick={() => updateStatus("rejected", { rejection_reason: rejectionReason })}
+                onClick={() =>
+                  updateStatus("rejected", {
+                    rejection_reason: rejectionReason,
+                  })
+                }
               >
-                <XCircle size={14} />
+                <XCircle className="w-3.5 h-3.5" />
                 Reject Application
               </Button>
             </div>
@@ -163,11 +188,13 @@ export default function AdminApplicationActions({ application }: Props) {
       </div>
 
       {/* Admin Notes */}
-      <div className="bg-white rounded-2xl shadow-card p-5">
-        <Label className="text-sm font-semibold text-heading mb-2 block">Internal Notes</Label>
+      <div className="bg-white rounded-2xl shadow-card p-4 lg:p-5">
+        <Label className="text-[11px] lg:text-sm font-semibold text-heading mb-2 block">
+          Internal Notes
+        </Label>
         <textarea
           rows={4}
-          className="w-full text-xs rounded-lg border border-input p-3 resize-none focus:ring-2 focus:ring-brand-blue focus:outline-none"
+          className="w-full text-[10px] lg:text-xs rounded-lg border border-input p-2.5 lg:p-3 resize-none focus:ring-2 focus:ring-brand-blue focus:outline-none"
           placeholder="Add internal notes visible only to admin team..."
           value={adminNotes}
           onChange={(e) => setAdminNotes(e.target.value)}
@@ -175,7 +202,7 @@ export default function AdminApplicationActions({ application }: Props) {
         <Button
           variant="outline"
           size="sm"
-          className="mt-2 w-full"
+          className="mt-2 w-full text-[10px] lg:text-xs h-8 lg:h-9"
           disabled={loading}
           onClick={() => updateStatus(application.status)}
         >

@@ -25,6 +25,11 @@ export async function middleware(request: NextRequest) {
   } = await supabase.auth.getUser();
   const path = request.nextUrl.pathname;
 
+  // Redirect logged-in normal users away from /login and /register
+  if ((path === "/login" || path === "/register") && user) {
+    return NextResponse.redirect(new URL("/dashboard", request.url));
+  }
+
   // Allow access to admin login page without auth
   if (path === "/admin/login") {
     // If already logged in as admin, redirect to admin dashboard
@@ -63,5 +68,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/dashboard/:path*", "/admin/:path*"],
+  matcher: ["/dashboard/:path*", "/admin/:path*", "/login", "/register"],
 };

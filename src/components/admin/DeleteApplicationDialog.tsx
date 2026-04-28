@@ -65,18 +65,18 @@ export default function DeleteApplicationDialog({
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>Delete Application {applicationNumber}?</AlertDialogTitle>
-          <AlertDialogDescription>
+          <AlertDialogTitle className="text-lg lg:text-xl">Delete Application {applicationNumber}?</AlertDialogTitle>
+          <AlertDialogDescription className="text-[10px] lg:text-sm">
             This will permanently delete this loan application and all associated documents. 
             This action cannot be undone.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogCancel className="text-[10px] lg:text-sm h-8 lg:h-10">Cancel</AlertDialogCancel>
           <AlertDialogAction
             onClick={handleDelete}
             disabled={loading}
-            className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+            className="bg-destructive text-destructive-foreground hover:bg-destructive/90 text-[10px] lg:text-sm h-8 lg:h-10"
           >
             {loading ? "Deleting..." : "Delete Permanently"}
           </AlertDialogAction>

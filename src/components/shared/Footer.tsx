@@ -89,7 +89,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-20">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
             <div className="text-center lg:text-left max-w-xl">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-green/10 border border-brand-green/15 mb-4">
@@ -99,12 +99,12 @@ export default function Footer() {
                 </span>
               </div>
               <h2
-                className="font-display text-3xl md:text-4xl font-extrabold text-white mb-3 leading-tight"
+                className="font-display text-2xl md:text-4xl font-extrabold text-white mb-2 sm:mb-3 leading-tight"
               >
                 Ready to Get Your{" "}
                 <span className="text-brand-green">Loan Approved?</span>
               </h2>
-              <p className="text-white/45 text-[15px] leading-relaxed">
+              <p className="text-white/45 text-[13px] sm:text-[15px] leading-relaxed">
                 Join 4,200+ customers who got their loans approved through
                 OpenCredit. Takes less than 10 minutes.
               </p>
@@ -112,7 +112,7 @@ export default function Footer() {
             <div className="flex flex-col sm:flex-row items-center gap-3">
               <Link
                 href="/register"
-                className="group inline-flex items-center gap-2.5 px-7 py-4 rounded-2xl text-[15px] font-bold text-white transition-all duration-300 hover:shadow-[0_0_32px_rgba(91,200,63,0.3)]"
+                className="group inline-flex items-center gap-2 sm:gap-2.5 px-5 py-3 sm:px-7 sm:py-4 rounded-xl sm:rounded-2xl text-[13px] sm:text-[15px] font-bold text-white transition-all duration-300 hover:shadow-[0_0_32px_rgba(91,200,63,0.3)]"
                 style={{
                   background:
                     "linear-gradient(135deg, #5BC83F 0%, #3DA52A 100%)",
@@ -127,7 +127,7 @@ export default function Footer() {
               </Link>
               <Link
                 href="/emi-calculator"
-                className="inline-flex items-center gap-2 px-6 py-4 rounded-2xl text-[14px] font-semibold text-white/60 bg-white/[0.05] border border-white/[0.08] hover:bg-white/[0.08] hover:text-white/80 transition-all duration-300"
+                className="inline-flex items-center gap-2 px-5 py-3 sm:px-6 sm:py-4 rounded-xl sm:rounded-2xl text-[13px] sm:text-[14px] font-semibold text-white/60 bg-white/[0.05] border border-white/[0.08] hover:bg-white/[0.08] hover:text-white/80 transition-all duration-300"
               >
                 Calculate EMI
                 <ArrowUpRight size={14} />

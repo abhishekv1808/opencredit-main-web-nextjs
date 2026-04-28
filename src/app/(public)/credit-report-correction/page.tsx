@@ -102,12 +102,12 @@ export default function CreditReportCorrectionPage() {
       />
 
       {/* Hero — Light with green accent */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 hero-bg-light overflow-hidden">
+      <section className="relative pt-24 pb-12 md:pt-40 md:pb-28 hero-bg-light overflow-hidden">
         <div className="absolute top-20 right-[15%] w-[500px] h-[500px] rounded-full bg-brand-green/[0.05] blur-[100px] pointer-events-none" />
         <div className="absolute bottom-10 left-[10%] w-[350px] h-[350px] rounded-full bg-brand-green/[0.03] blur-[80px] pointer-events-none" />
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-20 items-center">
             <div>
               <div className="inline-flex items-center gap-2 bg-brand-green/10 border border-brand-green/20 rounded-full px-4 py-2 mb-6">
                 <TrendingUp size={14} className="text-brand-green" />
@@ -115,20 +115,20 @@ export default function CreditReportCorrectionPage() {
                   CIBIL Score Improvement
                 </span>
               </div>
-              <h1 className="font-display text-5xl md:text-6xl font-extrabold text-heading mb-6 leading-tight">
+              <h1 className="font-display text-3xl md:text-6xl font-extrabold text-heading mb-4 md:mb-6 leading-tight">
                 Fix Your{" "}
                 <span className="text-accent-gradient">CIBIL Score</span>
               </h1>
-              <p className="text-lg text-gray-500 mb-4">
+              <p className="text-base md:text-lg text-gray-500 mb-3 md:mb-4">
                 Expert credit report correction. Dispute inaccurate entries.
                 Unlock better loan rates.
               </p>
-              <p className="text-sm text-gray-400 mb-8">
+              <p className="text-sm text-gray-400 mb-6 md:mb-8">
                 Results typically in 30–90 days. Score improvement not
                 guaranteed.
               </p>
 
-              <div className="flex gap-4">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <Link href="/register">
                   <Button
                     className="bg-brand-green hover:bg-emerald-600 text-white font-bold group"
@@ -165,18 +165,18 @@ export default function CreditReportCorrectionPage() {
                 />
 
                 {/* Floating stats cards */}
-                <div className="absolute -bottom-2 -left-4 md:left-0 bg-white rounded-2xl shadow-xl border border-gray-100 px-4 py-3 animate-float" style={{ animationDuration: "3.5s" }}>
+                <div className="absolute -bottom-2 -left-2 sm:-left-4 md:left-0 bg-white rounded-xl sm:rounded-2xl shadow-xl border border-gray-100 px-3 py-2 sm:px-4 sm:py-3 animate-float" style={{ animationDuration: "3.5s" }}>
                   <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1">Avg. Improvement</p>
                   <div className="flex items-baseline gap-1.5">
-                    <span className="font-mono text-2xl font-extrabold text-brand-green">+73</span>
+                    <span className="font-mono text-xl sm:text-2xl font-extrabold text-brand-green">+73</span>
                     <span className="text-xs font-semibold text-gray-400">points</span>
                   </div>
                 </div>
 
-                <div className="absolute -top-2 -right-4 md:right-0 bg-white rounded-2xl shadow-xl border border-gray-100 px-4 py-3 animate-float" style={{ animationDuration: "4.1s", animationDelay: "0.8s" }}>
+                <div className="absolute -top-2 -right-2 sm:-right-4 md:right-0 bg-white rounded-xl sm:rounded-2xl shadow-xl border border-gray-100 px-3 py-2 sm:px-4 sm:py-3 animate-float" style={{ animationDuration: "4.1s", animationDelay: "0.8s" }}>
                   <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1">Success Rate</p>
                   <div className="flex items-baseline gap-1.5">
-                    <span className="font-mono text-2xl font-extrabold text-brand-green">92%</span>
+                    <span className="font-mono text-xl sm:text-2xl font-extrabold text-brand-green">92%</span>
                     <span className="text-xs font-semibold text-gray-400">cases</span>
                   </div>
                 </div>
@@ -189,7 +189,7 @@ export default function CreditReportCorrectionPage() {
       {/* Common Issues */}
       <section className="section-padding bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-16 items-center">
             <div>
               <div className="inline-flex items-center gap-2 bg-red-50 border border-red-100 rounded-full px-4 py-2 mb-6">
                 <AlertCircle size={14} className="text-red-500" />
@@ -197,13 +197,13 @@ export default function CreditReportCorrectionPage() {
                   Common Issues We Fix
                 </span>
               </div>
-              <h2 className="font-display text-3xl md:text-4xl font-extrabold text-heading mb-6">
+              <h2 className="font-display text-2xl md:text-4xl font-extrabold text-heading mb-4 md:mb-6">
                 Is Your Credit Report{" "}
                 <span className="text-accent-gradient">Holding You Back?</span>
               </h2>
 
               {/* Feature image */}
-              <div className="relative mb-8 flex justify-center">
+              <div className="relative mb-6 md:mb-8 flex justify-center">
                 <div className="absolute inset-0 rounded-3xl blur-[40px] pointer-events-none" style={{ background: "radial-gradient(circle, rgba(91,200,63,0.08) 0%, transparent 70%)" }} />
                 <Image
                   src="/images/cibil-feature-image.png"
@@ -231,10 +231,10 @@ export default function CreditReportCorrectionPage() {
             </div>
 
             <div>
-              <div className="card-modern p-8 border-brand-green/10">
+              <div className="card-modern p-5 sm:p-8 border-brand-green/10">
                 <div className="flex items-center gap-3 mb-6">
                   <BarChart3 size={24} className="text-brand-green" />
-                  <h3 className="font-display text-2xl font-bold text-heading">
+                  <h3 className="font-display text-xl sm:text-2xl font-bold text-heading">
                     Why It Matters
                   </h3>
                 </div>
@@ -303,30 +303,30 @@ export default function CreditReportCorrectionPage() {
           backgroundSize: '64px 64px'
         }} />
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <p className="text-brand-green text-sm font-semibold uppercase tracking-wider mb-3">
+          <div className="text-center mb-10 md:mb-16">
+            <p className="text-brand-green text-xs sm:text-sm font-semibold uppercase tracking-wider mb-2 sm:mb-3">
               Our Process
             </p>
-            <h2 className="font-display text-3xl md:text-4xl font-extrabold text-white">
+            <h2 className="font-display text-2xl md:text-4xl font-extrabold text-white">
               How We Fix Your{" "}
               <span className="text-accent-gradient">Credit Report</span>
             </h2>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
             {processSteps.map((step) => (
-              <div key={step.step} className={`rounded-2xl p-6 border ${step.borderColor} bg-white/[0.03] backdrop-blur-sm hover:bg-white/[0.06] transition-all duration-300 hover:-translate-y-1`}>
-                <span className="font-mono text-4xl font-bold text-white/[0.06] block mb-4">
+              <div key={step.step} className={`rounded-xl sm:rounded-2xl p-4 sm:p-6 border ${step.borderColor} bg-white/[0.03] backdrop-blur-sm hover:bg-white/[0.06] transition-all duration-300 hover:-translate-y-1`}>
+                <span className="font-mono text-2xl sm:text-4xl font-bold text-white/[0.06] block mb-2 sm:mb-4">
                   {step.step}
                 </span>
                 <div
-                  className={`w-12 h-12 rounded-xl ${step.bg} flex items-center justify-center mb-4`}
+                  className={`w-9 h-9 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl ${step.bg} flex items-center justify-center mb-3 sm:mb-4`}
                 >
-                  <TrendingUp size={22} className={step.color} />
+                  <TrendingUp className={`w-4 h-4 sm:w-[22px] sm:h-[22px] ${step.color}`} />
                 </div>
-                <h3 className="font-display text-lg font-bold text-white mb-2">
+                <h3 className="font-display text-sm sm:text-lg font-bold text-white mb-1 sm:mb-2">
                   {step.title}
                 </h3>
-                <p className="text-white/45 text-sm leading-relaxed mb-4">
+                <p className="text-white/45 text-xs sm:text-sm leading-relaxed mb-2 sm:mb-4 line-clamp-3 sm:line-clamp-none">
                   {step.description}
                 </p>
                 <div className="flex items-center gap-1.5">
@@ -350,7 +350,7 @@ export default function CreditReportCorrectionPage() {
               No improvement, no hidden fees
             </span>
           </div>
-          <h2 className="font-display text-3xl md:text-4xl font-extrabold text-heading mb-4">
+          <h2 className="font-display text-2xl md:text-4xl font-extrabold text-heading mb-4">
             Start Your CIBIL Correction <span className="text-accent-gradient">Today</span>
           </h2>
           <p className="text-gray-500 mb-8">

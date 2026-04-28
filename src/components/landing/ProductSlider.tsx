@@ -138,10 +138,10 @@ export default function ProductSlider() {
     <section className="py-20 md:py-28 bg-white overflow-hidden">
       {/* Header */}
       <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center mb-12">
-        <p className="text-xs font-bold uppercase tracking-[0.2em] mb-3" style={{ color: "#16a34a" }}>
+        <p className="text-[10px] lg:text-xs font-bold uppercase tracking-[0.2em] mb-3" style={{ color: "#16a34a" }}>
           Our Products
         </p>
-        <h2 className="text-3xl md:text-4xl font-extrabold leading-tight tracking-tight" style={{ color: "#1a1a1a" }}>
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold leading-tight tracking-tight" style={{ color: "#1a1a1a" }}>
           Finding the right loan can be overwhelming.{" "}
           <span style={{ color: "#16a34a" }}>We make it simple.</span>
         </h2>
@@ -227,7 +227,7 @@ export default function ProductSlider() {
 
                       {/* Tagline / Coming Soon pill */}
                       <span
-                        className="absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-bold z-10"
+                        className="absolute top-4 right-4 px-3 py-1 rounded-full text-[10px] lg:text-xs font-bold z-10"
                         style={
                           p.comingSoon
                             ? { background: "#f1f5f9", color: "#64748b", boxShadow: "0 2px 8px rgba(0,0,0,0.08)" }
@@ -243,7 +243,7 @@ export default function ProductSlider() {
                           className="absolute bottom-0 inset-x-0 flex items-center justify-center py-1.5 z-10"
                           style={{ background: "rgba(255,255,255,0.82)", backdropFilter: "blur(6px)", borderTop: "1px solid rgba(0,0,0,0.05)" }}
                         >
-                          <span className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider" style={{ color: "#64748b" }}>
+                          <span className="flex items-center gap-1.5 text-[9px] lg:text-[11px] font-bold uppercase tracking-wider" style={{ color: "#64748b" }}>
                             <span className="w-1.5 h-1.5 rounded-full bg-amber-400 inline-block" />
                             Coming Soon
                           </span>
@@ -253,16 +253,16 @@ export default function ProductSlider() {
 
                     {/* Text content */}
                     <div className="flex flex-col flex-1 px-6 pt-5 pb-6">
-                      <h3 className="text-[15px] font-extrabold mb-2" style={{ color: "#1a1a1a" }}>
+                      <h3 className="text-sm lg:text-[15px] font-extrabold mb-2" style={{ color: "#1a1a1a" }}>
                         {p.title}
                       </h3>
-                      <p className="text-sm leading-relaxed flex-1" style={{ color: "#6b7280" }}>
+                      <p className="text-[10px] lg:text-sm leading-relaxed flex-1" style={{ color: "#6b7280" }}>
                         {p.desc}
                       </p>
                       <div className="mt-5 pt-4" style={{ borderTop: "1px solid #f0f0f0" }}>
                         <Link
                           href={p.href}
-                          className="inline-flex items-center gap-1.5 text-sm font-semibold group/cta"
+                          className="inline-flex items-center gap-1.5 text-[10px] lg:text-sm font-semibold group/cta"
                           style={{ color: p.iconColor }}
                         >
                           Learn More

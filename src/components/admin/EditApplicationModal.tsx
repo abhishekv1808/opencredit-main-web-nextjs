@@ -127,8 +127,8 @@ export default function EditApplicationModal({
       </DialogTrigger>
       <DialogContent className="max-w-2xl max-h-[85vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="text-xl">Edit {application.application_number}</DialogTitle>
-          <DialogDescription className="text-text-muted">
+          <DialogTitle className="text-lg lg:text-xl">Edit {application.application_number}</DialogTitle>
+          <DialogDescription className="text-[10px] lg:text-sm text-text-muted">
             Update application details
           </DialogDescription>
         </DialogHeader>

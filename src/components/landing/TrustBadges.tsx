@@ -39,13 +39,13 @@ export default function TrustBadges() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Trust Grid */}
         <div className="text-center mb-16 md:mb-20">
-          <p className="text-brand-green text-sm font-semibold uppercase tracking-wider mb-3">
+          <p className="text-brand-green text-[10px] lg:text-sm font-semibold uppercase tracking-wider mb-3">
             Why Trust Us
           </p>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-[56px] font-extrabold text-heading mb-5">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-[56px] font-extrabold text-heading mb-5">
             Why <span className="text-accent-gradient">4,200+ Customers</span> Trust Us
           </h2>
-          <p className="text-gray-500 text-lg max-w-xl mx-auto leading-relaxed">
+          <p className="text-gray-500 text-sm lg:text-lg max-w-xl mx-auto leading-relaxed">
             We&apos;re committed to transparency, security, and delivering real
             financial value.
           </p>
@@ -63,10 +63,10 @@ export default function TrustBadges() {
                   <Icon size={22} className="text-brand-green group-hover:text-white transition-colors" />
                 </div>
                 <div>
-                  <h3 className="font-display font-bold text-gray-800 mb-1 text-sm">
+                  <h3 className="font-display font-bold text-gray-800 mb-1 text-xs lg:text-sm">
                     {item.title}
                   </h3>
-                  <p className="text-gray-400 text-xs leading-relaxed">
+                  <p className="text-gray-400 text-[10px] lg:text-xs leading-relaxed">
                     {item.description}
                   </p>
                 </div>
@@ -82,12 +82,12 @@ export default function TrustBadges() {
               <Shield size={18} className="text-white" />
             </div>
             <div>
-              <h4 className="font-display font-bold text-heading text-sm mb-3">
+              <h4 className="font-display font-bold text-heading text-xs lg:text-sm mb-3">
                 Important Rate & Compliance Disclosure
               </h4>
-              <div className="grid sm:grid-cols-3 gap-3 text-xs text-gray-500">
+              <div className="grid sm:grid-cols-3 gap-3 text-[10px] lg:text-xs text-gray-500">
                 <div className="bg-white rounded-xl p-4 border border-gray-100">
-                  <p className="font-semibold text-heading mb-1">
+                  <p className="font-semibold text-heading mb-1 text-xs lg:text-[13px]">
                     Interest Rates
                   </p>
                   <p>
@@ -96,7 +96,7 @@ export default function TrustBadges() {
                   </p>
                 </div>
                 <div className="bg-white rounded-xl p-4 border border-gray-100">
-                  <p className="font-semibold text-heading mb-1">
+                  <p className="font-semibold text-heading mb-1 text-xs lg:text-[13px]">
                     Loan Amount
                   </p>
                   <p>
@@ -105,7 +105,7 @@ export default function TrustBadges() {
                   </p>
                 </div>
                 <div className="bg-white rounded-xl p-4 border border-gray-100">
-                  <p className="font-semibold text-heading mb-1">
+                  <p className="font-semibold text-heading mb-1 text-xs lg:text-[13px]">
                     Repayment
                   </p>
                   <p>
