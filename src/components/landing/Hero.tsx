@@ -7,6 +7,7 @@ import { ArrowRight, Shield, Star, ChevronRight, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { formatCurrency } from "@/lib/utils/format";
 import RupeeCoin from "@/components/shared/RupeeCoin";
+import { createClient } from "@/lib/supabase/client";
 
 function CountUp({
   end,
@@ -71,6 +72,14 @@ const stats = [
 
 export default function Hero() {
   const [loanAmount, setLoanAmount] = useState(500000);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const supabase = createClient();
+    supabase.auth.getUser().then(({ data }) => {
+      if (data?.user) setIsLoggedIn(true);
+    });
+  }, []);
 
   // Calculate slider fill percentage
   const fillPercentage = ((loanAmount - 50000) / (4000000 - 50000)) * 100;
@@ -130,7 +139,7 @@ export default function Hero() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-up animation-delay-300">
-              <Link href="/register">
+              <Link href={isLoggedIn ? "/dashboard/apply/personal-loan" : "/register"}>
                 <Button
                   variant="accent"
                   size="lg"
@@ -277,7 +286,7 @@ export default function Hero() {
               </div>
 
               {/* Card CTA */}
-              <Link href="/register" className="block mt-6">
+              <Link href={isLoggedIn ? "/dashboard/apply/personal-loan" : "/register"} className="block mt-6">
                 <Button variant="accent" className="w-full group" size="lg">
                   Check Eligibility
                   <ChevronRight
