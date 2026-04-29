@@ -131,37 +131,52 @@ export default function LoanApplicationForm() {
 
     if (!applicationId) {
       const year = new Date().getFullYear();
-      const { data: lastApp } = await supabase
-        .from("loan_applications")
-        .select("application_number")
-        .like("application_number", `OC-${year}-%`)
-        .order("application_number", { ascending: false })
-        .limit(1)
-        .single();
-      const lastSeq = lastApp?.application_number
-        ? parseInt(lastApp.application_number.split("-").pop() || "0", 10)
-        : 0;
-      const appNumber = `OC-${year}-${String((isNaN(lastSeq) ? 0 : lastSeq) + 1).padStart(5, "0")}`;
 
-      const { data: newApp, error } = await supabase
-        .from("loan_applications")
-        .insert({
-          user_id: user.id,
-          application_number: appNumber,
-          product_type: "personal_loan",
-          status: "draft",
-          ...payload,
-        })
-        .select()
-        .single();
+      // Retry loop to handle duplicate application_number race conditions
+      let newApp = null;
+      let lastError = null;
+      for (let attempt = 0; attempt < 3; attempt++) {
+        const { data: lastApp } = await supabase
+          .from("loan_applications")
+          .select("application_number")
+          .like("application_number", `OC-${year}-%`)
+          .order("created_at", { ascending: false })
+          .limit(1)
+          .single();
+        const lastSeq = lastApp?.application_number
+          ? parseInt(lastApp.application_number.split("-").pop() || "0", 10)
+          : 0;
+        const nextSeq = (isNaN(lastSeq) ? 0 : lastSeq) + 1 + attempt;
+        const appNumber = `OC-${year}-${String(nextSeq).padStart(5, "0")}`;
 
-      if (error || !newApp) {
-        toast({ title: "Save failed", description: error?.message || "Please try again.", variant: "destructive" });
+        const { data: inserted, error: insertError } = await supabase
+          .from("loan_applications")
+          .insert({
+            user_id: user.id,
+            application_number: appNumber,
+            product_type: "personal_loan",
+            status: "draft",
+            ...payload,
+          })
+          .select()
+          .single();
+
+        if (!insertError && inserted) {
+          newApp = inserted;
+          break;
+        }
+        lastError = insertError;
+        // If it's not a duplicate key error, don't retry
+        if (!insertError?.message?.includes("duplicate key")) break;
+      }
+
+      if (!newApp) {
+        toast({ title: "Save failed", description: lastError?.message || "Please try again.", variant: "destructive" });
         return null;
       }
 
       setApplicationId(newApp.id);
-      toast({ title: "Progress saved!", description: appNumber });
+      toast({ title: "Progress saved!", description: newApp.application_number });
       return newApp.id;
     } else {
       const { error } = await supabase

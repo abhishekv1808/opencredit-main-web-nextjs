@@ -5,7 +5,9 @@ interface AmortizationTableProps {
   schedule: AmortizationRow[];
 }
 
-export default function AmortizationTable({ schedule }: AmortizationTableProps) {
+export default function AmortizationTable({
+  schedule,
+}: AmortizationTableProps) {
   return (
     <div className="bg-white rounded-2xl shadow-card overflow-hidden">
       <div className="px-4 sm:px-6 py-3 sm:py-4 border-b border-gray-100">
@@ -63,7 +65,9 @@ export default function AmortizationTable({ schedule }: AmortizationTableProps) 
           </tbody>
           <tfoot>
             <tr className="bg-gray-50 font-bold">
-              <td className="px-2 sm:px-4 py-2 sm:py-3 text-text-primary text-[10px] sm:text-xs">Total</td>
+              <td className="px-2 sm:px-4 py-2 sm:py-3 text-text-primary text-[10px] sm:text-xs">
+                Total
+              </td>
               <td className="px-2 sm:px-4 py-2 sm:py-3 text-right font-mono text-[10px] sm:text-xs text-heading">
                 {schedule
                   .reduce((sum, r) => sum + r.emi, 0)

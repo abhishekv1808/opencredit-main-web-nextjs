@@ -10,6 +10,18 @@ export async function GET(request: Request) {
     const supabase = await createClient();
     const { error } = await supabase.auth.exchangeCodeForSession(code);
     if (!error) {
+      // Ensure a profiles row exists for this user
+      const { data: { user } } = await supabase.auth.getUser();
+      if (user) {
+        await supabase.from("profiles").upsert(
+          {
+            id: user.id,
+            email: user.email,
+            updated_at: new Date().toISOString(),
+          },
+          { onConflict: "id", ignoreDuplicates: true }
+        );
+      }
       return NextResponse.redirect(`${origin}${next}`);
     }
   }

@@ -25,14 +25,13 @@ export async function PATCH(req: Request) {
     );
   }
 
-  const updates: Record<string, string> = { updated_at: new Date().toISOString() };
+  const updates: Record<string, string> = { id: user.id, updated_at: new Date().toISOString() };
   if (parsed.data.full_name !== undefined) updates.full_name = parsed.data.full_name;
   if (parsed.data.phone !== undefined) updates.phone = parsed.data.phone;
 
   const { error } = await supabase
     .from("profiles")
-    .update(updates)
-    .eq("id", user.id);
+    .upsert(updates, { onConflict: "id" });
 
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
   return NextResponse.json({ success: true });
