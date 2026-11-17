@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 const WA_NUMBER  = "919535111137";
 const WA_MESSAGE = encodeURIComponent(
-  "Hi, I need help with a loan from OpenCredit.Money"
+  "Hi, I need help with a loan from OpenCredit"
 );
 const WA_URL = `https://wa.me/${WA_NUMBER}?text=${WA_MESSAGE}`;
 

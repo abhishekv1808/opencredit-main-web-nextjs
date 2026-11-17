@@ -195,7 +195,7 @@ function LoginContent() {
           <Link href="/" className="inline-flex">
             <Image
               src="/images/OpenCredit-logo.png"
-              alt="OpenCredit.Money"
+              alt="OpenCredit"
               width={168}
               height={42}
               className="h-10 w-auto"

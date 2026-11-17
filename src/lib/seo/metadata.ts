@@ -16,7 +16,7 @@ export function generatePageMetadata({
   ogImage?: string;
   keywords?: string[];
 }): Metadata {
-  const fullTitle = `${title} | OpenCredit.Money — Bangalore`;
+  const fullTitle = `${title} | OpenCredit — Bangalore`;
   const url = `${SITE_URL}${path}`;
   const allKeywords = [
     "personal loan Bangalore",
@@ -35,7 +35,7 @@ export function generatePageMetadata({
       title: fullTitle,
       description,
       url,
-      siteName: "OpenCredit.Money",
+      siteName: "OpenCredit",
       images: [{ url: ogImage, width: 1200, height: 630 }],
       locale: "en_IN",
       type: "website",

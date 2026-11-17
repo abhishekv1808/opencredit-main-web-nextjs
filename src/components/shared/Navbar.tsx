@@ -162,7 +162,7 @@ export default function Navbar() {
             <Link href="/" className="relative flex items-center flex-shrink-0 group">
               <Image
                 src="/images/OpenCredit-logo.png"
-                alt="OpenCredit.Money"
+                alt="OpenCredit"
                 width={168}
                 height={42}
                 className="h-[36px] w-auto transition-all duration-300 group-hover:scale-[0.97]"
@@ -372,7 +372,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between px-5 py-4">
           <Image
             src="/images/OpenCredit-logo.png"
-            alt="OpenCredit.Money"
+            alt="OpenCredit"
             width={130}
             height={34}
             className="h-8 w-auto brightness-0 invert opacity-90"

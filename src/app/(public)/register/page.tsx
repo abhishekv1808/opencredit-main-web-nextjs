@@ -322,7 +322,7 @@ export default function RegisterPage() {
               <Link href="/" className="inline-flex mb-8">
                 <Image
                   src="/images/OpenCredit-logo.png"
-                  alt="OpenCredit.Money"
+                  alt="OpenCredit"
                   width={160}
                   height={40}
                   className="h-9 w-auto brightness-0 invert opacity-90 hover:opacity-100 transition-opacity"

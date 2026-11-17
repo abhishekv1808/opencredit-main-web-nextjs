@@ -1,7 +1,7 @@
 export const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "FinancialService",
-  name: "OpenCredit.Money",
+  name: "OpenCredit",
   description:
     "Personal loans and credit report correction services in Bangalore",
   url: "https://opencredit.in",
@@ -44,7 +44,7 @@ export const loanProductSchema = (type: "personal" | "credit") => ({
     maxValue: 36,
     unitCode: "P1Y",
   },
-  provider: { "@type": "FinancialService", name: "OpenCredit.Money" },
+  provider: { "@type": "FinancialService", name: "OpenCredit" },
 });
 
 export const faqSchema = (faqs: { question: string; answer: string }[]) => ({

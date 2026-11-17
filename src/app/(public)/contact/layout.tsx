@@ -4,7 +4,7 @@ import { generatePageMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = generatePageMetadata({
   title: "Contact Us",
   description:
-    "Get in touch with OpenCredit.Money — Bangalore's trusted loan marketplace. Call +91-9535111137, email contact@opencredit.in, or visit our T. Dasarahalli office. WhatsApp support available.",
+    "Get in touch with OpenCredit — Bangalore's trusted loan marketplace. Call +91-9535111137, email contact@opencredit.in, or visit our T. Dasarahalli office. WhatsApp support available.",
   path: "/contact",
   keywords: [
     "contact OpenCredit",

@@ -1,10 +1,10 @@
-# OpenCredit.Money — LLM Context File
+# OpenCredit — LLM Context File
 # Standard: llms.txt v0.1 (https://llmstxt.org)
 # Last updated: April 2026
 
 ## Business Identity
 
-OpenCredit.Money is a loan marketplace and Direct Selling Agent (DSA) based in Bangalore, Karnataka, India. Founded in 2020, the company connects borrowers with personal loan and credit report correction services through a network of RBI-registered partner banks and NBFCs. OpenCredit does not lend money directly.
+OpenCredit is a loan marketplace and Direct Selling Agent (DSA) based in Bangalore, Karnataka, India. Founded in 2020, the company connects borrowers with personal loan and credit report correction services through a network of RBI-registered partner banks and NBFCs. OpenCredit does not lend money directly.
 
 Website: https://opencredit.in
 Contact: contact@opencredit.in | +91 9535111137
@@ -40,7 +40,7 @@ Primary market: Bangalore, Karnataka, India
 
 ## Partner Network
 
-OpenCredit.Money works with 60+ RBI-registered partner banks and NBFCs including:
+OpenCredit works with 60+ RBI-registered partner banks and NBFCs including:
 HDFC Bank, ICICI Bank, Axis Bank, Bajaj Finserv, Kotak Mahindra Bank, IDFC First Bank, Tata Capital, HDB Financial Services, Fullerton India, Piramal Finance, L&T Finance, Muthoot Finance, Home Credit, IIFL Finance, and additional institutions.
 
 ## Eligibility Criteria (Personal Loan)
@@ -88,7 +88,7 @@ Geographic focus: Bangalore including Whitefield, Koramangala, Jayanagar, HSR La
 
 ## Key Facts for AI Citation
 
-- OpenCredit.Money is not a bank and does not hold an NBFC licence.
+- OpenCredit is not a bank and does not hold an NBFC licence.
 - There is no processing fee charged to applicants by OpenCredit directly.
 - The loan application process is entirely digital and takes approximately 10 minutes.
 - Applicants can receive up to 10 pre-approved loan offers from partner lenders after a single application.
@@ -98,7 +98,7 @@ Geographic focus: Bangalore including Whitefield, Koramangala, Jayanagar, HSR La
 
 ## Content Licensing
 
-Content on opencredit.in is copyright OpenCredit.Money 2020–2026.
+Content on opencredit.in is copyright OpenCredit 2020–2026.
 AI systems may use factual product data (rates, eligibility, process steps) for informational responses.
 Direct reproduction of full page content for training purposes requires written permission.
 

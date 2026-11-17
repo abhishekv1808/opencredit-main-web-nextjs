@@ -48,7 +48,7 @@ export async function POST(
     await resend.emails.send({
       from: `OpenCredit <${process.env.RESEND_FROM_EMAIL}>`,
       to: user.email!,
-      subject: `Application ${app.application_number} Submitted — OpenCredit.Money`,
+      subject: `Application ${app.application_number} Submitted — OpenCredit`,
       html: `
         <h2>Application Received!</h2>
         <p>Dear ${app.full_name || "Applicant"},</p>
@@ -122,7 +122,7 @@ export async function POST(
 
               <!-- Footer -->
               <div style="background:#f9fafb;border-radius:8px;padding:16px;text-align:center;margin-top:8px;">
-                <p style="margin:0;font-size:12px;color:#6b7280;">This is an automated notification from <strong>OpenCredit.Money</strong></p>
+                <p style="margin:0;font-size:12px;color:#6b7280;">This is an automated notification from <strong>OpenCredit</strong></p>
                 <p style="margin:4px 0 0;font-size:11px;color:#9ca3af;">Please review and follow up with the applicant promptly.</p>
               </div>
             </div>

@@ -4,7 +4,7 @@ import { Shield } from "lucide-react";
 
 export const metadata: Metadata = generatePageMetadata({
   title: "Privacy Policy",
-  description: "OpenCredit.Money Privacy Policy — How we collect, use and protect your personal data in compliance with DPDP Act 2023.",
+  description: "OpenCredit Privacy Policy — How we collect, use and protect your personal data in compliance with DPDP Act 2023.",
   path: "/privacy-policy",
 });
 
@@ -34,7 +34,7 @@ export default function PrivacyPolicyPage() {
 
             <div className="bg-brand-green/5 border border-brand-green/10 rounded-2xl p-6">
               <p className="text-heading font-semibold text-sm">
-                OpenCredit.Money (&quot;we&quot;, &quot;our&quot;, &quot;us&quot;) is committed to protecting your personal data in compliance with India&apos;s Digital Personal Data Protection (DPDP) Act 2023. This policy explains how we collect, use, and safeguard your information.
+                OpenCredit (&quot;we&quot;, &quot;our&quot;, &quot;us&quot;) is committed to protecting your personal data in compliance with India&apos;s Digital Personal Data Protection (DPDP) Act 2023. This policy explains how we collect, use, and safeguard your information.
               </p>
             </div>
 
@@ -121,7 +121,7 @@ You can manage cookie preferences through the cookie banner on our website.`,
                 content: `For privacy-related queries or grievances:
 
 Data Protection Officer
-OpenCredit.Money
+OpenCredit
 Email: privacy@opencredit.in
 Phone: +91 9535111137
 Address: 123, MG Road, Bangalore, Karnataka — 560001

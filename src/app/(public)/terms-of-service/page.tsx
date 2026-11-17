@@ -4,7 +4,7 @@ import { FileText } from "lucide-react";
 
 export const metadata: Metadata = generatePageMetadata({
   title: "Terms of Service",
-  description: "OpenCredit.Money Terms of Service — Governing your use of our loan marketplace and financial services platform.",
+  description: "OpenCredit Terms of Service — Governing your use of our loan marketplace and financial services platform.",
   path: "/terms-of-service",
 });
 
@@ -34,14 +34,14 @@ export default function TermsPage() {
 
             <div className="bg-amber-50 border border-amber-200 rounded-2xl p-5">
               <p className="text-amber-800 text-sm leading-relaxed">
-                <strong>Important:</strong> OpenCredit.Money is a loan marketplace and Direct Selling Agent (DSA). We do not directly lend money. All loans are disbursed by our partner banks and NBFCs registered with the Reserve Bank of India (RBI). By using our services, you agree to these terms.
+                <strong>Important:</strong> OpenCredit is a loan marketplace and Direct Selling Agent (DSA). We do not directly lend money. All loans are disbursed by our partner banks and NBFCs registered with the Reserve Bank of India (RBI). By using our services, you agree to these terms.
               </p>
             </div>
 
             {[
               {
                 title: "1. Nature of Service",
-                content: `OpenCredit.Money operates as a loan marketplace/DSA that:
+                content: `OpenCredit operates as a loan marketplace/DSA that:
 • Connects borrowers with eligible partner lenders
 • Facilitates loan applications on behalf of partner banks/NBFCs
 • Provides CIBIL credit report correction advisory services
@@ -87,7 +87,7 @@ export default function TermsPage() {
               },
               {
                 title: "6. Limitation of Liability",
-                content: `OpenCredit.Money is not liable for:
+                content: `OpenCredit is not liable for:
 • Lender's credit assessment decisions
 • Interest rates offered by specific lenders
 • Delays in loan disbursement by lenders
@@ -111,7 +111,7 @@ export default function TermsPage() {
                 title: "9. Contact",
                 content: `For terms-related queries:
 legal@opencredit.in | +91 9535111137
-OpenCredit.Money, 123, MG Road, Bangalore, Karnataka — 560001`,
+OpenCredit, 123, MG Road, Bangalore, Karnataka — 560001`,
               },
             ].map((section) => (
               <div key={section.title} className="border-b border-gray-100 pb-6 last:border-0">

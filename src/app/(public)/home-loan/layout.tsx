@@ -48,7 +48,7 @@ const homeLoanSchema = {
   areaServed: ["Bangalore", "Bengaluru", "Karnataka", "India"],
   provider: {
     "@type": "FinancialService",
-    name: "OpenCredit.Money",
+    name: "OpenCredit",
     "@id": "https://opencredit.in/#organization",
   },
 };

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowLeft, Home, Shield, Clock, IndianRupee } from "lucide-react";
 
 export const metadata = {
-  title: "Apply for Home Loan | OpenCredit.Money",
+  title: "Apply for Home Loan | OpenCredit",
   description: "Apply for a home loan starting from 8.40% p.a. Up to ₹10 Crore, tenure up to 30 years.",
 };
 

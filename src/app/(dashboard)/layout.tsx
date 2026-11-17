@@ -61,7 +61,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
           {/* Left: Logo */}
           <Link href="/" className="flex items-center flex-shrink-0">
-            <Image src="/images/OpenCredit-logo.png" alt="OpenCredit.Money"
+            <Image src="/images/OpenCredit-logo.png" alt="OpenCredit"
               width={140} height={36} className="h-8 w-auto" priority />
           </Link>
 
@@ -137,7 +137,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             {/* Drawer header */}
             <div className="flex items-center justify-between px-5 py-4"
               style={{ borderBottom: "1px solid #f0f0f0" }}>
-              <Image src="/images/OpenCredit-logo.png" alt="OpenCredit.Money"
+              <Image src="/images/OpenCredit-logo.png" alt="OpenCredit"
                 width={120} height={30} className="h-7 w-auto" />
               <button onClick={() => setDrawerOpen(false)}
                 className="w-8 h-8 rounded-lg flex items-center justify-center"

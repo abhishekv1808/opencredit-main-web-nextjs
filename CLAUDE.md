@@ -1,4 +1,4 @@
-# CLAUDE.md — OpenCredit.Money Brain File
+# CLAUDE.md — OpenCredit Brain File
 
 > AI development assistant guide. Read this fully before writing any code.
 > Last updated: April 2026
@@ -7,7 +7,7 @@
 
 ## 🏦 Project Overview
 
-**Client:** OpenCredit.Money  
+**Client:** OpenCredit  
 **Domain:** opencredit.in  
 **Type:** Full-stack financial services website (Loan Marketplace / DSA)  
 **Primary Market:** Bangalore, India  
@@ -622,7 +622,7 @@ export function generatePageMetadata({
   path: string;
   ogImage?: string;
 }): Metadata {
-  const fullTitle = `${title} | OpenCredit.Money — Bangalore`;
+  const fullTitle = `${title} | OpenCredit — Bangalore`;
   const url = `${SITE_URL}${path}`;
   return {
     title: fullTitle,
@@ -633,7 +633,7 @@ export function generatePageMetadata({
       title: fullTitle,
       description,
       url,
-      siteName: "OpenCredit.Money",
+      siteName: "OpenCredit",
       images: [{ url: ogImage, width: 1200, height: 630 }],
       locale: "en_IN",
       type: "website",
@@ -662,7 +662,7 @@ export function generatePageMetadata({
 export const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "FinancialService",
-  name: "OpenCredit.Money",
+  name: "OpenCredit",
   description:
     "Personal loans and credit report correction services in Bangalore",
   url: "https://opencredit.in",
@@ -700,7 +700,7 @@ export const loanProductSchema = (type: "personal" | "credit") => ({
     maxValue: 36,
     unitCode: "P1Y",
   },
-  provider: { "@type": "FinancialService", name: "OpenCredit.Money" },
+  provider: { "@type": "FinancialService", name: "OpenCredit" },
 });
 ```
 

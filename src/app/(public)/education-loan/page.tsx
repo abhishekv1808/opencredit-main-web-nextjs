@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import ComingSoonPage from "@/components/shared/ComingSoonPage";
 
 export const metadata: Metadata = {
-  title: "Education Loan — Coming Soon | OpenCredit.Money",
+  title: "Education Loan — Coming Soon | OpenCredit",
   description:
-    "Education loans for India and abroad coming soon to OpenCredit.Money. Invest in your future. Get notified when we launch.",
+    "Education loans for India and abroad coming soon to OpenCredit. Invest in your future. Get notified when we launch.",
   alternates: { canonical: "https://opencredit.in/education-loan" },
   robots: { index: false, follow: false },
 };

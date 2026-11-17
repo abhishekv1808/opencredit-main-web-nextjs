@@ -8,7 +8,7 @@ import { breadcrumbSchema } from "@/lib/seo/jsonld";
 export const metadata: Metadata = generatePageMetadata({
   title: "About Us",
   description:
-    "OpenCredit.Money is Bangalore's trusted loan marketplace. We connect borrowers with RBI-registered banks and NBFCs for personal loans and CIBIL correction services.",
+    "OpenCredit is Bangalore's trusted loan marketplace. We connect borrowers with RBI-registered banks and NBFCs for personal loans and CIBIL correction services.",
   path: "/about",
 });
 
@@ -83,7 +83,7 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-4 text-sm lg:text-base text-gray-500 leading-relaxed">
                 <p>
-                  Founded in 2020 in Bangalore, OpenCredit.Money was born from
+                  Founded in 2020 in Bangalore, OpenCredit was born from
                   a frustrating personal experience — the opacity and
                   complexity of getting a personal loan in India.
                 </p>

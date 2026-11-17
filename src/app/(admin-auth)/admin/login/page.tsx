@@ -223,7 +223,7 @@ export default function AdminLoginPage() {
             style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}
           >
             <p className="text-xs" style={{ color: "rgba(255,255,255,0.35)" }}>
-              © {new Date().getFullYear()} OpenCredit.Money · Internal Admin Portal
+              © {new Date().getFullYear()} OpenCredit · Internal Admin Portal
             </p>
           </div>
         </div>
@@ -522,7 +522,7 @@ export default function AdminLoginPage() {
               className="lg:hidden text-center text-[11px] mt-8"
               style={{ color: "#94a3b8" }}
             >
-              OpenCredit.Money — Internal Admin Portal
+              OpenCredit — Internal Admin Portal
               <br />
               © {new Date().getFullYear()} All rights reserved.
             </p>

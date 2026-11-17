@@ -174,7 +174,7 @@ export default function Footer() {
               <Link href="/" className="inline-flex items-center gap-3 mb-6 group">
                 <Image
                   src="/images/OpenCredit-logo.png"
-                  alt="OpenCredit.Money"
+                  alt="OpenCredit"
                   width={160}
                   height={42}
                   className="h-[36px] w-auto brightness-0 invert opacity-80 group-hover:opacity-100 transition-opacity"
@@ -378,7 +378,7 @@ export default function Footer() {
           {/* ── Bottom Bar ── */}
           <div className="border-t border-white/[0.04] py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-[11.5px] text-white/20 flex items-center gap-1.5">
-              © {new Date().getFullYear()} OpenCredit.Money. Made with
+              © {new Date().getFullYear()} OpenCredit. Made with
               <Heart size={10} className="text-red-400/50 fill-red-400/50" />
               in Bangalore.
             </p>

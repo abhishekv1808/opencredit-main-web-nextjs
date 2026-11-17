@@ -27,7 +27,7 @@ export async function generateMetadata({
       title: loc.seoTitle,
       description: loc.seoDescription,
       url,
-      siteName: "OpenCredit.Money",
+      siteName: "OpenCredit",
       locale: "en_IN",
       type: "website",
     },
@@ -88,7 +88,7 @@ export default async function LocationPage({
             provider: {
               "@type": "FinancialService",
               "@id": "https://opencredit.in/#organization",
-              name: "OpenCredit.Money",
+              name: "OpenCredit",
               url: "https://opencredit.in",
             },
           }),

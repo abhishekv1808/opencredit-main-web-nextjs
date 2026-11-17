@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import CreditCorrectionForm from "@/components/forms/CreditCorrectionForm";
 
 export const metadata: Metadata = {
-  title: "Apply for CIBIL Correction | OpenCredit.Money",
+  title: "Apply for CIBIL Correction | OpenCredit",
   robots: { index: false },
 };
 

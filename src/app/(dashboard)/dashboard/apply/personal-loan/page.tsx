@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import LoanApplicationForm from "@/components/forms/LoanApplicationForm";
 
 export const metadata: Metadata = {
-  title: "Apply for Personal Loan | OpenCredit.Money",
+  title: "Apply for Personal Loan | OpenCredit",
   robots: { index: false },
 };
 

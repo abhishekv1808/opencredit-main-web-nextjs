@@ -4,7 +4,7 @@ import { Shield, AlertCircle, AlertTriangle } from "lucide-react";
 
 export const metadata: Metadata = generatePageMetadata({
   title: "Disclaimer",
-  description: "Important disclaimers for OpenCredit.Money loan marketplace. RBI compliance notice, rate disclosures and service limitations.",
+  description: "Important disclaimers for OpenCredit loan marketplace. RBI compliance notice, rate disclosures and service limitations.",
   path: "/disclaimer",
 });
 
@@ -13,7 +13,7 @@ export default function DisclaimerPage() {
     {
       icon: Shield,
       title: "Nature of Business",
-      content: "OpenCredit.Money (\"Open Credit\") is a loan marketplace and Direct Selling Agent (DSA) registered under applicable Indian laws. We act as an intermediary between borrowers and RBI-registered banks and NBFCs. We do NOT provide loans directly, accept deposits, or act as a banking institution.",
+      content: "OpenCredit (\"Open Credit\") is a loan marketplace and Direct Selling Agent (DSA) registered under applicable Indian laws. We act as an intermediary between borrowers and RBI-registered banks and NBFCs. We do NOT provide loans directly, accept deposits, or act as a banking institution.",
     },
     {
       icon: AlertCircle,
@@ -23,7 +23,7 @@ export default function DisclaimerPage() {
     {
       icon: AlertCircle,
       title: "No Guarantee of Approval",
-      content: "Applying through OpenCredit.Money does not guarantee loan approval. All lending decisions are made independently by our partner banks and NBFCs. Approval is subject to each lender's credit assessment, income verification, CIBIL check, and eligibility criteria.",
+      content: "Applying through OpenCredit does not guarantee loan approval. All lending decisions are made independently by our partner banks and NBFCs. Approval is subject to each lender's credit assessment, income verification, CIBIL check, and eligibility criteria.",
     },
     {
       icon: AlertCircle,
@@ -38,12 +38,12 @@ export default function DisclaimerPage() {
     {
       icon: Shield,
       title: "Regulatory Compliance",
-      content: "All partner lenders on our platform are registered with the Reserve Bank of India (RBI). OpenCredit.Money complies with applicable RBI guidelines for digital lending, the Digital Personal Data Protection (DPDP) Act 2023, and other relevant Indian financial regulations.",
+      content: "All partner lenders on our platform are registered with the Reserve Bank of India (RBI). OpenCredit complies with applicable RBI guidelines for digital lending, the Digital Personal Data Protection (DPDP) Act 2023, and other relevant Indian financial regulations.",
     },
     {
       icon: AlertCircle,
       title: "Information Accuracy",
-      content: "While we strive to keep information on this website current and accurate, OpenCredit.Money makes no warranties regarding the completeness, accuracy, or timeliness of content. Users should independently verify information before making financial decisions. Interest rates, eligibility criteria, and product features may change without notice.",
+      content: "While we strive to keep information on this website current and accurate, OpenCredit makes no warranties regarding the completeness, accuracy, or timeliness of content. Users should independently verify information before making financial decisions. Interest rates, eligibility criteria, and product features may change without notice.",
     },
     {
       icon: Shield,
@@ -76,7 +76,7 @@ export default function DisclaimerPage() {
           {/* RBI Notice */}
           <div className="dark-section-bg rounded-2xl p-6 mb-6">
             <p className="text-white/80 text-sm leading-relaxed">
-              <strong className="text-brand-green">RBI Disclaimer:</strong> OpenCredit.Money is a loan marketplace/Direct Selling Agent (DSA). All loans are disbursed by partner banks/NBFCs registered with the Reserve Bank of India. OpenCredit does not provide loans directly. Loan disbursement is subject to lender eligibility criteria and credit assessment.
+              <strong className="text-brand-green">RBI Disclaimer:</strong> OpenCredit is a loan marketplace/Direct Selling Agent (DSA). All loans are disbursed by partner banks/NBFCs registered with the Reserve Bank of India. OpenCredit does not provide loans directly. Loan disbursement is subject to lender eligibility criteria and credit assessment.
             </p>
           </div>
 
@@ -84,7 +84,7 @@ export default function DisclaimerPage() {
           <div className="rounded-2xl border border-brand-blue/15 bg-brand-blue-light/40 p-6 mb-10">
             <h2 className="font-display font-bold text-heading text-base mb-4 flex items-center gap-2">
               <Shield size={16} className="text-brand-blue" />
-              How OpenCredit.Money Operates
+              How OpenCredit Operates
             </h2>
             <ul className="space-y-2.5">
               {[

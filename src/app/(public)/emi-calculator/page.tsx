@@ -35,7 +35,7 @@ export default function EMICalculatorPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebApplication",
-          name: "EMI Calculator — OpenCredit.Money",
+          name: "EMI Calculator — OpenCredit",
           url: "https://opencredit.in/emi-calculator",
           applicationCategory: "FinanceApplication",
           operatingSystem: "All",
@@ -47,7 +47,7 @@ export default function EMICalculatorPage() {
           description: "Free online EMI calculator. Calculate monthly installment, total interest, and amortization schedule for personal, home, and business loans.",
           provider: {
             "@type": "FinancialService",
-            name: "OpenCredit.Money",
+            name: "OpenCredit",
             "@id": "https://opencredit.in/#organization",
           },
         }) }}
