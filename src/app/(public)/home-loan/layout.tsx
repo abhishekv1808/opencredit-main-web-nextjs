@@ -49,7 +49,7 @@ const homeLoanSchema = {
   provider: {
     "@type": "FinancialService",
     name: "OpenCredit.Money",
-    "@id": "https://opencredit.money/#organization",
+    "@id": "https://opencredit.in/#organization",
   },
 };
 
@@ -69,8 +69,8 @@ export default function HomeLoanLayout({
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             breadcrumbSchema([
-              { name: "Home", url: "https://opencredit.money" },
-              { name: "Home Loan", url: "https://opencredit.money/home-loan" },
+              { name: "Home", url: "https://opencredit.in" },
+              { name: "Home Loan", url: "https://opencredit.in/home-loan" },
             ])
           ),
         }}

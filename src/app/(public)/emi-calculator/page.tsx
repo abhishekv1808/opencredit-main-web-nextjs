@@ -26,8 +26,8 @@ export default function EMICalculatorPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema([
-          { name: "Home", url: "https://opencredit.money" },
-          { name: "EMI Calculator", url: "https://opencredit.money/emi-calculator" },
+          { name: "Home", url: "https://opencredit.in" },
+          { name: "EMI Calculator", url: "https://opencredit.in/emi-calculator" },
         ])) }}
       />
       <script
@@ -36,7 +36,7 @@ export default function EMICalculatorPage() {
           "@context": "https://schema.org",
           "@type": "WebApplication",
           name: "EMI Calculator — OpenCredit.Money",
-          url: "https://opencredit.money/emi-calculator",
+          url: "https://opencredit.in/emi-calculator",
           applicationCategory: "FinanceApplication",
           operatingSystem: "All",
           offers: {
@@ -48,7 +48,7 @@ export default function EMICalculatorPage() {
           provider: {
             "@type": "FinancialService",
             name: "OpenCredit.Money",
-            "@id": "https://opencredit.money/#organization",
+            "@id": "https://opencredit.in/#organization",
           },
         }) }}
       />

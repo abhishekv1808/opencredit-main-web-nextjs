@@ -8,7 +8,7 @@
 ## 🏦 Project Overview
 
 **Client:** OpenCredit.Money  
-**Domain:** opencredit.money  
+**Domain:** opencredit.in  
 **Type:** Full-stack financial services website (Loan Marketplace / DSA)  
 **Primary Market:** Bangalore, India  
 **Products:** Personal Loan | Credit Report Correction (CIBIL)
@@ -608,7 +608,7 @@ export function generateAmortizationSchedule(
 // src/lib/seo/metadata.ts
 import type { Metadata } from "next";
 
-const SITE_URL = "https://opencredit.money";
+const SITE_URL = "https://opencredit.in";
 const DEFAULT_OG = `${SITE_URL}/og-image.png`;
 
 export function generatePageMetadata({
@@ -665,7 +665,7 @@ export const localBusinessSchema = {
   name: "OpenCredit.Money",
   description:
     "Personal loans and credit report correction services in Bangalore",
-  url: "https://opencredit.money",
+  url: "https://opencredit.in",
   telephone: "+91-XXXXXXXXXX",
   address: {
     "@type": "PostalAddress",
@@ -867,4 +867,4 @@ const { data: weeklyApps } = await supabase
 
 ---
 
-_End of CLAUDE.md — opencredit.money_
+_End of CLAUDE.md — opencredit.in_

@@ -46,7 +46,7 @@ const businessLoanSchema = {
   provider: {
     "@type": "FinancialService",
     name: "OpenCredit.Money",
-    "@id": "https://opencredit.money/#organization",
+    "@id": "https://opencredit.in/#organization",
   },
 };
 
@@ -126,8 +126,8 @@ export default function BusinessLoanPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema([
-          { name: "Home", url: "https://opencredit.money" },
-          { name: "Business Loan", url: "https://opencredit.money/business-loan" },
+          { name: "Home", url: "https://opencredit.in" },
+          { name: "Business Loan", url: "https://opencredit.in/business-loan" },
         ])) }}
       />
 

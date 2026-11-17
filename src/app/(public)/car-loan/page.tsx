@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Car Loan — Coming Soon | OpenCredit.Money",
   description:
     "Car loans with the best rates from 60+ lenders coming soon to OpenCredit.Money. Get notified when we launch.",
-  alternates: { canonical: "https://opencredit.money/car-loan" },
+  alternates: { canonical: "https://opencredit.in/car-loan" },
   robots: { index: false, follow: false },
 };
 

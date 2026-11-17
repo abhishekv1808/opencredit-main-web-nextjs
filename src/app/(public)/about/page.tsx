@@ -45,8 +45,8 @@ export default function AboutPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema([
-          { name: "Home", url: "https://opencredit.money" },
-          { name: "About Us", url: "https://opencredit.money/about" },
+          { name: "Home", url: "https://opencredit.in" },
+          { name: "About Us", url: "https://opencredit.in/about" },
         ])) }}
       />
       {/* Hero — Light */}

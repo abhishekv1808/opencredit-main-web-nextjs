@@ -284,10 +284,10 @@ export default function Footer() {
                     />
                   </div>
                   <a
-                    href="tel:+919900077949"
+                    href="tel:+919535111137"
                     className="text-white/35 hover:text-white text-[13px] transition-colors"
                   >
-                    +91 99000 77949
+                    +91 9535111137
                   </a>
                 </div>
 
@@ -300,10 +300,10 @@ export default function Footer() {
                     />
                   </div>
                   <a
-                    href="mailto:contact@opencredit.money"
+                    href="mailto:contact@opencredit.in"
                     className="text-white/35 hover:text-white text-[13px] transition-colors"
                   >
-                    contact@opencredit.money
+                    contact@opencredit.in
                   </a>
                 </div>
 

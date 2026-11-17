@@ -191,14 +191,14 @@ export default function PersonalLoanFAQ() {
                   <ArrowRight size={14} style={{ color: "rgba(255,255,255,0.3)" }} />
                 </Link>
 
-                <a href="tel:+919900077949" className="flex items-center gap-3 rounded-xl px-4 py-3 transition-all hover:translate-x-1"
+                <a href="tel:+919535111137" className="flex items-center gap-3 rounded-xl px-4 py-3 transition-all hover:translate-x-1"
                   style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)" }}>
                   <div className="w-8 h-8 rounded-lg flex items-center justify-center"
                     style={{ background: "rgba(22,163,74,0.15)" }}>
                     <Phone size={14} style={{ color: "#4ade80" }} />
                   </div>
                   <div className="flex-1">
-                    <p className="text-xs font-semibold text-white">+91 99000 77949</p>
+                    <p className="text-xs font-semibold text-white">+91 9535111137</p>
                     <p className="text-[10px]" style={{ color: "rgba(255,255,255,0.35)" }}>Call our advisor</p>
                   </div>
                   <ArrowRight size={14} style={{ color: "rgba(255,255,255,0.3)" }} />

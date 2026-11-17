@@ -262,7 +262,7 @@ export default async function ApplicationDetailPage({
         {app.product_type === "home_loan"
           ? "Home loan rates 8.40%–9.50% p.a. · Subject to credit approval & property valuation"
           : "Rates 10.25%–36% p.a. · Subject to credit approval"}{" "}
-        · Questions? Contact hello@opencredit.money
+        · Questions? Contact hello@opencredit.in
       </p>
     </div>
   );

@@ -10,16 +10,16 @@ const contactInfo = [
   {
     icon: Phone,
     label: "Call Us",
-    value: "+91 99000 77949",
+    value: "+91 9535111137",
     sub: "Mon–Sat, 9 AM – 6 PM",
-    href: "tel:+919900077949",
+    href: "tel:+919535111137",
   },
   {
     icon: Mail,
     label: "Email",
-    value: "contact@opencredit.money",
+    value: "contact@opencredit.in",
     sub: "Reply within 24 hours",
-    href: "mailto:contact@opencredit.money",
+    href: "mailto:contact@opencredit.in",
   },
   {
     icon: MapPin,
@@ -68,7 +68,7 @@ export default function ContactPage() {
       if (!res.ok) throw new Error("Failed to submit");
       setSubmitted(true);
     } catch {
-      setFormError("Something went wrong. Please call us directly at +91 99000 77949.");
+      setFormError("Something went wrong. Please call us directly at +91 9535111137.");
     } finally {
       setSubmitting(false);
     }
@@ -114,7 +114,7 @@ export default function ContactPage() {
               {/* Quick-action buttons */}
               <div className="flex flex-wrap gap-3">
                 <a
-                  href="tel:+919900077949"
+                  href="tel:+919535111137"
                   className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold text-white transition-all hover:scale-[1.03] active:scale-[0.98]"
                   style={{ background: "linear-gradient(135deg,#5BC83F,#3DA52A)", boxShadow: "0 4px 16px rgba(91,200,63,0.3)" }}
                 >
@@ -122,7 +122,7 @@ export default function ContactPage() {
                   Call Now
                 </a>
                 <a
-                  href="https://wa.me/919900077949?text=Hi%2C%20I%20need%20help%20with%20a%20loan"
+                  href="https://wa.me/919535111137?text=Hi%2C%20I%20need%20help%20with%20a%20loan"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold transition-all hover:scale-[1.03] active:scale-[0.98]"
@@ -177,7 +177,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <p className="text-xs font-bold" style={{ color: "#1a1a1a" }}>Call Us</p>
-                  <p className="text-[11px]" style={{ color: "#9ca3af" }}>+91 99000 77949</p>
+                  <p className="text-[11px]" style={{ color: "#9ca3af" }}>+91 9535111137</p>
                 </div>
               </div>
 
@@ -325,7 +325,7 @@ export default function ContactPage() {
                     Get a response within <span className="font-semibold text-white">30 minutes</span> during business hours.
                   </p>
                   <a
-                    href="https://wa.me/919900077949?text=Hi%2C%20I%20need%20help%20with%20a%20personal%20loan"
+                    href="https://wa.me/919535111137?text=Hi%2C%20I%20need%20help%20with%20a%20personal%20loan"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold text-white transition-all hover:scale-[1.03] active:scale-[0.98]"

@@ -128,8 +128,8 @@ export default function DisclaimerPage() {
           <div className="mt-10 bg-gray-50 rounded-2xl p-6 text-xs text-gray-400 leading-relaxed border border-gray-100">
             <p>
               For any queries regarding this disclaimer, please contact us at{" "}
-              <a href="mailto:contact@opencredit.money" className="text-brand-green underline">
-                contact@opencredit.money
+              <a href="mailto:contact@opencredit.in" className="text-brand-green underline">
+                contact@opencredit.in
               </a>
               . This disclaimer is subject to change without notice. The most current version is always available on this page.
             </p>

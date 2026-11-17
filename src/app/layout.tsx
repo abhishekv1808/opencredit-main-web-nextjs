@@ -30,21 +30,21 @@ const siteSchema = {
   "@graph": [
     {
       "@type": "WebSite",
-      "@id": "https://opencredit.money/#website",
+      "@id": "https://opencredit.in/#website",
       name: "OpenCredit.Money",
-      url: "https://opencredit.money",
+      url: "https://opencredit.in",
       description: "Bangalore's loan marketplace — personal loans and CIBIL correction services",
-      publisher: { "@id": "https://opencredit.money/#organization" },
+      publisher: { "@id": "https://opencredit.in/#organization" },
       inLanguage: "en-IN",
     },
     {
       "@type": ["Organization", "FinancialService"],
-      "@id": "https://opencredit.money/#organization",
+      "@id": "https://opencredit.in/#organization",
       name: "OpenCredit.Money",
-      url: "https://opencredit.money",
+      url: "https://opencredit.in",
       logo: {
         "@type": "ImageObject",
-        url: "https://opencredit.money/images/OpenCredit-logo.png",
+        url: "https://opencredit.in/images/OpenCredit-logo.png",
       },
       foundingDate: "2020",
       areaServed: [
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
   title: "OpenCredit.Money — Personal Loans & CIBIL Correction | Bangalore",
   description:
     "Get instant personal loans from ₹50,000 to ₹40,00,000 in Bangalore. Expert CIBIL credit score correction. RBI compliant loan marketplace with 25+ partner banks.",
-  metadataBase: new URL("https://opencredit.money"),
+  metadataBase: new URL("https://opencredit.in"),
   openGraph: {
     siteName: "OpenCredit.Money",
     locale: "en_IN",

@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 import { LOCATIONS } from "@/lib/data/locations";
 
-const BASE_URL = "https://opencredit.money";
+const BASE_URL = "https://opencredit.in";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const coreDate = new Date("2026-04-25");

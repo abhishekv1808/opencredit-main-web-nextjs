@@ -17,7 +17,7 @@ export async function generateMetadata({
   const loc = getLocation(location);
   if (!loc) return {};
 
-  const url = `https://opencredit.money/personal-loan/${loc.slug}`;
+  const url = `https://opencredit.in/personal-loan/${loc.slug}`;
 
   return {
     title: loc.seoTitle,
@@ -56,7 +56,7 @@ export default async function LocationPage({
   const loc = getLocation(location);
   if (!loc) notFound();
 
-  const pageUrl = `https://opencredit.money/personal-loan/${loc.slug}`;
+  const pageUrl = `https://opencredit.in/personal-loan/${loc.slug}`;
 
   return (
     <>
@@ -87,9 +87,9 @@ export default async function LocationPage({
             },
             provider: {
               "@type": "FinancialService",
-              "@id": "https://opencredit.money/#organization",
+              "@id": "https://opencredit.in/#organization",
               name: "OpenCredit.Money",
-              url: "https://opencredit.money",
+              url: "https://opencredit.in",
             },
           }),
         }}
@@ -99,8 +99,8 @@ export default async function LocationPage({
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             breadcrumbSchema([
-              { name: "Home", url: "https://opencredit.money" },
-              { name: "Personal Loan", url: "https://opencredit.money/personal-loan" },
+              { name: "Home", url: "https://opencredit.in" },
+              { name: "Personal Loan", url: "https://opencredit.in/personal-loan" },
               { name: `Personal Loan in ${loc.name}`, url: pageUrl },
             ])
           ),

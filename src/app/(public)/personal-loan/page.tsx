@@ -143,10 +143,10 @@ export default function PersonalLoanPage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             breadcrumbSchema([
-              { name: "Home", url: "https://opencredit.money" },
+              { name: "Home", url: "https://opencredit.in" },
               {
                 name: "Personal Loan",
-                url: "https://opencredit.money/personal-loan",
+                url: "https://opencredit.in/personal-loan",
               },
             ]),
           ),

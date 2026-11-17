@@ -4,8 +4,8 @@ export const localBusinessSchema = {
   name: "OpenCredit.Money",
   description:
     "Personal loans and credit report correction services in Bangalore",
-  url: "https://opencredit.money",
-  telephone: "+91-9900077949",
+  url: "https://opencredit.in",
+  telephone: "+91-9535111137",
   address: {
     "@type": "PostalAddress",
     streetAddress: "Metro Pillar 471, Narasappa Road, T. Dasarahalli",

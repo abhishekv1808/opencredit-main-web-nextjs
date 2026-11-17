@@ -95,8 +95,8 @@ export default function CreditReportCorrectionPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(breadcrumbSchema([
-            { name: "Home", url: "https://opencredit.money" },
-            { name: "CIBIL Score Correction", url: "https://opencredit.money/credit-report-correction" },
+            { name: "Home", url: "https://opencredit.in" },
+            { name: "CIBIL Score Correction", url: "https://opencredit.in/credit-report-correction" },
           ])),
         }}
       />

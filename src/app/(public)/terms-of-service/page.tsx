@@ -110,7 +110,7 @@ export default function TermsPage() {
               {
                 title: "9. Contact",
                 content: `For terms-related queries:
-legal@opencredit.money | +91 98765 43210
+legal@opencredit.in | +91 9535111137
 OpenCredit.Money, 123, MG Road, Bangalore, Karnataka — 560001`,
               },
             ].map((section) => (

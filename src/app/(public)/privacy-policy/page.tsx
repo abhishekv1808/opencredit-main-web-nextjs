@@ -92,7 +92,7 @@ We do NOT sell your personal data to any third party for marketing purposes.`,
 • Lead/inquiry data: 12 months
 • Account data: Until account deletion request + 30 days for backup
 
-You may request data deletion by emailing privacy@opencredit.money, subject to regulatory retention requirements.`,
+You may request data deletion by emailing privacy@opencredit.in, subject to regulatory retention requirements.`,
               },
               {
                 title: "6. Your Rights (DPDP Act 2023)",
@@ -104,7 +104,7 @@ You may request data deletion by emailing privacy@opencredit.money, subject to r
 • Grievance Redressal: Contact our Data Protection Officer
 • Nomination: Nominate a person to exercise your data rights
 
-To exercise your rights, email: privacy@opencredit.money`,
+To exercise your rights, email: privacy@opencredit.in`,
               },
               {
                 title: "7. Cookies",
@@ -122,8 +122,8 @@ You can manage cookie preferences through the cookie banner on our website.`,
 
 Data Protection Officer
 OpenCredit.Money
-Email: privacy@opencredit.money
-Phone: +91 98765 43210
+Email: privacy@opencredit.in
+Phone: +91 9535111137
 Address: 123, MG Road, Bangalore, Karnataka — 560001
 
 We will respond to all requests within 30 days.`,

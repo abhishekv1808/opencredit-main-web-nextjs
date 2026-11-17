@@ -19,6 +19,6 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: "anthropic-ai", disallow: "/" },
       { userAgent: "cohere-ai", disallow: "/" },
     ],
-    sitemap: "https://opencredit.money/sitemap.xml",
+    sitemap: "https://opencredit.in/sitemap.xml",
   };
 }

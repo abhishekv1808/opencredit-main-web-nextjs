@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Credit Cards — Coming Soon | OpenCredit.Money",
   description:
     "Compare and apply for the best credit cards in India coming soon to OpenCredit.Money. Rewards, cashback, travel benefits. Get notified when we launch.",
-  alternates: { canonical: "https://opencredit.money/credit-cards" },
+  alternates: { canonical: "https://opencredit.in/credit-cards" },
   robots: { index: false, follow: false },
 };
 

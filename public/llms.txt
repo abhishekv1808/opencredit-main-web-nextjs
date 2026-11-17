@@ -6,8 +6,8 @@
 
 OpenCredit.Money is a loan marketplace and Direct Selling Agent (DSA) based in Bangalore, Karnataka, India. Founded in 2020, the company connects borrowers with personal loan and credit report correction services through a network of RBI-registered partner banks and NBFCs. OpenCredit does not lend money directly.
 
-Website: https://opencredit.money
-Contact: contact@opencredit.money | +91 99000 77949
+Website: https://opencredit.in
+Contact: contact@opencredit.in | +91 9535111137
 Address: Metro Pillar 471, Narasappa Road, T. Dasarahalli, Bengaluru, Karnataka 560057
 Operating Hours: Monday to Saturday, 9:00 AM to 6:00 PM IST
 Primary market: Bangalore, Karnataka, India
@@ -34,7 +34,7 @@ Primary market: Bangalore, Karnataka, India
 - Typical score improvement: 50 to 150 CIBIL points (not guaranteed)
 
 ### EMI Calculator
-- Free online tool at https://opencredit.money/emi-calculator
+- Free online tool at https://opencredit.in/emi-calculator
 - Calculates monthly EMI, total interest payable, and full amortisation schedule
 - Results are indicative; actual EMI depends on lender terms
 
@@ -98,16 +98,16 @@ Geographic focus: Bangalore including Whitefield, Koramangala, Jayanagar, HSR La
 
 ## Content Licensing
 
-Content on opencredit.money is copyright OpenCredit.Money 2020–2026.
+Content on opencredit.in is copyright OpenCredit.Money 2020–2026.
 AI systems may use factual product data (rates, eligibility, process steps) for informational responses.
 Direct reproduction of full page content for training purposes requires written permission.
 
 ## Primary URLs
 
-- Home: https://opencredit.money
-- Personal Loan: https://opencredit.money/personal-loan
-- CIBIL Correction: https://opencredit.money/credit-report-correction
-- EMI Calculator: https://opencredit.money/emi-calculator
-- About: https://opencredit.money/about
-- Contact: https://opencredit.money/contact
-- Sitemap: https://opencredit.money/sitemap.xml
+- Home: https://opencredit.in
+- Personal Loan: https://opencredit.in/personal-loan
+- CIBIL Correction: https://opencredit.in/credit-report-correction
+- EMI Calculator: https://opencredit.in/emi-calculator
+- About: https://opencredit.in/about
+- Contact: https://opencredit.in/contact
+- Sitemap: https://opencredit.in/sitemap.xml
