@@ -377,11 +377,24 @@ export default function Footer() {
 
           {/* ── Bottom Bar ── */}
           <div className="border-t border-white/[0.04] py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-[11.5px] text-white/20 flex items-center gap-1.5">
-              © {new Date().getFullYear()} OpenCredit. Made with
-              <Heart size={10} className="text-red-400/50 fill-red-400/50" />
-              in Bangalore.
-            </p>
+            <div className="flex flex-col items-center sm:items-start gap-1.5">
+              <p className="text-[11.5px] text-white/20 flex items-center gap-1.5">
+                © {new Date().getFullYear()} OpenCredit. Made with
+                <Heart size={10} className="text-red-400/50 fill-red-400/50" />
+                in Bangalore.
+              </p>
+              <p className="text-[11.5px] text-white/20">
+                Designed &amp; Developed by{" "}
+                <a
+                  href="https://itbizone.com"
+                  target="_blank"
+                  rel="noopener"
+                  className="text-white/40 hover:text-white/70 underline-offset-2 hover:underline transition-colors"
+                >
+                  ITbizone Technologies
+                </a>
+              </p>
+            </div>
             <div className="flex items-center gap-5">
               <Link
                 href="/privacy-policy"
